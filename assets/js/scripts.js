@@ -32,8 +32,9 @@
             
             // Hero Section
             'hero-title': 'Smart Tools for Smart Business',
-            'hero-subtitle': 'We build intelligent digital systems that automate work, accelerate growth, and deliver real results.<br>Transform your business with cutting-edge technology and innovation.',
-            'hero-cta': 'Get Started Today',
+            'hero-subtitle': 'We build intelligent digital systems that automate work, accelerate growth, and deliver real results. Turn your processes into smart workflows with MHM IT.',
+            'hero-cta-primary': 'Get Started Today',
+            'hero-cta-secondary': 'Explore Free Tools',
             
             // Value Proposition
             'value-title': 'Why Businesses Choose Us',
@@ -156,8 +157,9 @@
             
             // Hero Section
             'hero-title': 'Slimme Tools voor Slim Zakendoen',
-            'hero-subtitle': 'Wij bouwen intelligente digitale systemen die werk automatiseren, groei versnellen en echte resultaten leveren.<br>Transformeer je bedrijf met geavanceerde technologie en innovatie.',
-            'hero-cta': 'Start Vandaag',
+            'hero-subtitle': 'Wij bouwen intelligente digitale systemen die werk automatiseren, groei versnellen en echte resultaten leveren. Verander je processen in slimme workflows met MHM IT.',
+            'hero-cta-primary': 'Start Vandaag',
+            'hero-cta-secondary': 'Ontdek Gratis Tools',
             
             // Value Proposition
             'value-title': 'Waarom Bedrijven Voor Ons Kiezen',
@@ -296,11 +298,13 @@
         // Update hero section
         const heroTitle = document.querySelector('.hero-title');
         const heroSubtitle = document.querySelector('.hero-subtitle');
-        const heroCta = document.querySelector('.hero-buttons .btn-primary');
+        const heroCtaPrimary = document.querySelector('.hero-buttons .btn-primary');
+        const heroCtaSecondary = document.querySelector('.hero-buttons .btn-secondary');
         
         if (heroTitle) heroTitle.textContent = translation['hero-title'];
-        if (heroSubtitle) heroSubtitle.innerHTML = translation['hero-subtitle'];
-        if (heroCta) heroCta.textContent = translation['hero-cta'];
+        if (heroSubtitle) heroSubtitle.textContent = translation['hero-subtitle'];
+        if (heroCtaPrimary) heroCtaPrimary.textContent = translation['hero-cta-primary'];
+        if (heroCtaSecondary) heroCtaSecondary.textContent = translation['hero-cta-secondary'];
         
         // Update value proposition section
         const valueTitle = document.querySelector('.value-proposition .section-title');
