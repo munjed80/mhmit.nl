@@ -65,6 +65,23 @@
             'cta-contact': 'Contact Us Now',
             'cta-email': 'Email Us',
             
+            // Gratis Tools Section
+            'free_tools_title': 'Free Tools',
+            'free_tools_subtitle': 'Handy free tools for freelancers and entrepreneurs.',
+            'free_tools_invoice_title': 'Create Invoice',
+            'free_tools_invoice_desc': 'This tool helps freelancers and small businesses quickly create professional invoices.',
+            'free_tools_btw_title': 'VAT Calculator',
+            'free_tools_btw_desc': 'This tool calculates 9% and 21% VAT for amounts including or excluding VAT.',
+            'free_tools_button': 'Open tool',
+            
+            // Factuur Page
+            'factuur_hero_title': 'Create Invoice',
+            'factuur_hero_subtitle': 'Create professional invoices quickly and easily for your clients.<br>Perfect for freelancers and small businesses.',
+            
+            // BTW Page
+            'btw_hero_title': 'VAT Calculator',
+            'btw_hero_subtitle': 'Calculate 9% and 21% VAT quickly and easily for your amounts.<br>Perfect for your administration and quotes.',
+            
             // Footer
             'footer-copyright': '© 2024 MHM IT. All rights reserved.',
             'footer-whatsapp': 'Chat on WhatsApp'
@@ -111,6 +128,23 @@
             'cta-subtitle': 'Laten we bespreken hoe onze slimme tools en oplossingen uw bedrijf kunnen helpen groeien.<br>Neem vandaag nog contact op voor een gratis consultatie.',
             'cta-contact': 'Neem Nu Contact Op',
             'cta-email': 'Mail Ons',
+            
+            // Gratis Tools Section
+            'free_tools_title': 'Gratis Tools',
+            'free_tools_subtitle': 'Handige, gratis tools voor ondernemers en ZZP\'ers',
+            'free_tools_invoice_title': 'Factuur maken',
+            'free_tools_invoice_desc': 'Deze tool helpt ZZP\'ers en kleine ondernemingen om snel professionele facturen te maken. Eenvoudig, overzichtelijk en altijd beschikbaar.',
+            'free_tools_btw_title': 'BTW Calculator',
+            'free_tools_btw_desc': 'Deze tool berekent BTW 9% en 21% voor bedragen inclusief of exclusief btw. Ideaal voor snelle berekeningen tijdens je administratie.',
+            'free_tools_button': 'Open tool',
+            
+            // Factuur Page
+            'factuur_hero_title': 'Factuur maken',
+            'factuur_hero_subtitle': 'Maak snel en eenvoudig professionele facturen voor je klanten.<br>Ideaal voor ZZP\'ers en kleine ondernemingen.',
+            
+            // BTW Page
+            'btw_hero_title': 'BTW Calculator',
+            'btw_hero_subtitle': 'Bereken snel en eenvoudig BTW 9% en 21% voor je bedragen.<br>Perfect voor je administratie en offertes.',
             
             // Footer
             'footer-copyright': '© 2024 MHM IT. Alle rechten voorbehouden.',
@@ -205,6 +239,20 @@
             ctaButtons[0].textContent = translation['cta-contact'];
             ctaButtons[1].textContent = translation['cta-email'];
         }
+        
+        // Update Gratis Tools section
+        const elements = document.querySelectorAll('[data-text]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-text');
+            if (translation[key]) {
+                // Use innerHTML for subtitle fields that may contain HTML
+                if (key.includes('subtitle')) {
+                    element.innerHTML = translation[key];
+                } else {
+                    element.textContent = translation[key];
+                }
+            }
+        });
         
         // Update footer
         const footerText = document.querySelector('.footer-text');
