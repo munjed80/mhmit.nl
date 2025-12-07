@@ -459,6 +459,8 @@ button {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--icon-glow-blue);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .benefit-title {
@@ -539,6 +541,8 @@ button {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--icon-glow-purple);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .service-title {
@@ -693,6 +697,8 @@ button {
     justify-content: center;
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-lg);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .feature-title {
@@ -754,6 +760,8 @@ button {
     align-items: center;
     justify-content: center;
     font-size: var(--font-size-xl);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .product-title {
