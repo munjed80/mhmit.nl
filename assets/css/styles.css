@@ -193,11 +193,37 @@ button {
 
 /* Language Switcher */
 .language-switcher {
-    display: none; /* Hidden for this version */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-lg);
 }
 
 .lang-btn {
-    display: none; /* Hidden for this version */
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.lang-btn:hover {
+    color: var(--text);
+    transform: scale(1.05);
+}
+
+.lang-btn.active {
+    color: #22d3ee;
+    font-weight: 700;
+}
+
+.lang-separator {
+    color: var(--muted);
+    font-size: var(--font-size-base);
+    user-select: none;
 }
 
 /* Mobile Menu Toggle */
