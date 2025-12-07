@@ -273,7 +273,8 @@
         
         // Wait for content to render, then convert to PDF
         setTimeout(function() {
-            const invoiceElement = tempContainer.querySelector('body');
+            // The tempContainer has the full HTML, we need to find the body element inside it
+            const invoiceElement = tempContainer.firstElementChild || tempContainer;
             
             html2canvas(invoiceElement, {
                 scale: 2,
