@@ -1235,6 +1235,16 @@ button {
         margin-top: var(--spacing-md);
     }
     
+    .gratis-tools-nav {
+        margin-left: 0;
+        margin-top: var(--spacing-md);
+    }
+    
+    .gratis-tools-link {
+        width: 100%;
+        text-align: center;
+    }
+    
     .hero-title {
         font-size: var(--font-size-3xl);
     }
