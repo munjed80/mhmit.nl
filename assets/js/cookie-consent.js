@@ -54,7 +54,12 @@
     function hasConsent() {
         // Check both cookie and localStorage for consent
         const cookieConsent = getCookie(COOKIE_NAME) === 'accepted';
-        const localStorageConsent = localStorage.getItem(LOCALSTORAGE_KEY) === 'accepted';
+        let localStorageConsent = false;
+        try {
+            localStorageConsent = localStorage.getItem(LOCALSTORAGE_KEY) === 'accepted';
+        } catch (e) {
+            // localStorage might be disabled or unavailable in private browsing
+        }
         return cookieConsent || localStorageConsent;
     }
     
@@ -102,7 +107,12 @@
     function acceptCookies() {
         // Store consent in both cookie and localStorage
         setCookie(COOKIE_NAME, 'accepted', COOKIE_EXPIRY_DAYS);
-        localStorage.setItem(LOCALSTORAGE_KEY, 'accepted');
+        try {
+            localStorage.setItem(LOCALSTORAGE_KEY, 'accepted');
+        } catch (e) {
+            // localStorage might be disabled, quota exceeded, or unavailable
+            console.warn('Could not store consent in localStorage:', e);
+        }
         
         // Hide banner with smooth animation
         const banner = document.getElementById('cookie-consent-banner');
