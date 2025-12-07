@@ -371,6 +371,9 @@ button {
     transition: all var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .benefit-card::before {
@@ -396,15 +399,16 @@ button {
 }
 
 .benefit-icon {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     background: var(--color-gradient);
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(109, 40, 217, 0.2);
 }
 
 .benefit-title {
@@ -412,12 +416,16 @@ button {
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text);
+    text-align: left;
+    width: 100%;
 }
 
 .benefit-description {
     font-size: var(--font-size-base);
     color: var(--muted);
     line-height: 1.6;
+    text-align: left;
+    width: 100%;
 }
 
 /* ===============================================
@@ -443,6 +451,9 @@ button {
     transition: all var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .service-card::before {
@@ -468,15 +479,16 @@ button {
 }
 
 .service-icon {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
+    box-shadow: 0 0 20px rgba(109, 40, 217, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
 }
 
 .service-title {
@@ -484,12 +496,16 @@ button {
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text);
+    text-align: left;
+    width: 100%;
 }
 
 .service-description {
     font-size: var(--font-size-base);
     color: var(--muted);
     line-height: 1.6;
+    text-align: left;
+    width: 100%;
 }
 
 /* ===============================================
