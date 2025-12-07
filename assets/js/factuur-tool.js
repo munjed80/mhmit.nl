@@ -37,7 +37,6 @@
             
             // Totals
             subtotal: 'Subtotaal (excl. BTW)',
-            vat9: 'BTW 9%',
             vat21: 'BTW 21%',
             grandTotal: 'Totaalbedrag (incl. BTW)',
             
