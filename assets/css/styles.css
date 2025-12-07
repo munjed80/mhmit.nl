@@ -55,10 +55,10 @@
     
     /* Effects */
     --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
-    --icon-glow-blue: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(109, 40, 217, 0.2);
-    --icon-glow-purple: 0 0 20px rgba(109, 40, 217, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --box-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.3);
+    --icon-glow-blue: 0 0 15px rgba(59, 130, 246, 0.2), 0 0 25px rgba(109, 40, 217, 0.1);
+    --icon-glow-purple: 0 0 15px rgba(109, 40, 217, 0.2), 0 0 25px rgba(59, 130, 246, 0.1);
     --transition-speed: 0.3s;
 }
 
@@ -235,19 +235,40 @@ button {
 }
 
 .gratis-tools-link {
-    font-size: var(--font-size-base);
+    font-size: 0.9rem;
     font-weight: 600;
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0.5rem 1.25rem;
     background: var(--color-gradient);
     color: #ffffff;
-    border-radius: var(--border-radius);
+    border-radius: 6px;
     transition: all var(--transition-speed) ease;
     display: inline-block;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.gratis-tools-link::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(109, 40, 217, 0.4) 100%);
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    z-index: -1;
+    filter: blur(8px);
 }
 
 .gratis-tools-link:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--box-shadow-lg);
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.25), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.gratis-tools-link:hover::before {
+    opacity: 1;
 }
 
 /* Mobile Menu Toggle */
@@ -324,7 +345,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -419,8 +440,8 @@ button {
     border-radius: 16px;
     border: 1px solid rgba(59, 130, 246, 0.3);
     padding: 24px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 
-                0 0 40px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 
+                0 0 20px rgba(59, 130, 246, 0.1);
     backdrop-filter: blur(10px);
 }
 
@@ -492,8 +513,8 @@ button {
     gap: 8px;
     font-size: 14px;
     color: #ffffff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
-                0 0 20px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3),
+                0 0 12px rgba(59, 130, 246, 0.15);
     backdrop-filter: blur(8px);
     animation: float 3s ease-in-out infinite;
     white-space: nowrap;
@@ -546,7 +567,7 @@ button {
    Value Proposition Section
    =============================================== */
 .value-proposition {
-    padding: var(--spacing-4xl) 0;
+    padding: 5rem 0;
     background: var(--bg);
 }
 
@@ -587,9 +608,9 @@ button {
 }
 
 .benefit-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-color: var(--accent-blue);
-    box-shadow: var(--box-shadow-lg);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
 }
 
 .benefit-icon {
@@ -628,7 +649,7 @@ button {
    What We Do Section (Services)
    =============================================== */
 .what-we-do {
-    padding: var(--spacing-4xl) 0;
+    padding: 5rem 0;
     background: var(--bg-soft);
 }
 
@@ -669,9 +690,9 @@ button {
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-color: var(--accent-purple);
-    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.3);
+    box-shadow: 0 8px 20px rgba(109, 40, 217, 0.15);
 }
 
 .service-icon {
@@ -709,16 +730,13 @@ button {
 /* ===============================================
    Why Choose MHM IT Section
    =============================================== */
-.why-choose {
-    padding: var(--spacing-4xl) 0;
-    background: var(--bg);
-}
+/* REMOVED - Merged with Value Proposition */
 
 /* ===============================================
-   CTA Section #2
+   CTA Section
    =============================================== */
 .cta-section {
-    padding: var(--spacing-4xl) 0;
+    padding: 5rem 0;
     background: linear-gradient(135deg, #1f2937 0%, #0d1117 100%);
     position: relative;
     overflow: hidden;
@@ -731,7 +749,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(109, 40, 217, 0.15) 0%, transparent 50%);
+    background: radial-gradient(circle at 50% 50%, rgba(109, 40, 217, 0.08) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -826,9 +844,9 @@ button {
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-color: var(--accent-blue);
-    box-shadow: var(--box-shadow-lg);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
 }
 
 .feature-icon {
@@ -862,7 +880,7 @@ button {
    Products Section
    =============================================== */
 .products-section {
-    padding: var(--spacing-4xl) 0;
+    padding: 5rem 0;
     background: var(--bg);
 }
 
@@ -883,9 +901,9 @@ button {
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-color: var(--accent-purple);
-    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.3);
+    box-shadow: 0 8px 20px rgba(109, 40, 217, 0.15);
 }
 
 .product-header {
@@ -953,7 +971,7 @@ button {
    Gratis Tools Section
    =============================================== */
 .free-tools {
-    padding: var(--spacing-4xl) 0;
+    padding: 5rem 0;
     background: var(--bg-soft);
 }
 
@@ -996,8 +1014,8 @@ button {
 }
 
 .tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(34, 211, 238, 0.2);
 }
 
 .tool-title {
@@ -1611,6 +1629,8 @@ button {
     .gratis-tools-link {
         width: 100%;
         text-align: center;
+        padding: 0.6rem 1.25rem;
+        font-size: 0.9rem;
     }
     
     .hero-grid {
@@ -1692,17 +1712,6 @@ button {
     
     .free-tools-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .analytics-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
-    }
-    
-    .analytics-overlay {
-        flex-direction: column;
-        gap: var(--spacing-md);
-        padding: var(--spacing-lg);
     }
 }
 
