@@ -533,8 +533,8 @@
         });
     }, observerOptions);
     
-    // Observe feature, product, benefit, and service cards
-    document.querySelectorAll('.feature-card, .product-card, .benefit-card, .service-card').forEach(function(card) {
+    // Observe feature, product, benefit, service, and solution cards
+    document.querySelectorAll('.feature-card, .product-card, .benefit-card, .service-card, .solution-card').forEach(function(card) {
         observer.observe(card);
     });
     

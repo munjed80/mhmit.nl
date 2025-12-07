@@ -567,7 +567,7 @@ button {
    Value Proposition Section
    =============================================== */
 .value-proposition {
-    padding: 5rem 0;
+    padding: 3.5rem 0;
     background: var(--bg);
 }
 
@@ -646,10 +646,130 @@ button {
 }
 
 /* ===============================================
+   Our Solutions Section
+   =============================================== */
+.solutions-section {
+    padding: 3.5rem 0;
+    background: var(--bg-soft);
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.solution-card {
+    background: var(--bg);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(109, 40, 217, 0.2);
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed) ease;
+}
+
+.solution-card:hover::before {
+    transform: scaleX(1);
+}
+
+.solution-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 8px 20px rgba(109, 40, 217, 0.15);
+}
+
+.solution-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--icon-glow-purple);
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.solution-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--text);
+}
+
+.solution-description {
+    font-size: var(--font-size-base);
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.solution-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(109, 40, 217, 0.15);
+    color: var(--accent-purple);
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    margin-top: auto;
+}
+
+/* Add animation for solution cards */
+.solution-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.solution-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile variations for solutions grid */
+@media (max-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    /* Alternate card styling for mobile to create visual variety */
+    .solution-card:nth-child(even) {
+        background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%);
+    }
+    
+    .solution-card:nth-child(odd) .solution-icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ===============================================
    What We Do Section (Services)
    =============================================== */
 .what-we-do {
-    padding: 5rem 0;
+    padding: 3.5rem 0;
     background: var(--bg-soft);
 }
 
@@ -736,7 +856,7 @@ button {
    CTA Section
    =============================================== */
 .cta-section {
-    padding: 5rem 0;
+    padding: 3.5rem 0;
     background: linear-gradient(135deg, #1f2937 0%, #0d1117 100%);
     position: relative;
     overflow: hidden;
@@ -804,7 +924,7 @@ button {
     text-align: center;
     font-size: var(--font-size-lg);
     color: var(--muted);
-    margin-bottom: var(--spacing-3xl);
+    margin-bottom: var(--spacing-2xl);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -880,7 +1000,7 @@ button {
    Products Section
    =============================================== */
 .products-section {
-    padding: 5rem 0;
+    padding: 3.5rem 0;
     background: var(--bg);
 }
 
@@ -968,8 +1088,68 @@ button {
 }
 
 /* ===============================================
-   Gratis Tools Section
+   Gratis Tools Teaser Section
    =============================================== */
+.free-tools-teaser {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+    border-top: 1px solid rgba(109, 40, 217, 0.1);
+    border-bottom: 1px solid rgba(109, 40, 217, 0.1);
+}
+
+.free-tools-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-2xl);
+    flex-wrap: wrap;
+}
+
+.free-tools-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.free-tools-text .section-title {
+    text-align: left;
+    margin-bottom: var(--spacing-sm);
+}
+
+.free-tools-text .section-subtitle {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.free-tools-cta {
+    flex-shrink: 0;
+}
+
+.btn-lg {
+    padding: var(--spacing-lg) var(--spacing-3xl);
+    font-size: var(--font-size-lg);
+}
+
+@media (max-width: 768px) {
+    .free-tools-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .free-tools-text .section-title,
+    .free-tools-text .section-subtitle {
+        text-align: center;
+    }
+    
+    .free-tools-cta {
+        width: 100%;
+    }
+    
+    .btn-lg {
+        width: 100%;
+    }
+}
+
+/* Old free tools styles - keep for other pages */
 .free-tools {
     padding: 5rem 0;
     background: var(--bg-soft);
