@@ -229,6 +229,27 @@ button {
     user-select: none;
 }
 
+/* Gratis Tools Nav Link */
+.gratis-tools-nav {
+    margin-left: var(--spacing-lg);
+}
+
+.gratis-tools-link {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-gradient);
+    color: #ffffff;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+    display: inline-block;
+}
+
+.gratis-tools-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-lg);
+}
+
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
