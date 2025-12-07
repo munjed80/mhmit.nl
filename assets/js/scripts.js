@@ -65,6 +65,15 @@
             'cta-contact': 'Contact Us Now',
             'cta-email': 'Email Us',
             
+            // Gratis Tools Section
+            'free_tools_title': 'Free Tools',
+            'free_tools_subtitle': 'Handy free tools for freelancers and entrepreneurs.',
+            'free_tools_invoice_title': 'Create Invoice',
+            'free_tools_invoice_desc': 'This tool helps freelancers and small businesses quickly create professional invoices.',
+            'free_tools_btw_title': 'VAT Calculator',
+            'free_tools_btw_desc': 'This tool calculates 9% and 21% VAT for amounts including or excluding VAT.',
+            'free_tools_button': 'Open tool',
+            
             // Footer
             'footer-copyright': '© 2024 MHM IT. All rights reserved.',
             'footer-whatsapp': 'Chat on WhatsApp'
@@ -111,6 +120,15 @@
             'cta-subtitle': 'Laten we bespreken hoe onze slimme tools en oplossingen uw bedrijf kunnen helpen groeien.<br>Neem vandaag nog contact op voor een gratis consultatie.',
             'cta-contact': 'Neem Nu Contact Op',
             'cta-email': 'Mail Ons',
+            
+            // Gratis Tools Section
+            'free_tools_title': 'Gratis Tools',
+            'free_tools_subtitle': 'Handige, gratis tools voor ondernemers en ZZP\'ers',
+            'free_tools_invoice_title': 'Factuur maken',
+            'free_tools_invoice_desc': 'Deze tool helpt ZZP\'ers en kleine ondernemingen om snel professionele facturen te maken. Eenvoudig, overzichtelijk en altijd beschikbaar.',
+            'free_tools_btw_title': 'BTW Calculator',
+            'free_tools_btw_desc': 'Deze tool berekent BTW 9% en 21% voor bedragen inclusief of exclusief btw. Ideaal voor snelle berekeningen tijdens je administratie.',
+            'free_tools_button': 'Open tool',
             
             // Footer
             'footer-copyright': '© 2024 MHM IT. Alle rechten voorbehouden.',
@@ -205,6 +223,15 @@
             ctaButtons[0].textContent = translation['cta-contact'];
             ctaButtons[1].textContent = translation['cta-email'];
         }
+        
+        // Update Gratis Tools section
+        const elements = document.querySelectorAll('[data-text]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-text');
+            if (translation[key]) {
+                element.textContent = translation[key];
+            }
+        });
         
         // Update footer
         const footerText = document.querySelector('.footer-text');
