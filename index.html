@@ -32,19 +32,25 @@
                     <!-- Navigation Menu -->
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link active">Home</a>
+                            <a href="index.html" class="nav-link active" data-translate="nav_home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="services.html" class="nav-link">Services</a>
+                            <a href="services.html" class="nav-link" data-translate="nav_services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a href="products.html" class="nav-link">Products</a>
+                            <a href="products.html" class="nav-link" data-translate="nav_products">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a href="about.html" class="nav-link">About</a>
+                            <a href="about.html" class="nav-link" data-translate="nav_about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Contact</a>
+                            <a href="contact.html" class="nav-link" data-translate="nav_contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="language-switcher">
+                                <button class="lang-btn active" data-lang="en">EN</button>
+                                <button class="lang-btn" data-lang="nl">NL</button>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -58,11 +64,125 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Smart Tools for Smart Business</h1>
-                    <p class="hero-subtitle">
-                        Automation, dashboards & digital solutions that help companies grow.
+                    <h1 class="hero-title" data-translate="hero_title">Smart Tools for Smart Business</h1>
+                    <p class="hero-subtitle" data-translate="hero_subtitle">
+                        We build intelligent digital systems that automate work, accelerate growth, and deliver real results.
                     </p>
-                    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary" data-translate="hero_btn_primary">Get Started</a>
+                        <a href="services.html" class="btn btn-secondary" data-translate="hero_btn_secondary">Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Do Section -->
+        <section class="what-we-do">
+            <div class="container">
+                <h2 class="section-title" data-translate="what_we_do_title">What We Do</h2>
+                <p class="section-subtitle" data-translate="what_we_do_subtitle">
+                    We deliver cutting-edge digital solutions that transform the way businesses operate
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3 class="feature-title" data-translate="feature1_title">Web Automation & SaaS Systems</h3>
+                        <p class="feature-description" data-translate="feature1_desc">
+                            Build custom automation tools and SaaS platforms that streamline your business processes and boost productivity.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="feature-title" data-translate="feature2_title">Smart Dashboards & Business Insights</h3>
+                        <p class="feature-description" data-translate="feature2_desc">
+                            Create powerful analytics dashboards that provide real-time insights to make data-driven decisions.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3 class="feature-title" data-translate="feature3_title">AI-powered Productivity Tools</h3>
+                        <p class="feature-description" data-translate="feature3_desc">
+                            Leverage artificial intelligence to automate repetitive tasks and enhance team productivity.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title" data-translate="feature4_title">Secure & Fast Web Development</h3>
+                        <p class="feature-description" data-translate="feature4_desc">
+                            Develop secure, lightning-fast web applications with modern technologies and best practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Products Section -->
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title" data-translate="products_title">Our Products</h2>
+                <p class="section-subtitle" data-translate="products_subtitle">
+                    Explore our suite of innovative digital tools designed to accelerate business growth
+                </p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon">💼</div>
+                            <h3 class="product-title" data-translate="product1_title">Smart ZZP Hub</h3>
+                        </div>
+                        <p class="product-description" data-translate="product1_desc">
+                            All-in-one platform for freelancers to manage invoices, clients, and finances efficiently.
+                        </p>
+                        <span class="product-tag" data-translate="product_tag_saas">SaaS Platform</span>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon">👨‍🍳</div>
+                            <h3 class="product-title" data-translate="product2_title">ChefSense</h3>
+                        </div>
+                        <p class="product-description" data-translate="product2_desc">
+                            Smart kitchen management system for restaurants to optimize inventory and reduce waste.
+                        </p>
+                        <span class="product-tag" data-translate="product_tag_automation">Automation</span>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon">📱</div>
+                            <h3 class="product-title" data-translate="product3_title">Product Ad Generator</h3>
+                        </div>
+                        <p class="product-description" data-translate="product3_desc">
+                            AI-powered tool to create compelling product advertisements in seconds.
+                        </p>
+                        <span class="product-tag" data-translate="product_tag_ai">AI Tool</span>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon">🍽️</div>
+                            <h3 class="product-title" data-translate="product4_title">SmartOrderHub</h3>
+                        </div>
+                        <p class="product-description" data-translate="product4_desc">
+                            Streamlined ordering system for restaurants with real-time kitchen integration.
+                        </p>
+                        <span class="product-tag" data-translate="product_tag_saas">SaaS Platform</span>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon">⚙️</div>
+                            <h3 class="product-title" data-translate="product5_title">MHM UBA Automations</h3>
+                        </div>
+                        <p class="product-description" data-translate="product5_desc">
+                            Custom business automation solutions tailored to your specific workflow needs.
+                        </p>
+                        <span class="product-tag" data-translate="product_tag_automation">Automation</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -72,7 +192,14 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text">&copy; 2024 MHM IT. All rights reserved.</p>
+                <div class="footer-contact">
+                    <a href="mailto:info@mhmit.nl" class="footer-email">info@mhmit.nl</a>
+                    <a href="https://wa.me/31612345678" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                        <span>💬</span>
+                        <span data-translate="footer_whatsapp">Chat on WhatsApp</span>
+                    </a>
+                </div>
+                <p class="footer-text">&copy; 2024 MHM IT. <span data-translate="footer_rights">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
