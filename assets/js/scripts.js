@@ -127,14 +127,14 @@
     };
     
     // Current language (default: en)
-    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+    let currentLang = localStorage.getItem('mhmit-lang') || 'en';
     
     // =============================================
     // Language Switching Function
     // =============================================
     function switchLanguage(lang) {
         currentLang = lang;
-        localStorage.setItem('preferredLanguage', lang);
+        localStorage.setItem('mhmit-lang', lang);
         
         // Update all elements with data-translate attribute
         document.querySelectorAll('[data-translate]').forEach(function(element) {
