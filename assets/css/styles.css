@@ -459,6 +459,8 @@ button {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--icon-glow-blue);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .benefit-title {
@@ -539,6 +541,8 @@ button {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--icon-glow-purple);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .service-title {
@@ -693,6 +697,8 @@ button {
     justify-content: center;
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-lg);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .feature-title {
@@ -754,6 +760,8 @@ button {
     align-items: center;
     justify-content: center;
     font-size: var(--font-size-xl);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .product-title {
@@ -1016,6 +1024,16 @@ button {
     gap: var(--spacing-lg);
 }
 
+.footer-company {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-company p {
+    color: var(--text);
+    line-height: 1.6;
+}
+
 .footer-contact {
     display: flex;
     flex-direction: column;
@@ -1077,6 +1095,30 @@ button {
     color: var(--color-text-secondary);
     font-size: var(--font-size-sm);
     text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-link {
+    color: var(--muted);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: var(--accent-blue);
+}
+
+.footer-separator {
+    color: var(--muted);
+    font-size: var(--font-size-sm);
 }
 
 /* ===============================================
@@ -1306,5 +1348,118 @@ button {
     
     .btn {
         padding: var(--spacing-sm) var(--spacing-xl);
+    }
+}
+
+/* ===============================================
+   Cookie Consent Banner
+   =============================================== */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.98) 0%, rgba(13, 17, 23, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--accent-blue);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.cookie-consent-banner.show {
+    transform: translateY(0);
+}
+
+.cookie-consent-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.cookie-consent-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.cookie-consent-message {
+    color: var(--text);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    flex: 1;
+    min-width: 250px;
+    margin: 0;
+}
+
+.cookie-consent-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-shrink: 0;
+}
+
+.cookie-consent-btn {
+    padding: var(--spacing-md) var(--spacing-2xl);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    font-family: var(--font-family-base);
+}
+
+.cookie-accept {
+    background: var(--color-gradient);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.cookie-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.cookie-consent-link {
+    color: var(--accent-blue);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+    white-space: nowrap;
+}
+
+.cookie-consent-link:hover {
+    color: var(--accent-purple);
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness for cookie banner */
+@media (max-width: 768px) {
+    .cookie-consent-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cookie-consent-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .cookie-consent-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-consent-container {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .cookie-consent-message {
+        font-size: var(--font-size-sm);
     }
 }

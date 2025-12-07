@@ -71,7 +71,7 @@
             'free_tools_invoice_title': 'Create Invoice',
             'free_tools_invoice_desc': 'This tool helps freelancers and small businesses quickly create professional invoices.',
             'free_tools_btw_title': 'VAT Calculator',
-            'free_tools_btw_desc': 'This tool calculates 9% and 21% VAT for amounts including or excluding VAT.',
+            'free_tools_btw_desc': 'This tool calculates 21% VAT for amounts including or excluding VAT.',
             'free_tools_button': 'Open tool',
             
             // Factuur Page
@@ -80,11 +80,64 @@
             
             // BTW Page
             'btw_hero_title': 'VAT Calculator',
-            'btw_hero_subtitle': 'Calculate 9% and 21% VAT quickly and easily for your amounts.<br>Perfect for your administration and quotes.',
+            'btw_hero_subtitle': 'Calculate 21% VAT quickly and easily for your amounts.<br>Perfect for your administration and quotes.',
             
             // Footer
-            'footer-copyright': '© 2024 MHM IT. All rights reserved.',
-            'footer-whatsapp': 'Chat on WhatsApp'
+            'footer-copyright': '© 2025 MHM IT. All rights reserved.',
+            'footer-whatsapp': 'Chat on WhatsApp',
+            'footer_privacy': 'Privacy Policy',
+            'footer_cookies': 'Cookie Policy',
+            
+            // Gratis Tools Nav
+            'gratis-tools-nav': 'Free Tools',
+            
+            // Privacy Policy
+            'privacy_title': 'Privacy Policy',
+            'privacy_subtitle': 'Last updated: December 7, 2024',
+            'privacy_intro_title': 'Introduction',
+            'privacy_intro_text': 'MHM IT ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.',
+            'privacy_info_title': 'Information We Collect',
+            'privacy_info_text': 'We may collect information about you in a variety of ways. The information we may collect on the website includes:',
+            'privacy_info_1': 'Personal data such as your name, email address, and contact information when you voluntarily provide it to us',
+            'privacy_info_2': 'Usage data including your IP address, browser type, and browsing behavior on our website',
+            'privacy_info_3': 'Cookies and similar tracking technologies to enhance your experience',
+            'privacy_use_title': 'How We Use Your Information',
+            'privacy_use_text': 'We use the information we collect to:',
+            'privacy_use_1': 'Respond to your inquiries and provide customer support',
+            'privacy_use_2': 'Improve our website and services',
+            'privacy_use_3': 'Send you marketing communications (with your consent)',
+            'privacy_use_4': 'Analyze usage patterns and optimize user experience',
+            'privacy_security_title': 'Data Security',
+            'privacy_security_text': 'We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.',
+            'privacy_rights_title': 'Your Rights',
+            'privacy_rights_text': 'Under GDPR and other applicable privacy laws, you have the right to access, correct, delete, or restrict the use of your personal data. To exercise these rights, please contact us at info@mhmit.nl.',
+            'privacy_contact_title': 'Contact Us',
+            'privacy_contact_text': 'If you have questions or concerns about this Privacy Policy, please contact us:',
+            
+            // Cookie Policy
+            'cookie_title': 'Cookie Policy',
+            'cookie_subtitle': 'Last updated: December 7, 2024',
+            'cookie_what_title': 'What Are Cookies',
+            'cookie_what_text': 'Cookies are small text files that are stored on your device when you visit a website. They help us provide you with a better experience by remembering your preferences and understanding how you use our website.',
+            'cookie_types_title': 'Types of Cookies We Use',
+            'cookie_essential_title': 'Essential Cookies',
+            'cookie_essential_text': 'These cookies are necessary for the website to function properly. They enable basic functions like page navigation and access to secure areas of the website.',
+            'cookie_preference_title': 'Preference Cookies',
+            'cookie_preference_text': 'These cookies allow our website to remember choices you make (such as your language preference) and provide enhanced, more personalized features.',
+            'cookie_analytics_title': 'Analytics Cookies',
+            'cookie_analytics_text': 'We use analytics cookies to understand how visitors interact with our website. This helps us improve the website\'s functionality and user experience.',
+            'cookie_manage_title': 'How to Manage Cookies',
+            'cookie_manage_text': 'You can control and manage cookies in various ways:',
+            'cookie_manage_1': 'Most browsers allow you to refuse or accept cookies',
+            'cookie_manage_2': 'You can delete cookies that are already stored on your device',
+            'cookie_manage_3': 'You can set your browser to notify you when you receive a cookie',
+            'cookie_thirdparty_title': 'Third-Party Cookies',
+            'cookie_thirdparty_text': 'We may use third-party services that also set cookies on your device. These third parties have their own privacy policies and cookie policies.',
+            'cookie_contact_title': 'Contact Us',
+            'cookie_contact_text': 'If you have questions about our use of cookies, please contact us:',
+            
+            // Contact Address
+            'contact_address_title': 'Visit Us'
         },
         nl: {
             // Navigation
@@ -135,7 +188,7 @@
             'free_tools_invoice_title': 'Factuur maken',
             'free_tools_invoice_desc': 'Deze tool helpt ZZP\'ers en kleine ondernemingen om snel professionele facturen te maken. Eenvoudig, overzichtelijk en altijd beschikbaar.',
             'free_tools_btw_title': 'BTW Calculator',
-            'free_tools_btw_desc': 'Deze tool berekent BTW 9% en 21% voor bedragen inclusief of exclusief btw. Ideaal voor snelle berekeningen tijdens je administratie.',
+            'free_tools_btw_desc': 'Deze tool berekent BTW 21% voor bedragen inclusief of exclusief btw. Ideaal voor snelle berekeningen tijdens je administratie.',
             'free_tools_button': 'Open tool',
             
             // Factuur Page
@@ -144,11 +197,64 @@
             
             // BTW Page
             'btw_hero_title': 'BTW Calculator',
-            'btw_hero_subtitle': 'Bereken snel en eenvoudig BTW 9% en 21% voor je bedragen.<br>Perfect voor je administratie en offertes.',
+            'btw_hero_subtitle': 'Bereken snel en eenvoudig BTW 21% voor je bedragen.<br>Perfect voor je administratie en offertes.',
             
             // Footer
-            'footer-copyright': '© 2024 MHM IT. Alle rechten voorbehouden.',
-            'footer-whatsapp': 'Chat via WhatsApp'
+            'footer-copyright': '© 2025 MHM IT. Alle rechten voorbehouden.',
+            'footer-whatsapp': 'Chat via WhatsApp',
+            'footer_privacy': 'Privacybeleid',
+            'footer_cookies': 'Cookiebeleid',
+            
+            // Gratis Tools Nav
+            'gratis-tools-nav': 'Gratis Tools',
+            
+            // Privacy Policy
+            'privacy_title': 'Privacybeleid',
+            'privacy_subtitle': 'Laatst bijgewerkt: 7 december 2024',
+            'privacy_intro_title': 'Introductie',
+            'privacy_intro_text': 'MHM IT ("wij", "ons") hecht groot belang aan uw privacy. Dit privacybeleid legt uit hoe wij uw informatie verzamelen, gebruiken, openbaar maken en beschermen wanneer u onze website bezoekt.',
+            'privacy_info_title': 'Informatie Die Wij Verzamelen',
+            'privacy_info_text': 'Wij kunnen op verschillende manieren informatie over u verzamelen. De informatie die wij op de website kunnen verzamelen omvat:',
+            'privacy_info_1': 'Persoonlijke gegevens zoals uw naam, e-mailadres en contactinformatie wanneer u deze vrijwillig aan ons verstrekt',
+            'privacy_info_2': 'Gebruiksgegevens waaronder uw IP-adres, browsertype en surfgedrag op onze website',
+            'privacy_info_3': 'Cookies en vergelijkbare trackingtechnologieën om uw ervaring te verbeteren',
+            'privacy_use_title': 'Hoe Wij Uw Informatie Gebruiken',
+            'privacy_use_text': 'Wij gebruiken de verzamelde informatie om:',
+            'privacy_use_1': 'Te reageren op uw vragen en klantenondersteuning te bieden',
+            'privacy_use_2': 'Onze website en diensten te verbeteren',
+            'privacy_use_3': 'U marketingcommunicatie te sturen (met uw toestemming)',
+            'privacy_use_4': 'Gebruikspatronen te analyseren en gebruikerservaring te optimaliseren',
+            'privacy_security_title': 'Gegevensbeveiliging',
+            'privacy_security_text': 'Wij implementeren passende technische en organisatorische beveiligingsmaatregelen om uw persoonlijke informatie te beschermen tegen ongeautoriseerde toegang, wijziging, openbaarmaking of vernietiging.',
+            'privacy_rights_title': 'Uw Rechten',
+            'privacy_rights_text': 'Onder de AVG en andere toepasselijke privacywetten heeft u het recht om toegang te krijgen tot, te corrigeren, te verwijderen of het gebruik van uw persoonlijke gegevens te beperken. Om deze rechten uit te oefenen, neem contact met ons op via info@mhmit.nl.',
+            'privacy_contact_title': 'Contact',
+            'privacy_contact_text': 'Als u vragen of zorgen heeft over dit privacybeleid, neem dan contact met ons op:',
+            
+            // Cookie Policy
+            'cookie_title': 'Cookiebeleid',
+            'cookie_subtitle': 'Laatst bijgewerkt: 7 december 2024',
+            'cookie_what_title': 'Wat Zijn Cookies',
+            'cookie_what_text': 'Cookies zijn kleine tekstbestanden die op uw apparaat worden opgeslagen wanneer u een website bezoekt. Ze helpen ons u een betere ervaring te bieden door uw voorkeuren te onthouden en te begrijpen hoe u onze website gebruikt.',
+            'cookie_types_title': 'Soorten Cookies Die Wij Gebruiken',
+            'cookie_essential_title': 'Essentiële Cookies',
+            'cookie_essential_text': 'Deze cookies zijn noodzakelijk voor het goed functioneren van de website. Ze maken basisfuncties mogelijk zoals paginanavigatie en toegang tot beveiligde gebieden van de website.',
+            'cookie_preference_title': 'Voorkeurscookies',
+            'cookie_preference_text': 'Deze cookies stellen onze website in staat keuzes die u maakt (zoals uw taalvoorkeur) te onthouden en verbeterde, meer gepersonaliseerde functies te bieden.',
+            'cookie_analytics_title': 'Analytische Cookies',
+            'cookie_analytics_text': 'Wij gebruiken analytische cookies om te begrijpen hoe bezoekers omgaan met onze website. Dit helpt ons de functionaliteit en gebruikerservaring van de website te verbeteren.',
+            'cookie_manage_title': 'Hoe Cookies Te Beheren',
+            'cookie_manage_text': 'U kunt cookies op verschillende manieren beheren en controleren:',
+            'cookie_manage_1': 'De meeste browsers stellen u in staat cookies te weigeren of te accepteren',
+            'cookie_manage_2': 'U kunt cookies verwijderen die al op uw apparaat zijn opgeslagen',
+            'cookie_manage_3': 'U kunt uw browser instellen om u te waarschuwen wanneer u een cookie ontvangt',
+            'cookie_thirdparty_title': 'Cookies Van Derden',
+            'cookie_thirdparty_text': 'Wij kunnen diensten van derden gebruiken die ook cookies op uw apparaat plaatsen. Deze derden hebben hun eigen privacybeleid en cookiebeleid.',
+            'cookie_contact_title': 'Contact',
+            'cookie_contact_text': 'Als u vragen heeft over ons gebruik van cookies, neem dan contact met ons op:',
+            
+            // Contact Address
+            'contact_address_title': 'Bezoek Ons'
         }
     };
     
@@ -260,6 +366,10 @@
         
         if (footerText) footerText.textContent = translation['footer-copyright'];
         if (whatsappBtn) whatsappBtn.setAttribute('title', translation['footer-whatsapp']);
+        
+        // Update Gratis Tools Nav link
+        const gratisToolsLink = document.querySelector('.gratis-tools-link');
+        if (gratisToolsLink) gratisToolsLink.textContent = translation['gratis-tools-nav'];
         
         // Update active language button
         langButtons.forEach(btn => {

@@ -37,7 +37,6 @@
             
             // Totals
             subtotal: 'Subtotaal (excl. BTW)',
-            vat9: 'BTW 9%',
             vat21: 'BTW 21%',
             grandTotal: 'Totaalbedrag (incl. BTW)',
             
@@ -121,7 +120,6 @@
             <td>
                 <select class="form-input line-vat">
                     <option value="0">0%</option>
-                    <option value="9">9%</option>
                     <option value="21" selected>21%</option>
                 </select>
             </td>
@@ -162,7 +160,6 @@
     function calculateTotals() {
         const rows = document.querySelectorAll('.line-item-row');
         let subtotal = 0;
-        let vat9Total = 0;
         let vat21Total = 0;
         
         rows.forEach(row => {
@@ -179,19 +176,16 @@
             // Add to subtotal
             subtotal += lineTotal;
             
-            // Add to VAT totals
-            if (vatRate === 9) {
-                vat9Total += lineVat;
-            } else if (vatRate === 21) {
+            // Add to VAT total
+            if (vatRate === 21) {
                 vat21Total += lineVat;
             }
         });
         
-        const grandTotal = subtotal + vat9Total + vat21Total;
+        const grandTotal = subtotal + vat21Total;
         
         // Update totals display
         document.getElementById('subtotal-amount').textContent = formatCurrency(subtotal);
-        document.getElementById('vat9-amount').textContent = formatCurrency(vat9Total);
         document.getElementById('vat21-amount').textContent = formatCurrency(vat21Total);
         document.getElementById('total-amount').textContent = formatCurrency(grandTotal);
     }
@@ -252,17 +246,29 @@
             return;
         }
         
-        // Create printable invoice - using noopener,noreferrer for security
-        const printWindow = window.open('', '', 'width=800,height=600,noopener,noreferrer');
+        // Create invoice HTML
         const invoiceHTML = generateInvoiceHTML();
         
+        // Open in new window with better handling
+        const printWindow = window.open('', '_blank', 'width=800,height=600');
+        
+        if (!printWindow) {
+            alert('Pop-up geblokkeerd. Sta pop-ups toe voor deze site om de factuur te downloaden.');
+            return;
+        }
+        
+        // Write content to the new window
+        printWindow.document.open();
         printWindow.document.write(invoiceHTML);
         printWindow.document.close();
         
-        // Wait for content to load, then print
-        printWindow.onload = function() {
-            printWindow.print();
-        };
+        // Wait for content and images to load before printing
+        printWindow.addEventListener('load', function() {
+            setTimeout(function() {
+                printWindow.focus();
+                printWindow.print();
+            }, 250);
+        });
     }
     
     // =============================================
@@ -310,7 +316,6 @@
         
         // Get totals
         const subtotal = document.getElementById('subtotal-amount').textContent;
-        const vat9 = document.getElementById('vat9-amount').textContent;
         const vat21 = document.getElementById('vat21-amount').textContent;
         const grandTotal = document.getElementById('total-amount').textContent;
         
@@ -452,10 +457,6 @@
                     <div class="total-row">
                         <span>${t.subtotal}:</span>
                         <span>${subtotal}</span>
-                    </div>
-                    <div class="total-row">
-                        <span>${t.vat9}:</span>
-                        <span>${vat9}</span>
                     </div>
                     <div class="total-row">
                         <span>${t.vat21}:</span>
