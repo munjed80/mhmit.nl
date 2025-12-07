@@ -8,7 +8,8 @@
     
     // Cookie consent configuration
     const COOKIE_NAME = 'mhmit_cookie_consent';
-    const COOKIE_EXPIRY_DAYS = 365;
+    const LOCALSTORAGE_KEY = 'cookieConsentStatus';
+    const COOKIE_EXPIRY_DAYS = 365; // 12 months
     
     // Translations
     const translations = {
@@ -51,7 +52,10 @@
     
     // Check if consent has been given
     function hasConsent() {
-        return getCookie(COOKIE_NAME) === 'accepted';
+        // Check both cookie and localStorage for consent
+        const cookieConsent = getCookie(COOKIE_NAME) === 'accepted';
+        const localStorageConsent = localStorage.getItem(LOCALSTORAGE_KEY) === 'accepted';
+        return cookieConsent || localStorageConsent;
     }
     
     // Create and show cookie banner
@@ -96,9 +100,11 @@
     
     // Accept cookies
     function acceptCookies() {
+        // Store consent in both cookie and localStorage
         setCookie(COOKIE_NAME, 'accepted', COOKIE_EXPIRY_DAYS);
+        localStorage.setItem(LOCALSTORAGE_KEY, 'accepted');
         
-        // Hide banner
+        // Hide banner with smooth animation
         const banner = document.getElementById('cookie-consent-banner');
         if (banner) {
             banner.classList.remove('show');
@@ -107,7 +113,7 @@
             }, 300);
         }
         
-        // Load tracking scripts
+        // Only then load tracking scripts
         loadTrackingScripts();
     }
     
