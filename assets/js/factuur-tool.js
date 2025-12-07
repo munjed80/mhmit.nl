@@ -200,7 +200,16 @@
     // Format Currency (Euro)
     // =============================================
     function formatCurrency(amount) {
+        // Use toFixed for precise decimal formatting, then replace . with ,
         return '€ ' + amount.toFixed(2).replace('.', ',');
+    }
+    
+    // =============================================
+    // Parse Currency (convert display format back to number)
+    // =============================================
+    function parseCurrency(currencyString) {
+        // Remove € symbol, spaces, and replace comma with period
+        return parseFloat(currencyString.replace('€ ', '').replace(',', '.')) || 0;
     }
     
     // =============================================
@@ -243,8 +252,8 @@
             return;
         }
         
-        // Create printable invoice
-        const printWindow = window.open('', '', 'width=800,height=600');
+        // Create printable invoice - using noopener,noreferrer for security
+        const printWindow = window.open('', '', 'width=800,height=600,noopener,noreferrer');
         const invoiceHTML = generateInvoiceHTML();
         
         printWindow.document.write(invoiceHTML);
@@ -284,7 +293,7 @@
             const quantity = row.querySelector('.line-quantity').value;
             const price = parseFloat(row.querySelector('.line-price').value) || 0;
             const vatRate = row.querySelector('.line-vat').value;
-            const lineTotal = parseFloat(row.querySelector('.line-total-cell').textContent.replace('€ ', '').replace(',', '.')) || 0;
+            const lineTotal = parseCurrency(row.querySelector('.line-total-cell').textContent);
             
             if (description) {
                 lineItemsHTML += `
