@@ -15,6 +15,7 @@
     --muted: #9ca3af;
     --accent-blue: #3b82f6;
     --accent-purple: #6d28d9;
+    --accent-cyan: #22d3ee;
     --color-gradient: linear-gradient(135deg, #3b82f6 0%, #6d28d9 100%);
     
     /* Legacy color aliases for compatibility */
@@ -56,6 +57,8 @@
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --box-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --icon-glow-blue: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(109, 40, 217, 0.2);
+    --icon-glow-purple: 0 0 20px rgba(109, 40, 217, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
     --transition-speed: 0.3s;
 }
 
@@ -216,7 +219,7 @@ button {
 }
 
 .lang-btn.active {
-    color: #22d3ee;
+    color: var(--accent-cyan);
     font-weight: 700;
 }
 
@@ -434,7 +437,7 @@ button {
     justify-content: center;
     font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(109, 40, 217, 0.2);
+    box-shadow: var(--icon-glow-blue);
 }
 
 .benefit-title {
