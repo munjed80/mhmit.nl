@@ -233,7 +233,7 @@
     }
     
     // =============================================
-    // Generate PDF / Print Invoice
+    // Generate PDF / Download Invoice
     // =============================================
     function generatePDF() {
         // Validate required fields
@@ -246,29 +246,79 @@
             return;
         }
         
+        // Show loading message
+        const downloadBtn = document.getElementById('download-btn');
+        const originalText = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = '⏳ Genereren...';
+        downloadBtn.disabled = true;
+        
         // Create invoice HTML
         const invoiceHTML = generateInvoiceHTML();
         
-        // Open in new window with better handling
-        const printWindow = window.open('', '_blank', 'width=800,height=600');
+        // Create a temporary container to render the invoice
+        const tempContainer = document.createElement('div');
+        tempContainer.style.position = 'absolute';
+        tempContainer.style.left = '-9999px';
+        tempContainer.style.top = '0';
+        tempContainer.style.width = '800px';
+        tempContainer.innerHTML = invoiceHTML;
+        document.body.appendChild(tempContainer);
         
-        if (!printWindow) {
-            alert('Pop-up geblokkeerd. Sta pop-ups toe voor deze site om de factuur te downloaden.');
-            return;
-        }
-        
-        // Write content to the new window
-        printWindow.document.open();
-        printWindow.document.write(invoiceHTML);
-        printWindow.document.close();
-        
-        // Wait for content and images to load before printing
-        printWindow.addEventListener('load', function() {
-            setTimeout(function() {
-                printWindow.focus();
-                printWindow.print();
-            }, 250);
-        });
+        // Wait for content to render, then convert to PDF
+        setTimeout(function() {
+            const invoiceElement = tempContainer.querySelector('body');
+            
+            html2canvas(invoiceElement, {
+                scale: 2,
+                useCORS: true,
+                logging: false,
+                backgroundColor: '#ffffff'
+            }).then(function(canvas) {
+                // Get jsPDF from global scope
+                const { jsPDF } = window.jspdf;
+                
+                // Calculate dimensions
+                const imgWidth = 210; // A4 width in mm
+                const pageHeight = 297; // A4 height in mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                
+                // Create PDF
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgData = canvas.toDataURL('image/png');
+                
+                let heightLeft = imgHeight;
+                let position = 0;
+                
+                // Add first page
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+                
+                // Add additional pages if content is longer than one page
+                while (heightLeft > 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+                
+                // Generate filename with invoice number
+                const filename = `invoice-${invoiceNumber.replace(/[^a-zA-Z0-9-]/g, '_')}.pdf`;
+                
+                // Trigger download
+                pdf.save(filename);
+                
+                // Clean up
+                document.body.removeChild(tempContainer);
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+            }).catch(function(error) {
+                console.error('Error generating PDF:', error);
+                alert('Er is een fout opgetreden bij het genereren van de PDF. Probeer het opnieuw.');
+                document.body.removeChild(tempContainer);
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+            });
+        }, 100);
     }
     
     // =============================================
