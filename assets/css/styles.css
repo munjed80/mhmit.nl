@@ -810,6 +810,105 @@ button {
 }
 
 /* ===============================================
+   Product Detail Cards (for products.html)
+   =============================================== */
+.product-detail-card {
+    background: var(--bg-soft);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(109, 40, 217, 0.2);
+    margin-bottom: var(--spacing-2xl);
+    transition: all var(--transition-speed) ease;
+}
+
+.product-detail-card:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.2);
+}
+
+.product-detail-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.product-detail-header .product-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.product-detail-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.product-detail-description {
+    font-size: var(--font-size-lg);
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+}
+
+.product-features,
+.product-tech {
+    margin-top: var(--spacing-xl);
+}
+
+.product-features h3,
+.product-tech h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--spacing-md);
+    background: var(--color-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.product-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-features li {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    color: var(--muted);
+    line-height: 1.8;
+    position: relative;
+}
+
+.product-features li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+.product-tech p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.product-tech strong {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+/* ===============================================
    Animations
    =============================================== */
 @keyframes fadeInUp {
