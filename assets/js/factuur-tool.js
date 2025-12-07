@@ -246,9 +246,10 @@
             return;
         }
         
-        // Check if libraries are loaded
+        // Check if libraries are loaded, if not use fallback
         if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
-            alert('PDF bibliotheek wordt geladen... Probeer het over een paar seconden opnieuw.');
+            console.warn('PDF libraries not loaded, using fallback method');
+            generatePDFFallback();
             return;
         }
         
@@ -536,6 +537,45 @@
             </body>
             </html>
         `;
+    }
+    
+    // =============================================
+    // Fallback PDF Generation (Print-based)
+    // =============================================
+    function generatePDFFallback() {
+        const invoiceNumber = document.getElementById('invoice-number').value;
+        
+        // Create invoice HTML
+        const invoiceHTML = generateInvoiceHTML();
+        
+        // Create filename for the invoice
+        const filename = `invoice-${invoiceNumber.replace(/[^a-zA-Z0-9-]/g, '_')}`;
+        
+        // Open in new window for printing/saving
+        const printWindow = window.open('', '_blank', 'width=800,height=600');
+        
+        if (!printWindow) {
+            alert('Pop-up geblokkeerd. Sta pop-ups toe voor deze site om de factuur te downloaden.');
+            return;
+        }
+        
+        // Write content to the new window
+        printWindow.document.open();
+        printWindow.document.write(invoiceHTML);
+        printWindow.document.close();
+        
+        // Update the document title to match the filename (will be suggested when saving)
+        printWindow.document.title = filename;
+        
+        // Wait for content to load before triggering print
+        printWindow.addEventListener('load', function() {
+            setTimeout(function() {
+                printWindow.focus();
+                // window.print() will show save-to-PDF option on most browsers
+                // The filename will be suggested based on document.title
+                printWindow.print();
+            }, 250);
+        });
     }
     
 })();
