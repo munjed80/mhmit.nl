@@ -63,3 +63,18 @@ The website must promote MHM IT services and products.
 
 ---
 Please start by generating the folder/file structure and creating a minimal landing page layout. Then expand and refine each page step by step.
+/  
+  index.html  
+  about.html  
+  services.html  
+  products.html  
+  contact.html  
+  assets/  
+    css/  
+      styles.css  
+    js/  
+      scripts.js  
+    images/  
+  README.md  
+  CNAME  
+
