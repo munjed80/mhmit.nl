@@ -1079,6 +1079,30 @@ button {
     text-align: center;
 }
 
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-link {
+    color: var(--muted);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: var(--accent-blue);
+}
+
+.footer-separator {
+    color: var(--muted);
+    font-size: var(--font-size-sm);
+}
+
 /* ===============================================
    Product Detail Cards (for products.html)
    =============================================== */
