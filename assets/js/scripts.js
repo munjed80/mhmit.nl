@@ -121,9 +121,4 @@
         }
     });
     
-    // =============================================
-    // Prevent FOUC (Flash of Unstyled Content)
-    // =============================================
-    document.documentElement.classList.add('js-loaded');
-    
 })();
