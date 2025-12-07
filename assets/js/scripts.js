@@ -71,7 +71,7 @@
             'free_tools_invoice_title': 'Create Invoice',
             'free_tools_invoice_desc': 'This tool helps freelancers and small businesses quickly create professional invoices.',
             'free_tools_btw_title': 'VAT Calculator',
-            'free_tools_btw_desc': 'This tool calculates 9% and 21% VAT for amounts including or excluding VAT.',
+            'free_tools_btw_desc': 'This tool calculates 21% VAT for amounts including or excluding VAT.',
             'free_tools_button': 'Open tool',
             
             // Factuur Page
@@ -80,11 +80,14 @@
             
             // BTW Page
             'btw_hero_title': 'VAT Calculator',
-            'btw_hero_subtitle': 'Calculate 9% and 21% VAT quickly and easily for your amounts.<br>Perfect for your administration and quotes.',
+            'btw_hero_subtitle': 'Calculate 21% VAT quickly and easily for your amounts.<br>Perfect for your administration and quotes.',
             
             // Footer
             'footer-copyright': '© 2024 MHM IT. All rights reserved.',
-            'footer-whatsapp': 'Chat on WhatsApp'
+            'footer-whatsapp': 'Chat on WhatsApp',
+            
+            // Gratis Tools Nav
+            'gratis-tools-nav': 'Free Tools'
         },
         nl: {
             // Navigation
@@ -135,7 +138,7 @@
             'free_tools_invoice_title': 'Factuur maken',
             'free_tools_invoice_desc': 'Deze tool helpt ZZP\'ers en kleine ondernemingen om snel professionele facturen te maken. Eenvoudig, overzichtelijk en altijd beschikbaar.',
             'free_tools_btw_title': 'BTW Calculator',
-            'free_tools_btw_desc': 'Deze tool berekent BTW 9% en 21% voor bedragen inclusief of exclusief btw. Ideaal voor snelle berekeningen tijdens je administratie.',
+            'free_tools_btw_desc': 'Deze tool berekent BTW 21% voor bedragen inclusief of exclusief btw. Ideaal voor snelle berekeningen tijdens je administratie.',
             'free_tools_button': 'Open tool',
             
             // Factuur Page
@@ -144,11 +147,14 @@
             
             // BTW Page
             'btw_hero_title': 'BTW Calculator',
-            'btw_hero_subtitle': 'Bereken snel en eenvoudig BTW 9% en 21% voor je bedragen.<br>Perfect voor je administratie en offertes.',
+            'btw_hero_subtitle': 'Bereken snel en eenvoudig BTW 21% voor je bedragen.<br>Perfect voor je administratie en offertes.',
             
             // Footer
             'footer-copyright': '© 2024 MHM IT. Alle rechten voorbehouden.',
-            'footer-whatsapp': 'Chat via WhatsApp'
+            'footer-whatsapp': 'Chat via WhatsApp',
+            
+            // Gratis Tools Nav
+            'gratis-tools-nav': 'Gratis Tools'
         }
     };
     
@@ -260,6 +266,10 @@
         
         if (footerText) footerText.textContent = translation['footer-copyright'];
         if (whatsappBtn) whatsappBtn.setAttribute('title', translation['footer-whatsapp']);
+        
+        // Update Gratis Tools Nav link
+        const gratisToolsLink = document.querySelector('.gratis-tools-link');
+        if (gratisToolsLink) gratisToolsLink.textContent = translation['gratis-tools-nav'];
         
         // Update active language button
         langButtons.forEach(btn => {

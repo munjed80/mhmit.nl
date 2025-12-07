@@ -121,7 +121,6 @@
             <td>
                 <select class="form-input line-vat">
                     <option value="0">0%</option>
-                    <option value="9">9%</option>
                     <option value="21" selected>21%</option>
                 </select>
             </td>
@@ -162,7 +161,6 @@
     function calculateTotals() {
         const rows = document.querySelectorAll('.line-item-row');
         let subtotal = 0;
-        let vat9Total = 0;
         let vat21Total = 0;
         
         rows.forEach(row => {
@@ -179,19 +177,16 @@
             // Add to subtotal
             subtotal += lineTotal;
             
-            // Add to VAT totals
-            if (vatRate === 9) {
-                vat9Total += lineVat;
-            } else if (vatRate === 21) {
+            // Add to VAT total
+            if (vatRate === 21) {
                 vat21Total += lineVat;
             }
         });
         
-        const grandTotal = subtotal + vat9Total + vat21Total;
+        const grandTotal = subtotal + vat21Total;
         
         // Update totals display
         document.getElementById('subtotal-amount').textContent = formatCurrency(subtotal);
-        document.getElementById('vat9-amount').textContent = formatCurrency(vat9Total);
         document.getElementById('vat21-amount').textContent = formatCurrency(vat21Total);
         document.getElementById('total-amount').textContent = formatCurrency(grandTotal);
     }
@@ -252,17 +247,167 @@
             return;
         }
         
-        // Create printable invoice - using noopener,noreferrer for security
-        const printWindow = window.open('', '', 'width=800,height=600,noopener,noreferrer');
-        const invoiceHTML = generateInvoiceHTML();
+        // Get jsPDF from the global scope
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
         
-        printWindow.document.write(invoiceHTML);
-        printWindow.document.close();
+        // Get form values
+        const companyAddress = document.getElementById('company-address').value;
+        const companyPostcodeCity = document.getElementById('company-postcode-city').value;
+        const companyBtw = document.getElementById('company-btw').value;
+        const companyKvk = document.getElementById('company-kvk').value;
         
-        // Wait for content to load, then print
-        printWindow.onload = function() {
-            printWindow.print();
-        };
+        const clientAddress = document.getElementById('client-address').value;
+        const clientPostcodeCity = document.getElementById('client-postcode-city').value;
+        
+        const invoiceDate = document.getElementById('invoice-date').value;
+        const dueDate = document.getElementById('due-date').value;
+        
+        // Set document properties
+        doc.setProperties({
+            title: 'Factuur ' + invoiceNumber,
+            subject: 'Factuur',
+            author: companyName,
+            keywords: 'factuur, invoice',
+            creator: 'MHM IT Factuur Generator'
+        });
+        
+        // Set font
+        doc.setFont('helvetica');
+        
+        // Header
+        doc.setFontSize(24);
+        doc.setTextColor(59, 130, 246); // Blue color
+        doc.text('FACTUUR', 20, 25);
+        
+        // Invoice number and date
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text('Factuurnummer: ' + invoiceNumber, 150, 25);
+        if (invoiceDate) {
+            doc.text('Datum: ' + invoiceDate, 150, 30);
+        }
+        if (dueDate) {
+            doc.text('Vervaldatum: ' + dueDate, 150, 35);
+        }
+        
+        // Company info
+        let yPos = 50;
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text('VAN', 20, yPos);
+        yPos += 5;
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(11);
+        doc.text(companyName, 20, yPos);
+        yPos += 5;
+        
+        if (companyAddress) {
+            doc.text(companyAddress, 20, yPos);
+            yPos += 5;
+        }
+        if (companyPostcodeCity) {
+            doc.text(companyPostcodeCity, 20, yPos);
+            yPos += 5;
+        }
+        if (companyBtw) {
+            doc.text('BTW: ' + companyBtw, 20, yPos);
+            yPos += 5;
+        }
+        if (companyKvk) {
+            doc.text('KvK: ' + companyKvk, 20, yPos);
+            yPos += 5;
+        }
+        
+        // Client info
+        yPos = 50;
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text('AAN', 120, yPos);
+        yPos += 5;
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(11);
+        doc.text(clientName, 120, yPos);
+        yPos += 5;
+        
+        if (clientAddress) {
+            doc.text(clientAddress, 120, yPos);
+            yPos += 5;
+        }
+        if (clientPostcodeCity) {
+            doc.text(clientPostcodeCity, 120, yPos);
+            yPos += 5;
+        }
+        
+        // Table header
+        yPos = 95;
+        doc.setFillColor(243, 244, 246);
+        doc.rect(20, yPos, 170, 8, 'F');
+        
+        doc.setFontSize(9);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Omschrijving', 22, yPos + 5);
+        doc.text('Aantal', 110, yPos + 5);
+        doc.text('Prijs', 135, yPos + 5);
+        doc.text('BTW', 155, yPos + 5);
+        doc.text('Totaal', 175, yPos + 5);
+        
+        // Line items
+        yPos += 12;
+        doc.setFont('helvetica', 'normal');
+        const rows = document.querySelectorAll('.line-item-row');
+        
+        rows.forEach(row => {
+            const description = row.querySelector('.line-description').value;
+            const quantity = row.querySelector('.line-quantity').value;
+            const price = parseFloat(row.querySelector('.line-price').value) || 0;
+            const vatRate = row.querySelector('.line-vat').value;
+            const lineTotal = parseCurrency(row.querySelector('.line-total-cell').textContent);
+            
+            if (description) {
+                // Check if we need a new page
+                if (yPos > 250) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+                
+                doc.text(description.substring(0, 40), 22, yPos);
+                doc.text(quantity, 110, yPos);
+                doc.text(formatCurrency(price), 135, yPos);
+                doc.text(vatRate + '%', 155, yPos);
+                doc.text(formatCurrency(lineTotal), 175, yPos);
+                yPos += 7;
+            }
+        });
+        
+        // Totals
+        yPos += 10;
+        const subtotal = document.getElementById('subtotal-amount').textContent;
+        const vat21 = document.getElementById('vat21-amount').textContent;
+        const grandTotal = document.getElementById('total-amount').textContent;
+        
+        doc.setFont('helvetica', 'normal');
+        doc.text('Subtotaal (excl. BTW):', 130, yPos);
+        doc.text(subtotal, 175, yPos);
+        yPos += 7;
+        
+        doc.text('BTW 21%:', 130, yPos);
+        doc.text(vat21, 175, yPos);
+        yPos += 10;
+        
+        // Grand total with line
+        doc.setLineWidth(0.5);
+        doc.setDrawColor(59, 130, 246);
+        doc.line(130, yPos - 3, 190, yPos - 3);
+        
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.text('Totaalbedrag (incl. BTW):', 130, yPos + 2);
+        doc.text(grandTotal, 175, yPos + 2);
+        
+        // Save the PDF
+        doc.save('Factuur_' + invoiceNumber + '.pdf');
     }
     
     // =============================================
@@ -310,7 +455,6 @@
         
         // Get totals
         const subtotal = document.getElementById('subtotal-amount').textContent;
-        const vat9 = document.getElementById('vat9-amount').textContent;
         const vat21 = document.getElementById('vat21-amount').textContent;
         const grandTotal = document.getElementById('total-amount').textContent;
         
@@ -452,10 +596,6 @@
                     <div class="total-row">
                         <span>${t.subtotal}:</span>
                         <span>${subtotal}</span>
-                    </div>
-                    <div class="total-row">
-                        <span>${t.vat9}:</span>
-                        <span>${vat9}</span>
                     </div>
                     <div class="total-row">
                         <span>${t.vat21}:</span>
