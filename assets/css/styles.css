@@ -15,6 +15,7 @@
     --muted: #9ca3af;
     --accent-blue: #3b82f6;
     --accent-purple: #6d28d9;
+    --accent-cyan: #22d3ee;
     --color-gradient: linear-gradient(135deg, #3b82f6 0%, #6d28d9 100%);
     
     /* Legacy color aliases for compatibility */
@@ -56,6 +57,8 @@
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --box-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --icon-glow-blue: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(109, 40, 217, 0.2);
+    --icon-glow-purple: 0 0 20px rgba(109, 40, 217, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
     --transition-speed: 0.3s;
 }
 
@@ -193,11 +196,58 @@ button {
 
 /* Language Switcher */
 .language-switcher {
-    display: none; /* Hidden for this version */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-lg);
 }
 
 .lang-btn {
-    display: none; /* Hidden for this version */
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.lang-btn:hover {
+    color: var(--text);
+    transform: scale(1.05);
+}
+
+.lang-btn.active {
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+
+.lang-separator {
+    color: var(--muted);
+    font-size: var(--font-size-base);
+    user-select: none;
+}
+
+/* Gratis Tools Nav Link */
+.gratis-tools-nav {
+    margin-left: var(--spacing-lg);
+}
+
+.gratis-tools-link {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-gradient);
+    color: #ffffff;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+    display: inline-block;
+}
+
+.gratis-tools-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-lg);
 }
 
 /* Mobile Menu Toggle */
@@ -371,6 +421,9 @@ button {
     transition: all var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .benefit-card::before {
@@ -396,15 +449,16 @@ button {
 }
 
 .benefit-icon {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     background: var(--color-gradient);
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
+    box-shadow: var(--icon-glow-blue);
 }
 
 .benefit-title {
@@ -412,12 +466,16 @@ button {
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text);
+    text-align: left;
+    width: 100%;
 }
 
 .benefit-description {
     font-size: var(--font-size-base);
     color: var(--muted);
     line-height: 1.6;
+    text-align: left;
+    width: 100%;
 }
 
 /* ===============================================
@@ -443,6 +501,9 @@ button {
     transition: all var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .service-card::before {
@@ -468,15 +529,16 @@ button {
 }
 
 .service-icon {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
+    box-shadow: var(--icon-glow-purple);
 }
 
 .service-title {
@@ -484,12 +546,16 @@ button {
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text);
+    text-align: left;
+    width: 100%;
 }
 
 .service-description {
     font-size: var(--font-size-base);
     color: var(--muted);
     line-height: 1.6;
+    text-align: left;
+    width: 100%;
 }
 
 /* ===============================================
@@ -1167,6 +1233,16 @@ button {
     .language-switcher {
         margin-left: 0;
         margin-top: var(--spacing-md);
+    }
+    
+    .gratis-tools-nav {
+        margin-left: 0;
+        margin-top: var(--spacing-md);
+    }
+    
+    .gratis-tools-link {
+        width: 100%;
+        text-align: center;
     }
     
     .hero-title {
