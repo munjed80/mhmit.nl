@@ -142,34 +142,37 @@ button {
 .logo {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    background: var(--color-gradient);
+    background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transition: transform var(--transition-speed) ease;
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.5));
+    transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
 }
 
 .logo:hover {
     transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.7));
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-2xl);
 }
 
 .nav-link {
     position: relative;
-    font-size: var(--font-size-base);
-    font-weight: 500;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
     padding: var(--spacing-sm) 0;
+    color: #e5e7eb;
     transition: color var(--transition-speed) ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--color-accent-blue);
+    color: #22d3ee;
 }
 
 .nav-link::after {
@@ -178,8 +181,8 @@ button {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
-    background: var(--color-gradient);
+    height: 3px;
+    background: #22d3ee;
     transition: width var(--transition-speed) ease;
 }
 
@@ -729,6 +732,78 @@ button {
 }
 
 /* ===============================================
+   Gratis Tools Section
+   =============================================== */
+.free-tools {
+    padding: var(--spacing-4xl) 0;
+    background: var(--bg-soft);
+}
+
+.free-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.tool-card {
+    background: var(--bg);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius);
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(var(--bg), var(--bg)),
+        linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.tool-card:hover::before {
+    opacity: 1;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.3);
+}
+
+.tool-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tool-description {
+    font-size: var(--font-size-base);
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+}
+
+.tool-card .btn-primary {
+    width: 100%;
+}
+
+/* ===============================================
    Page Section (for other pages)
    =============================================== */
 .page-section {
@@ -986,6 +1061,10 @@ button {
     }
     
     .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .free-tools-grid {
         grid-template-columns: 1fr;
     }
 }
