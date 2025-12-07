@@ -66,7 +66,8 @@
             'cta-email': 'Email Us',
             
             // Footer
-            'footer-copyright': '© 2024 MHM IT. All rights reserved.'
+            'footer-copyright': '© 2024 MHM IT. All rights reserved.',
+            'footer-whatsapp': 'Chat on WhatsApp'
         },
         nl: {
             // Navigation
@@ -112,7 +113,8 @@
             'cta-email': 'Mail Ons',
             
             // Footer
-            'footer-copyright': '© 2024 MHM IT. Alle rechten voorbehouden.'
+            'footer-copyright': '© 2024 MHM IT. Alle rechten voorbehouden.',
+            'footer-whatsapp': 'Chat via WhatsApp'
         }
     };
     
@@ -206,7 +208,10 @@
         
         // Update footer
         const footerText = document.querySelector('.footer-text');
+        const whatsappBtn = document.querySelector('.whatsapp-icon-btn');
+        
         if (footerText) footerText.textContent = translation['footer-copyright'];
+        if (whatsappBtn) whatsappBtn.setAttribute('title', translation['footer-whatsapp']);
         
         // Update active language button
         langButtons.forEach(btn => {
