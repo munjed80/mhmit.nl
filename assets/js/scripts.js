@@ -87,6 +87,13 @@
             'footer-whatsapp': 'Chat on WhatsApp',
             'footer_privacy': 'Privacy Policy',
             'footer_cookies': 'Cookie Policy',
+            'footer_copyright': '© 2025 MHM IT. All rights reserved.',
+            'footer_nav_title': 'Navigation',
+            'footer_nav_home': 'Home',
+            'footer_nav_tools': 'Free Tools',
+            'footer_nav_contact': 'Contact',
+            'footer_legal_title': 'Legal',
+            'footer_social_title': 'Connect',
             
             // Gratis Tools Nav
             'gratis-tools-nav': 'Free Tools',
@@ -204,6 +211,13 @@
             'footer-whatsapp': 'Chat via WhatsApp',
             'footer_privacy': 'Privacybeleid',
             'footer_cookies': 'Cookiebeleid',
+            'footer_copyright': '© 2025 MHM IT. Alle rechten voorbehouden.',
+            'footer_nav_title': 'Navigatie',
+            'footer_nav_home': 'Home',
+            'footer_nav_tools': 'Gratis Tools',
+            'footer_nav_contact': 'Contact',
+            'footer_legal_title': 'Juridisch',
+            'footer_social_title': 'Verbinden',
             
             // Gratis Tools Nav
             'gratis-tools-nav': 'Gratis Tools',
