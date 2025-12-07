@@ -42,26 +42,30 @@
             
             // Products Section
             products_title: 'Our Products',
-            products_subtitle: 'Explore our suite of innovative digital tools designed to accelerate business growth',
+            products_subtitle: 'Real, live products ready to use. Explore our suite of working digital tools.',
             
             product1_title: 'Smart ZZP Hub',
-            product1_desc: 'All-in-one platform for freelancers to manage invoices, clients, and finances efficiently.',
+            product1_desc: 'A complete all-in-one workspace for freelancers (ZZP). Manage clients, invoices, schedules, tasks, and business documents through a smart dashboard built for independent professionals.',
             
             product2_title: 'ChefSense',
-            product2_desc: 'Smart kitchen management system for restaurants to optimize inventory and reduce waste.',
+            product2_desc: 'A smart cooking platform with more than 2,000 recipes and an AI chef assistant named "Sense". It helps with menu planning, ingredient substitutions, nutrition, food cost calculations, and step-by-step cooking support.',
             
             product3_title: 'Product Ad Generator',
-            product3_desc: 'AI-powered tool to create compelling product advertisements in seconds.',
+            product3_desc: 'AI-powered visual generator for marketing. Instantly creates high-quality product images, social ads, and store banners to improve engagement and conversions.',
             
             product4_title: 'SmartOrderHub',
-            product4_desc: 'Streamlined ordering system for restaurants with real-time kitchen integration.',
+            product4_desc: 'Smart order and POS hub for restaurants. Connects tables, kitchen, delivery, and payments for faster service and fewer mistakes.',
             
             product5_title: 'MHM UBA Automations',
-            product5_desc: 'Custom business automation solutions tailored to your specific workflow needs.',
+            product5_desc: 'Universal Business Automator — connects business tools and automates workflows such as invoicing, task tracking, and reporting, reducing repetitive work to almost zero.',
+            
+            product6_title: 'Custom Business Dashboards',
+            product6_desc: 'Tailored KPI dashboards and real-time analytics for companies that need insights to make smarter decisions.',
             
             product_tag_saas: 'SaaS Platform',
             product_tag_automation: 'Automation',
             product_tag_ai: 'AI Tool',
+            product_tag_analytics: 'Analytics',
             
             // Footer
             footer_whatsapp: 'Chat on WhatsApp',
@@ -99,26 +103,30 @@
             
             // Products Section
             products_title: 'Onze Producten',
-            products_subtitle: 'Verken ons pakket van innovatieve digitale tools ontworpen om bedrijfsgroei te versnellen',
+            products_subtitle: 'Echte, live producten klaar voor gebruik. Verken ons pakket van werkende digitale tools.',
             
             product1_title: 'Smart ZZP Hub',
-            product1_desc: 'All-in-one platform voor freelancers om facturen, klanten en financiën efficiënt te beheren.',
+            product1_desc: 'Een complete all-in-one werkplek voor ZZP\'ers. Beheer klanten, facturen, planning, taken en documenten via één slim dashboard voor zelfstandigen.',
             
             product2_title: 'ChefSense',
-            product2_desc: 'Slim keukenmanagementsysteem voor restaurants om voorraad te optimaliseren en verspilling te verminderen.',
+            product2_desc: 'Een slim kookplatform met meer dan 2.000 recepten en een AI-chefassistent genaamd "Sense". Het helpt bij menukeuze, ingrediëntenvervanging, voeding, kostenberekening en stap-voor-stap kookondersteuning.',
             
             product3_title: 'Product Ad Generator',
-            product3_desc: 'AI-aangedreven tool om in seconden overtuigende productadvertenties te maken.',
+            product3_desc: 'AI-gestuurde generator voor marketingvisuals. Maakt direct hoogwaardige productafbeeldingen, advertenties en banners voor betere conversie.',
             
             product4_title: 'SmartOrderHub',
-            product4_desc: 'Gestroomlijnd bestelsysteem voor restaurants met realtime keukenintegratie.',
+            product4_desc: 'Slim order- en kassaplatform voor restaurants. Verbindt tafels, keuken, bezorging en betalingen voor snellere service en minder fouten.',
             
             product5_title: 'MHM UBA Automations',
-            product5_desc: 'Op maat gemaakte bedrijfsautomatiseringsoplossingen afgestemd op uw specifieke workflowbehoeften.',
+            product5_desc: 'Universal Business Automator — koppelt zakelijke tools en automatiseert workflows zoals facturatie, taakbeheer en rapportage, waardoor repetitief werk vrijwel verdwijnt.',
+            
+            product6_title: 'Custom Business Dashboards',
+            product6_desc: 'Aangepaste KPI-dashboards en realtime-analyse voor bedrijven die slimmere beslissingen willen nemen.',
             
             product_tag_saas: 'SaaS Platform',
             product_tag_automation: 'Automatisering',
             product_tag_ai: 'AI Tool',
+            product_tag_analytics: 'Analyse',
             
             // Footer
             footer_whatsapp: 'Chat op WhatsApp',
