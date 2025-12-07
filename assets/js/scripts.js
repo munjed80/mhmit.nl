@@ -134,7 +134,10 @@
             'cookie_thirdparty_title': 'Third-Party Cookies',
             'cookie_thirdparty_text': 'We may use third-party services that also set cookies on your device. These third parties have their own privacy policies and cookie policies.',
             'cookie_contact_title': 'Contact Us',
-            'cookie_contact_text': 'If you have questions about our use of cookies, please contact us:'
+            'cookie_contact_text': 'If you have questions about our use of cookies, please contact us:',
+            
+            // Contact Address
+            'contact_address_title': 'Visit Us'
         },
         nl: {
             // Navigation
@@ -248,7 +251,10 @@
             'cookie_thirdparty_title': 'Cookies Van Derden',
             'cookie_thirdparty_text': 'Wij kunnen diensten van derden gebruiken die ook cookies op uw apparaat plaatsen. Deze derden hebben hun eigen privacybeleid en cookiebeleid.',
             'cookie_contact_title': 'Contact',
-            'cookie_contact_text': 'Als u vragen heeft over ons gebruik van cookies, neem dan contact met ons op:'
+            'cookie_contact_text': 'Als u vragen heeft over ons gebruik van cookies, neem dan contact met ons op:',
+            
+            // Contact Address
+            'contact_address_title': 'Bezoek Ons'
         }
     };
     
