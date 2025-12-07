@@ -40,6 +40,10 @@
             'value-title': 'Why Businesses Choose Us',
             'value-subtitle': 'Three core values that drive everything we create',
             
+            // Premium Automation Section
+            'premium-automation-title': 'Powering Business With Smart Automation',
+            'premium-automation-subtitle': 'At MHM IT, we turn manual work into smart digital workflows. We build automation solutions that seamlessly connect tools, eliminate repetitive tasks, and deliver real results. From invoicing and dashboards to AI-powered business intelligence, we help you work faster, smarter, and more profitably — all through intelligent software.',
+            
             // Benefits
             'benefit1-title': 'Innovation First',
             'benefit1-desc': 'We leverage cutting-edge technologies like AI, automation, and advanced analytics to build solutions that put you ahead of the competition.',
@@ -164,6 +168,10 @@
             // Value Proposition
             'value-title': 'Waarom Bedrijven Voor Ons Kiezen',
             'value-subtitle': 'Drie kernwaarden die alles wat we creëren drijven',
+            
+            // Premium Automation Section
+            'premium-automation-title': 'Slimmere Bedrijfsvoering met Automatisering',
+            'premium-automation-subtitle': 'Bij MHM IT transformeren we handmatig werk naar slimme digitale workflows. We bouwen automatiseringsoplossingen die tools naadloos verbinden, repetitieve taken elimineren en echte resultaten leveren. Van facturering en dashboards tot AI-aangedreven business intelligence, we helpen je sneller, slimmer en winstgevender te werken — allemaal door intelligente software.',
             
             // Benefits
             'benefit1-title': 'Innovatie Eerst',
@@ -312,6 +320,13 @@
         
         if (valueTitle) valueTitle.textContent = translation['value-title'];
         if (valueSubtitle) valueSubtitle.textContent = translation['value-subtitle'];
+        
+        // Update premium automation section
+        const premiumTitle = document.querySelector('.premium-automation .section-title');
+        const premiumSubtitle = document.querySelector('.premium-automation .section-subtitle');
+        
+        if (premiumTitle) premiumTitle.textContent = translation['premium-automation-title'];
+        if (premiumSubtitle) premiumSubtitle.textContent = translation['premium-automation-subtitle'];
         
         // Update benefits
         const benefitTitles = document.querySelectorAll('.benefit-title');

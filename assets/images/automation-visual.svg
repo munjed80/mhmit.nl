@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" style="max-width: 100%; height: auto;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6d28d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow Filters -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Animation Styles -->
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      @keyframes dash {
+        to { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes fadeInOut {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+      
+      .node-pulse {
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      .float-slow {
+        animation: float 4s ease-in-out infinite;
+      }
+      
+      .float-medium {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      .float-fast {
+        animation: float 2.5s ease-in-out infinite;
+      }
+      
+      .connecting-line {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: dash 3s linear forwards;
+      }
+      
+      .data-flow {
+        animation: fadeInOut 2s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  
+  <!-- Background Elements -->
+  <rect width="600" height="500" fill="transparent"/>
+  
+  <!-- Central Dashboard -->
+  <g class="float-slow">
+    <rect x="200" y="150" width="200" height="140" rx="12" fill="rgba(17, 24, 39, 0.9)" stroke="url(#blueGradient)" stroke-width="2" filter="url(#softGlow)"/>
+    
+    <!-- Dashboard Header -->
+    <rect x="215" y="165" width="170" height="4" rx="2" fill="url(#blueGradient)"/>
+    
+    <!-- Mini Chart Lines -->
+    <polyline points="220,200 240,190 260,195 280,180 300,185 320,175 340,180 360,170 380,175" 
+              fill="none" stroke="url(#blueGradient)" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Metric Boxes -->
+    <rect x="220" y="230" width="45" height="30" rx="4" fill="url(#blueGradient)" opacity="0.3"/>
+    <rect x="275" y="230" width="45" height="30" rx="4" fill="url(#purpleGradient)" opacity="0.3"/>
+    <rect x="330" y="230" width="45" height="30" rx="4" fill="url(#blueGradient)" opacity="0.3"/>
+  </g>
+  
+  <!-- Connecting Nodes Network -->
+  
+  <!-- Node 1 - Top Left (Invoicing) -->
+  <g class="float-medium">
+    <circle cx="100" cy="100" r="30" fill="rgba(17, 24, 39, 0.95)" stroke="url(#blueGradient)" stroke-width="2" filter="url(#glow)"/>
+    <text x="100" y="108" text-anchor="middle" fill="#3b82f6" font-size="24">📄</text>
+  </g>
+  
+  <!-- Node 2 - Top Right (AI) -->
+  <g class="float-fast">
+    <circle cx="500" cy="100" r="30" fill="rgba(17, 24, 39, 0.95)" stroke="url(#purpleGradient)" stroke-width="2" filter="url(#glow)"/>
+    <text x="500" y="108" text-anchor="middle" fill="#a855f7" font-size="24">🤖</text>
+  </g>
+  
+  <!-- Node 3 - Bottom Left (Analytics) -->
+  <g class="float-slow" style="animation-delay: 0.5s;">
+    <circle cx="80" cy="380" r="30" fill="rgba(17, 24, 39, 0.95)" stroke="url(#blueGradient)" stroke-width="2" filter="url(#glow)"/>
+    <text x="80" y="388" text-anchor="middle" fill="#3b82f6" font-size="24">📊</text>
+  </g>
+  
+  <!-- Node 4 - Bottom Right (Automation) -->
+  <g class="float-medium" style="animation-delay: 1s;">
+    <circle cx="520" cy="400" r="30" fill="rgba(17, 24, 39, 0.95)" stroke="url(#purpleGradient)" stroke-width="2" filter="url(#glow)"/>
+    <text x="520" y="408" text-anchor="middle" fill="#a855f7" font-size="24">⚙️</text>
+  </g>
+  
+  <!-- Node 5 - Middle Left (Data) -->
+  <g class="float-fast" style="animation-delay: 0.3s;">
+    <circle cx="50" cy="250" r="25" fill="rgba(17, 24, 39, 0.95)" stroke="url(#blueGradient)" stroke-width="2" filter="url(#glow)"/>
+    <text x="50" y="257" text-anchor="middle" fill="#3b82f6" font-size="20">💾</text>
+  </g>
+  
+  <!-- Node 6 - Middle Right (Cloud) -->
+  <g class="float-slow" style="animation-delay: 0.7s;">
+    <circle cx="550" cy="250" r="25" fill="rgba(17, 24, 39, 0.95)" stroke="url(#purpleGradient)" stroke-width="2" filter="url(#glow)"/>
+    <text x="550" y="257" text-anchor="middle" fill="#a855f7" font-size="20">☁️</text>
+  </g>
+  
+  <!-- Connecting Lines -->
+  <line x1="130" y1="100" x2="200" y2="150" stroke="url(#blueGradient)" stroke-width="2" opacity="0.5" class="connecting-line" style="animation-delay: 0.5s;"/>
+  <line x1="470" y1="100" x2="400" y2="150" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.5" class="connecting-line" style="animation-delay: 0.7s;"/>
+  <line x1="110" y1="380" x2="200" y2="290" stroke="url(#blueGradient)" stroke-width="2" opacity="0.5" class="connecting-line" style="animation-delay: 0.9s;"/>
+  <line x1="490" y1="400" x2="400" y2="290" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.5" class="connecting-line" style="animation-delay: 1.1s;"/>
+  <line x1="75" y1="250" x2="200" y2="220" stroke="url(#blueGradient)" stroke-width="2" opacity="0.5" class="connecting-line" style="animation-delay: 1.3s;"/>
+  <line x1="525" y1="250" x2="400" y2="220" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.5" class="connecting-line" style="animation-delay: 1.5s;"/>
+  
+  <!-- Data Flow Particles -->
+  <circle cx="150" cy="125" r="4" fill="#3b82f6" class="data-flow" style="animation-delay: 0s;"/>
+  <circle cx="450" cy="125" r="4" fill="#a855f7" class="data-flow" style="animation-delay: 0.5s;"/>
+  <circle cx="150" cy="335" r="4" fill="#3b82f6" class="data-flow" style="animation-delay: 1s;"/>
+  <circle cx="455" cy="345" r="4" fill="#a855f7" class="data-flow" style="animation-delay: 1.5s;"/>
+  
+  <!-- Pulsing Core Node Indicators -->
+  <circle cx="300" cy="220" r="8" fill="url(#blueGradient)" class="node-pulse" style="animation-delay: 0s;"/>
+  <circle cx="100" cy="100" r="35" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3" class="node-pulse" style="animation-delay: 0.3s;"/>
+  <circle cx="500" cy="100" r="35" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.3" class="node-pulse" style="animation-delay: 0.6s;"/>
+  <circle cx="80" cy="380" r="35" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3" class="node-pulse" style="animation-delay: 0.9s;"/>
+  <circle cx="520" cy="400" r="35" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.3" class="node-pulse" style="animation-delay: 1.2s;"/>
+</svg>
