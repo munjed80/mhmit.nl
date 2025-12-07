@@ -52,10 +52,210 @@
 
     <!-- Main Content -->
     <main>
-        <section class="page-section">
+        <!-- Hero Section -->
+        <section class="hero" style="padding: 6rem 0 4rem; min-height: auto;">
             <div class="container">
-                <h1>Contact Us</h1>
-                <p>Content coming soon...</p>
+                <div class="hero-content" style="text-align: center;">
+                    <h1 class="hero-title">Get In Touch</h1>
+                    <p class="hero-subtitle">
+                        Have a project in mind? Questions about our services?<br>
+                        We'd love to hear from you. Let's start a conversation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Options Section -->
+        <section class="products-section" style="padding: 2rem 0 4rem;">
+            <div class="container">
+                <div class="services-grid">
+                    <!-- Email Contact -->
+                    <div class="service-card" style="text-align: center;">
+                        <div class="service-icon">📧</div>
+                        <h3 class="service-title">Email Us</h3>
+                        <p class="service-description" style="margin-bottom: 1.5rem;">
+                            Send us an email and we'll get back to you within 24 hours.
+                        </p>
+                        <a href="mailto:info@mhmit.nl" class="btn btn-primary" style="display: inline-block;">
+                            info@mhmit.nl
+                        </a>
+                    </div>
+
+                    <!-- WhatsApp Contact -->
+                    <div class="service-card" style="text-align: center;">
+                        <div class="service-icon">💬</div>
+                        <h3 class="service-title">WhatsApp</h3>
+                        <p class="service-description" style="margin-bottom: 1.5rem;">
+                            Chat with us directly on WhatsApp for quick responses.
+                        </p>
+                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-block; background: #25D366;">
+                            +31 6 4860 4708
+                        </a>
+                    </div>
+
+                    <!-- Schedule a Call -->
+                    <div class="service-card" style="text-align: center;">
+                        <div class="service-icon">📞</div>
+                        <h3 class="service-title">Schedule a Call</h3>
+                        <p class="service-description" style="margin-bottom: 1.5rem;">
+                            Prefer a phone conversation? Reach out and we'll set up a time.
+                        </p>
+                        <a href="mailto:info@mhmit.nl?subject=Schedule a Call" class="btn btn-primary" style="display: inline-block;">
+                            Request a Call
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div style="max-width: 800px; margin: 4rem auto 0; padding: 2rem; background: var(--bg-soft); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
+                    <h2 style="text-align: center; margin-bottom: 2rem; background: var(--color-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Send Us a Message</h2>
+                    
+                    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display: grid; gap: 1.5rem;">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Name *</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
+                            />
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Email *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
+                            />
+                        </div>
+
+                        <!-- Company (Optional) -->
+                        <div>
+                            <label for="company" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Company (Optional)</label>
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company" 
+                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
+                            />
+                        </div>
+
+                        <!-- Service Interest -->
+                        <div>
+                            <label for="service" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">I'm interested in *</label>
+                            <select 
+                                id="service" 
+                                name="service" 
+                                required 
+                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
+                            >
+                                <option value="">Select a service...</option>
+                                <option value="saas-automation">SaaS & Automation Solutions</option>
+                                <option value="dashboards">Smart Dashboards & Business Intelligence</option>
+                                <option value="ai-tools">AI-Powered Tools & Solutions</option>
+                                <option value="web-development">Web Development & Digital Solutions</option>
+                                <option value="desktop-apps">Desktop Application Development</option>
+                                <option value="consulting">Consulting & Technical Support</option>
+                                <option value="products">Interested in Our Products</option>
+                                <option value="other">Other / General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Message *</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                required 
+                                rows="6"
+                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit; resize: vertical;"
+                            ></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <button type="submit" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem; cursor: pointer;">
+                                Send Message
+                            </button>
+                        </div>
+
+                        <!-- Note about Formspree -->
+                        <p style="text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 1rem;">
+                            <em>Note: To enable this contact form, please configure Formspree or your preferred form handling service.</em>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="what-we-do" style="background: var(--bg-soft); padding: 4rem 0;">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle" style="margin-bottom: 3rem;">
+                    Quick answers to common questions
+                </p>
+                
+                <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 2rem;">
+                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">How quickly can you start on my project?</h3>
+                        <p style="color: var(--muted); line-height: 1.8;">
+                            We can typically start new projects within 1-2 weeks. For urgent requests, we offer expedited onboarding. Contact us to discuss your timeline and we'll do our best to accommodate your needs.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">What is your pricing model?</h3>
+                        <p style="color: var(--muted); line-height: 1.8;">
+                            We offer flexible pricing based on project scope, complexity, and timeline. Options include fixed-price projects, hourly rates, and monthly retainers for ongoing work. We'll provide a detailed quote after understanding your requirements.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Do you provide ongoing support after launch?</h3>
+                        <p style="color: var(--muted); line-height: 1.8;">
+                            Yes! We offer comprehensive maintenance and support packages to ensure your solution continues to perform optimally. This includes bug fixes, updates, feature enhancements, and technical support.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Can you work with our existing systems?</h3>
+                        <p style="color: var(--muted); line-height: 1.8;">
+                            Absolutely. We specialize in integrations and can work with your existing infrastructure, databases, and third-party services. We'll ensure seamless connectivity and data flow between systems.
+                        </p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">What industries do you work with?</h3>
+                        <p style="color: var(--muted); line-height: 1.8;">
+                            We've worked with clients across various industries including freelancing platforms, food & hospitality, wholesale trading, e-commerce, and professional services. Our solutions are adaptable to your specific industry needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Still Have Questions?</h2>
+                    <p class="cta-subtitle">
+                        We're here to help. Reach out through your preferred channel<br>
+                        and we'll get back to you as soon as possible.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="mailto:info@mhmit.nl" class="btn btn-primary">Email Us</a>
+                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Chat on WhatsApp</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -64,6 +264,13 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <div class="footer-contact">
+                    <a href="mailto:info@mhmit.nl" class="footer-email">info@mhmit.nl</a>
+                    <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                        <span>💬</span>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                </div>
                 <p class="footer-text">&copy; 2024 MHM IT. All rights reserved.</p>
             </div>
         </div>
