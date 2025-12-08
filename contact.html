@@ -75,8 +75,8 @@
         <section class="hero contact-hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Get In Touch</h1>
-                    <p class="hero-subtitle">
+                    <h1 class="hero-title" data-text="contact_hero_title">Get In Touch</h1>
+                    <p class="hero-subtitle" data-text="contact_hero_subtitle">
                         Have a project in mind? Questions about our services?<br>
                         We'd love to hear from you. Let's start a conversation.
                     </p>
@@ -96,8 +96,8 @@
                                 <path d="m2 7 10 7 10-7"/>
                             </svg>
                         </div>
-                        <h3 class="contact-card-title">Email Us</h3>
-                        <p class="contact-card-description">
+                        <h3 class="contact-card-title" data-text="contact_email_title">Email Us</h3>
+                        <p class="contact-card-description" data-text="contact_email_desc">
                             Send us an email and we'll get back to you within 24 hours.
                         </p>
                         <a href="mailto:info@mhmit.nl" class="btn btn-primary">
@@ -112,11 +112,11 @@
                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                             </svg>
                         </div>
-                        <h3 class="contact-card-title">WhatsApp</h3>
-                        <p class="contact-card-description">
+                        <h3 class="contact-card-title" data-text="contact_whatsapp_title">WhatsApp</h3>
+                        <p class="contact-card-description" data-text="contact_whatsapp_desc">
                             Chat with us directly on WhatsApp for quick responses.
                         </p>
-                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" data-text="contact_whatsapp_btn">
                             Chat on WhatsApp
                         </a>
                     </div>
@@ -130,11 +130,11 @@
                                 <circle cx="4" cy="4" r="2"/>
                             </svg>
                         </div>
-                        <h3 class="contact-card-title">Connect on LinkedIn</h3>
-                        <p class="contact-card-description">
+                        <h3 class="contact-card-title" data-text="contact_linkedin_title">Connect on LinkedIn</h3>
+                        <p class="contact-card-description" data-text="contact_linkedin_desc">
                             Follow us on LinkedIn for updates and professional networking.
                         </p>
-                        <a href="https://www.linkedin.com/company/mhm-it" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">
+                        <a href="https://www.linkedin.com/company/mhm-it" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin" data-text="contact_linkedin_btn">
                             Visit LinkedIn
                         </a>
                     </div>
@@ -142,32 +142,34 @@
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
-                    <h2 class="contact-form-title">Send Us a Message</h2>
+                    <h2 class="contact-form-title" data-text="contact_form_title">Send Us a Message</h2>
                     
                     <form id="contactForm" class="contact-form" action="mailto:info@mhmit.nl" method="GET">
                         <div class="form-row">
                             <!-- Name -->
                             <div class="form-group">
-                                <label for="name" class="form-label">Name *</label>
+                                <label for="name" class="form-label" data-text="contact_form_name">Name *</label>
                                 <input 
                                     type="text" 
                                     id="name" 
                                     name="name" 
                                     required 
                                     class="form-input"
+                                    data-placeholder-key="contact_form_name_placeholder"
                                     placeholder="Your full name"
                                 />
                             </div>
 
                             <!-- Email -->
                             <div class="form-group">
-                                <label for="email" class="form-label">Email *</label>
+                                <label for="email" class="form-label" data-text="contact_form_email">Email *</label>
                                 <input 
                                     type="email" 
                                     id="email" 
                                     name="email" 
                                     required 
                                     class="form-input"
+                                    data-placeholder-key="contact_form_email_placeholder"
                                     placeholder="your.email@example.com"
                                 />
                             </div>
@@ -176,56 +178,58 @@
                         <div class="form-row">
                             <!-- Company (Optional) -->
                             <div class="form-group">
-                                <label for="company" class="form-label">Company (Optional)</label>
+                                <label for="company" class="form-label" data-text="contact_form_company">Company (Optional)</label>
                                 <input 
                                     type="text" 
                                     id="company" 
                                     name="company" 
                                     class="form-input"
+                                    data-placeholder-key="contact_form_company_placeholder"
                                     placeholder="Your company name"
                                 />
                             </div>
 
                             <!-- Service Interest -->
                             <div class="form-group">
-                                <label for="service" class="form-label">I'm interested in *</label>
+                                <label for="service" class="form-label" data-text="contact_form_service">I'm interested in *</label>
                                 <select 
                                     id="service" 
                                     name="service" 
                                     required 
                                     class="form-select"
                                 >
-                                    <option value="">Select a service...</option>
-                                    <option value="saas-automation">SaaS & Automation Solutions</option>
-                                    <option value="dashboards">Smart Dashboards & Business Intelligence</option>
-                                    <option value="ai-tools">AI-Powered Tools & Solutions</option>
-                                    <option value="web-development">Web Development & Digital Solutions</option>
-                                    <option value="zzp-hub">Smart ZZP Hub Platform</option>
-                                    <option value="consulting">Consulting & Technical Support</option>
-                                    <option value="other">Other / General Inquiry</option>
+                                    <option value="" data-text="contact_form_service_placeholder">Select a service...</option>
+                                    <option value="saas-automation" data-text="contact_form_service_opt1">SaaS & Automation Solutions</option>
+                                    <option value="dashboards" data-text="contact_form_service_opt2">Smart Dashboards & Business Intelligence</option>
+                                    <option value="ai-tools" data-text="contact_form_service_opt3">AI-Powered Tools & Solutions</option>
+                                    <option value="web-development" data-text="contact_form_service_opt4">Web Development & Digital Solutions</option>
+                                    <option value="zzp-hub" data-text="contact_form_service_opt5">Smart ZZP Hub Platform</option>
+                                    <option value="consulting" data-text="contact_form_service_opt6">Consulting & Technical Support</option>
+                                    <option value="other" data-text="contact_form_service_opt7">Other / General Inquiry</option>
                                 </select>
                             </div>
                         </div>
 
                         <!-- Message -->
                         <div class="form-group">
-                            <label for="message" class="form-label">Message *</label>
+                            <label for="message" class="form-label" data-text="contact_form_message">Message *</label>
                             <textarea 
                                 id="message" 
                                 name="body" 
                                 required 
                                 rows="6"
                                 class="form-textarea"
+                                data-placeholder-key="contact_form_message_placeholder"
                                 placeholder="Tell us about your project or inquiry..."
                             ></textarea>
                         </div>
 
                         <!-- Submit Button -->
                         <div class="form-submit">
-                            <button type="submit" class="btn btn-primary btn-lg">
+                            <button type="submit" class="btn btn-primary btn-lg" data-text="contact_form_submit">
                                 Send Message
                             </button>
-                            <p class="form-note">
+                            <p class="form-note" data-text="contact_form_note">
                                 We typically respond within 24 hours
                             </p>
                         </div>
@@ -240,7 +244,7 @@
                             <circle cx="12" cy="10" r="3"/>
                         </svg>
                     </div>
-                    <h3 class="address-title">Visit Us</h3>
+                    <h3 class="address-title" data-text="contact_address_title">Visit Us</h3>
                     <address class="address-details">
                         <p class="address-company">MHM IT</p>
                         <p>Europaboulevard 371</p>
@@ -254,56 +258,56 @@
         <!-- FAQ Section -->
         <section class="faq-section">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-text="contact_faq_title">Frequently Asked Questions</h2>
+                <p class="section-subtitle" data-text="contact_faq_subtitle">
                     Quick answers to common questions
                 </p>
                 
                 <div class="faq-grid">
                     <div class="faq-card">
                         <div class="faq-icon">⚡</div>
-                        <h3 class="faq-question">How quickly can you start on my project?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-text="contact_faq_q1">How quickly can you start on my project?</h3>
+                        <p class="faq-answer" data-text="contact_faq_a1">
                             We can typically start new projects within 1-2 weeks. For urgent requests, we offer expedited onboarding. Contact us to discuss your timeline and we'll do our best to accommodate your needs.
                         </p>
                     </div>
 
                     <div class="faq-card">
                         <div class="faq-icon">💰</div>
-                        <h3 class="faq-question">What is your pricing model?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-text="contact_faq_q2">What is your pricing model?</h3>
+                        <p class="faq-answer" data-text="contact_faq_a2">
                             We offer flexible pricing based on project scope, complexity, and timeline. Options include fixed-price projects, hourly rates, and monthly retainers for ongoing work. We'll provide a detailed quote after understanding your requirements.
                         </p>
                     </div>
 
                     <div class="faq-card">
                         <div class="faq-icon">🛠️</div>
-                        <h3 class="faq-question">Do you provide ongoing support after launch?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-text="contact_faq_q3">Do you provide ongoing support after launch?</h3>
+                        <p class="faq-answer" data-text="contact_faq_a3">
                             Yes! We offer comprehensive maintenance and support packages to ensure your solution continues to perform optimally. This includes bug fixes, updates, feature enhancements, and technical support.
                         </p>
                     </div>
 
                     <div class="faq-card">
                         <div class="faq-icon">🔧</div>
-                        <h3 class="faq-question">Can you work with our existing systems?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-text="contact_faq_q4">Can you work with our existing systems?</h3>
+                        <p class="faq-answer" data-text="contact_faq_a4">
                             Absolutely. We specialize in integrations and can work with your existing infrastructure, databases, and third-party services. We'll ensure seamless connectivity and data flow between systems.
                         </p>
                     </div>
 
                     <div class="faq-card">
                         <div class="faq-icon">🏢</div>
-                        <h3 class="faq-question">What industries do you work with?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-text="contact_faq_q5">What industries do you work with?</h3>
+                        <p class="faq-answer" data-text="contact_faq_a5">
                             We've worked with clients across various industries including freelancing platforms, food & hospitality, wholesale trading, e-commerce, and professional services. Our solutions are adaptable to your specific industry needs.
                         </p>
                     </div>
 
                     <div class="faq-card">
                         <div class="faq-icon">🌍</div>
-                        <h3 class="faq-question">Do you work with international clients?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-text="contact_faq_q6">Do you work with international clients?</h3>
+                        <p class="faq-answer" data-text="contact_faq_a6">
                             Yes! While we're based in the Netherlands, we work with clients globally. We're experienced in remote collaboration and can adapt to different time zones and communication preferences.
                         </p>
                     </div>
@@ -315,14 +319,14 @@
         <section class="cta-section">
             <div class="container">
                 <div class="cta-content">
-                    <h2 class="cta-title">Still Have Questions?</h2>
-                    <p class="cta-subtitle">
+                    <h2 class="cta-title" data-text="contact_cta_title">Still Have Questions?</h2>
+                    <p class="cta-subtitle" data-text="contact_cta_subtitle">
                         We're here to help. Reach out through your preferred channel<br>
                         and we'll get back to you as soon as possible.
                     </p>
                     <div class="cta-buttons">
-                        <a href="mailto:info@mhmit.nl" class="btn btn-primary">Email Us</a>
-                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">WhatsApp</a>
+                        <a href="mailto:info@mhmit.nl" class="btn btn-primary" data-text="cta-email">Email Us</a>
+                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-text="footer-whatsapp">WhatsApp</a>
                     </div>
                 </div>
             </div>
