@@ -1239,6 +1239,377 @@ button {
 }
 
 /* ===============================================
+   Smart ZZP Hub Section
+   =============================================== */
+.zzp-hub-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.zzp-hub-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.zzp-hub-header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+    position: relative;
+    z-index: 1;
+}
+
+.zzp-hub-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(168, 85, 247, 0.15));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: var(--spacing-lg);
+    animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+    animation: iconSpin 4s linear infinite;
+}
+
+@keyframes iconSpin {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+.badge-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.zzp-title {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-lg);
+}
+
+.zzp-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-4xl);
+    position: relative;
+    z-index: 1;
+}
+
+.zzp-feature-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.9));
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.zzp-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.zzp-feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.zzp-feature-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+.zzp-feature-card.featured {
+    border-color: rgba(168, 85, 247, 0.4);
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(109, 40, 217, 0.1));
+}
+
+.zzp-feature-card.featured::before {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+}
+
+.zzp-feature-card.highlight {
+    border-color: rgba(34, 211, 238, 0.4);
+}
+
+.zzp-feature-card.highlight::before {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+}
+
+.zzp-feature-card.ai-feature {
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.9)),
+        linear-gradient(135deg, #22d3ee, #3b82f6, #a855f7);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    position: relative;
+}
+
+.zzp-feature-card.ai-feature::before {
+    display: none;
+}
+
+.zzp-feature-card.ai-feature::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.15), transparent 70%);
+    animation: aiGlow 3s ease-in-out infinite;
+}
+
+@keyframes aiGlow {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.feature-check {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.ai-check {
+    background: linear-gradient(135deg, #22d3ee, #a855f7);
+    animation: checkPulse 2s ease-in-out infinite;
+}
+
+@keyframes checkPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+    }
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.zzp-feature-card:hover .feature-icon {
+    transform: scale(1.05) rotate(-5deg);
+}
+
+.ai-icon {
+    background: linear-gradient(135deg, #22d3ee, #3b82f6, #a855f7);
+    animation: aiIconPulse 3s ease-in-out infinite;
+}
+
+@keyframes aiIconPulse {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(168, 85, 247, 0.6);
+    }
+}
+
+.feature-icon svg {
+    stroke: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.ai-badge {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(168, 85, 247, 0.2));
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    align-self: flex-start;
+    animation: badgeShimmer 2s ease-in-out infinite;
+}
+
+@keyframes badgeShimmer {
+    0%, 100% {
+        border-color: rgba(168, 85, 247, 0.4);
+    }
+    50% {
+        border-color: rgba(34, 211, 238, 0.6);
+    }
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.feature-description {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.zzp-hub-cta {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 20px;
+    padding: var(--spacing-3xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.zzp-hub-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 70%);
+    animation: ctaGlow 4s ease-in-out infinite;
+}
+
+@keyframes ctaGlow {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.zzp-cta-content {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--spacing-xl);
+}
+
+.zzp-cta-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: var(--spacing-md);
+}
+
+.zzp-cta-content p {
+    font-size: 1.125rem;
+    color: var(--muted);
+}
+
+.zzp-cta-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-lg {
+    padding: 16px 32px;
+    font-size: 1.125rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .zzp-hub-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .zzp-title {
+        font-size: 2rem;
+    }
+    
+    .zzp-hub-cta {
+        padding: var(--spacing-2xl);
+    }
+    
+    .zzp-cta-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .zzp-cta-buttons {
+        flex-direction: column;
+    }
+}
+
+/* ===============================================
    Our Solutions Section
    =============================================== */
 .solutions-section {
