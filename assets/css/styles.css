@@ -2684,7 +2684,7 @@ button {
     
     .invoice-table input,
     .invoice-table select {
-        font-size: 12px;
+        font-size: calc(var(--font-size-sm) * 0.85);
         padding: 0.375rem 0.5rem;
     }
     
