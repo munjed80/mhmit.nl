@@ -553,4 +553,163 @@
         observer.observe(card);
     });
     
+    // =============================================
+    // MARVEL ENHANCEMENTS - Hero Section Interactive Effects
+    // =============================================
+    
+    // 3D Tilt Effect on Dashboard Mockup
+    const dashboardMockup = document.querySelector('.dashboard-mockup');
+    if (dashboardMockup) {
+        dashboardMockup.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * 10;
+            const rotateY = ((centerX - x) / centerX) * 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+        
+        dashboardMockup.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    }
+    
+    // Magnetic Hover Effect on Tool Cards
+    const toolCards = document.querySelectorAll('.tool-card');
+    toolCards.forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            const moveX = x * 0.15;
+            const moveY = y * 0.15;
+            
+            this.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Parallax Effect on Scroll
+    const heroContent = document.querySelector('.hero-content');
+    const heroVisual = document.querySelector('.hero-visual');
+    
+    if (heroContent && heroVisual) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero');
+            
+            if (heroSection) {
+                const heroHeight = heroSection.offsetHeight;
+                
+                if (scrolled < heroHeight) {
+                    const parallaxSpeed = 0.5;
+                    heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+                    heroVisual.style.transform = `translateY(${scrolled * parallaxSpeed * 0.3}px)`;
+                }
+            }
+        });
+    }
+    
+    // Add shimmer effect to hero title
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        heroTitle.setAttribute('data-text', heroTitle.textContent);
+    }
+    
+    // Animated number counter for metrics (if present)
+    function animateMetrics() {
+        const metricBoxes = document.querySelectorAll('.metric-box');
+        metricBoxes.forEach(function(box, index) {
+            setTimeout(function() {
+                box.style.opacity = '0';
+                box.style.transform = 'scale(0.8)';
+                
+                setTimeout(function() {
+                    box.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    box.style.opacity = '1';
+                    box.style.transform = 'scale(1)';
+                }, 100);
+            }, index * 200);
+        });
+    }
+    
+    // Trigger metric animation when hero section is visible
+    if (document.querySelector('.metric-box')) {
+        setTimeout(animateMetrics, 1000);
+    }
+    
+    // Create floating particles effect
+    function createParticles() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+        
+        const particleCount = 20;
+        const particles = [];
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'hero-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 4 + 2}px;
+                height: ${Math.random() * 4 + 2}px;
+                background: radial-gradient(circle, rgba(59, 130, 246, 0.8), rgba(168, 85, 247, 0.4));
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                opacity: ${Math.random() * 0.5 + 0.3};
+                animation: floatParticle ${Math.random() * 10 + 10}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 5}s;
+                filter: blur(${Math.random() * 2}px);
+                z-index: 1;
+            `;
+            particles.push(particle);
+            hero.appendChild(particle);
+        }
+        
+        // Add keyframes for particle animation if not exists
+        if (!document.getElementById('particle-keyframes')) {
+            const style = document.createElement('style');
+            style.id = 'particle-keyframes';
+            style.textContent = `
+                @keyframes floatParticle {
+                    0%, 100% {
+                        transform: translate(0, 0) scale(1);
+                        opacity: 0.3;
+                    }
+                    25% {
+                        transform: translate(20px, -30px) scale(1.2);
+                        opacity: 0.6;
+                    }
+                    50% {
+                        transform: translate(-20px, -60px) scale(0.8);
+                        opacity: 0.8;
+                    }
+                    75% {
+                        transform: translate(30px, -30px) scale(1.1);
+                        opacity: 0.5;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+    
+    // Initialize particles after page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', createParticles);
+    } else {
+        createParticles();
+    }
+    
 })();
