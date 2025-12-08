@@ -601,20 +601,25 @@
     // Parallax Effect on Scroll
     const heroContent = document.querySelector('.hero-content');
     const heroVisual = document.querySelector('.hero-visual');
+    const heroSection = document.querySelector('.hero');
     
-    if (heroContent && heroVisual) {
+    if (heroContent && heroVisual && heroSection) {
+        const heroHeight = heroSection.offsetHeight;
+        let ticking = false;
+        
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('.hero');
             
-            if (heroSection) {
-                const heroHeight = heroSection.offsetHeight;
-                
-                if (scrolled < heroHeight) {
-                    const parallaxSpeed = 0.5;
-                    heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-                    heroVisual.style.transform = `translateY(${scrolled * parallaxSpeed * 0.3}px)`;
-                }
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    if (scrolled < heroHeight) {
+                        const parallaxSpeed = 0.5;
+                        heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+                        heroVisual.style.transform = `translateY(${scrolled * parallaxSpeed * 0.3}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         });
     }
@@ -629,21 +634,33 @@
     function animateMetrics() {
         const metricBoxes = document.querySelectorAll('.metric-box');
         metricBoxes.forEach(function(box, index) {
+            // Add CSS class for animation instead of inline styles
+            box.classList.add('metric-hidden');
+            
             setTimeout(function() {
-                box.style.opacity = '0';
-                box.style.transform = 'scale(0.8)';
-                
-                setTimeout(function() {
-                    box.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-                    box.style.opacity = '1';
-                    box.style.transform = 'scale(1)';
-                }, 100);
-            }, index * 200);
+                box.classList.remove('metric-hidden');
+                box.classList.add('metric-visible');
+            }, index * 200 + 100);
         });
     }
     
     // Trigger metric animation when hero section is visible
     if (document.querySelector('.metric-box')) {
+        // Add styles for metric animation
+        const metricStyle = document.createElement('style');
+        metricStyle.textContent = `
+            .metric-hidden {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            .metric-visible {
+                opacity: 1;
+                transform: scale(1);
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        `;
+        document.head.appendChild(metricStyle);
+        
         setTimeout(animateMetrics, 1000);
     }
     
@@ -653,7 +670,6 @@
         if (!hero) return;
         
         const particleCount = 20;
-        const particles = [];
         
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
@@ -673,7 +689,6 @@
                 filter: blur(${Math.random() * 2}px);
                 z-index: 1;
             `;
-            particles.push(particle);
             hero.appendChild(particle);
         }
         

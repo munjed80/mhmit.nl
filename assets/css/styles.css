@@ -784,7 +784,13 @@ button {
 
 .tool-card:hover::before {
     opacity: 0.6;
-    animation: rotateGradient 3s linear infinite;
+}
+
+/* Reduced GPU load - only apply rotation on high-performance devices */
+@media (prefers-reduced-motion: no-preference) {
+    .tool-card:hover::before {
+        animation: rotateGradient 3s linear infinite;
+    }
 }
 
 @keyframes rotateGradient {
