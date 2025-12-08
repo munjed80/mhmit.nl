@@ -576,6 +576,7 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-2xl);
+    justify-items: center;
 }
 
 .benefit-card {
@@ -614,18 +615,25 @@ button {
 }
 
 .benefit-icon {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     background: var(--color-gradient);
-    border-radius: 16px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--icon-glow-blue);
     flex-shrink: 0;
     line-height: 1;
+}
+
+.benefit-icon svg {
+    width: 48px;
+    height: 48px;
+    stroke: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .benefit-title {
@@ -633,7 +641,7 @@ button {
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text);
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
@@ -641,7 +649,7 @@ button {
     font-size: var(--font-size-base);
     color: var(--muted);
     line-height: 1.6;
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
@@ -779,6 +787,7 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-2xl);
+    justify-items: center;
 }
 
 .solution-card {
@@ -791,6 +800,7 @@ button {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .solution-card::before {
@@ -816,18 +826,25 @@ button {
 }
 
 .solution-icon {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
-    border-radius: 12px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--icon-glow-purple);
     flex-shrink: 0;
     line-height: 1;
+}
+
+.solution-icon svg {
+    width: 44px;
+    height: 44px;
+    stroke: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .solution-title {
@@ -835,6 +852,7 @@ button {
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text);
+    text-align: center;
 }
 
 .solution-description {
@@ -843,6 +861,7 @@ button {
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
     flex-grow: 1;
+    text-align: center;
 }
 
 .solution-tag {
@@ -899,6 +918,7 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-2xl);
+    justify-items: center;
 }
 
 .service-card {
@@ -951,12 +971,19 @@ button {
     line-height: 1;
 }
 
+.service-icon svg {
+    width: 44px;
+    height: 44px;
+    stroke: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
 .service-title {
     font-size: var(--font-size-xl);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text);
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
@@ -964,7 +991,7 @@ button {
     font-size: var(--font-size-base);
     color: var(--muted);
     line-height: 1.6;
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
