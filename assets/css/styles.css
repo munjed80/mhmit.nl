@@ -27,6 +27,12 @@
     --color-accent-blue: var(--accent-blue);
     --color-accent-purple: var(--accent-purple);
     
+    /* Social Media Brand Colors */
+    --telegram-color: #0088cc;
+    --x-color: #000000;
+    --linkedin-color: #0077b5;
+    --whatsapp-color: #25d366;
+    
     /* Typography */
     --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     --font-size-base: 16px;
@@ -4147,29 +4153,29 @@ button {
 }
 
 .telegram-link {
-    border-color: #0088cc;
+    border-color: var(--telegram-color);
 }
 
 .telegram-link:hover {
-    background: #0088cc;
+    background: var(--telegram-color);
     color: white;
 }
 
 .x-link {
-    border-color: #000000;
+    border-color: var(--x-color);
 }
 
 .x-link:hover {
-    background: #000000;
+    background: var(--x-color);
     color: white;
 }
 
 .linkedin-link {
-    border-color: #0077b5;
+    border-color: var(--linkedin-color);
 }
 
 .linkedin-link:hover {
-    background: #0077b5;
+    background: var(--linkedin-color);
     color: white;
 }
 
@@ -4210,9 +4216,9 @@ button {
 }
 
 .whatsapp-link:hover {
-    background: #25d366;
+    background: var(--whatsapp-color);
     color: white;
-    border-color: #25d366;
+    border-color: var(--whatsapp-color);
 }
 
 .email-link:hover {
