@@ -18,7 +18,10 @@
     // =============================================
     // Language Management
     // =============================================
-    let currentLang = localStorage.getItem('mhmit-lang') || 'en';
+    // Detect language based on current page
+    const currentPage = window.location.pathname;
+    const isDutchPage = currentPage.includes('index-nl.html') || currentPage.includes('-nl.html');
+    let currentLang = isDutchPage ? 'nl' : (localStorage.getItem('mhmit-lang') || 'en');
     
     // Language text content
     const translations = {
@@ -420,7 +423,17 @@
     langButtons.forEach(btn => {
         btn.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
-            updateLanguage(lang);
+            
+            // If switching languages, redirect to appropriate page
+            if (lang === 'nl' && !isDutchPage) {
+                // Redirect to Dutch version
+                window.location.href = 'index-nl.html';
+            } else if (lang === 'en' && isDutchPage) {
+                // Redirect to English version
+                window.location.href = 'index.html';
+            } else {
+                updateLanguage(lang);
+            }
         });
     });
     
