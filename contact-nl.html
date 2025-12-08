@@ -40,18 +40,30 @@
                             <a href="index.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="services.html" class="nav-link">Services</a>
+                            <a href="services.html" class="nav-link">Diensten</a>
                         </li>
                         <li class="nav-item">
-                            <a href="products.html" class="nav-link">Products</a>
+                            <a href="products.html" class="nav-link">Producten</a>
                         </li>
                         <li class="nav-item">
-                            <a href="about.html" class="nav-link">About</a>
+                            <a href="about.html" class="nav-link">Over Ons</a>
                         </li>
                         <li class="nav-item">
                             <a href="contact.html" class="nav-link active">Contact</a>
                         </li>
                     </ul>
+                    
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <span class="lang-separator">|</span>
+                        <button class="lang-btn active" data-lang="nl">NL</button>
+                    </div>
+                    
+                    <!-- Gratis Tools Link -->
+                    <div class="gratis-tools-nav">
+                        <a href="factuur.html" class="nav-link gratis-tools-link">Gratis Tools</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -60,200 +72,239 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 6rem 0 4rem; min-height: auto;">
+        <section class="hero contact-hero">
             <div class="container">
-                <div class="hero-content" style="text-align: center;">
-                    <h1 class="hero-title">Get In Touch</h1>
+                <div class="hero-content">
+                    <h1 class="hero-title">Neem Contact Op</h1>
                     <p class="hero-subtitle">
-                        Have a project in mind? Questions about our services?<br>
-                        We'd love to hear from you. Let's start a conversation.
+                        Heeft u een project in gedachten? Vragen over onze diensten?<br>
+                        We horen graag van u. Laten we een gesprek starten.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Contact Options Section -->
-        <section class="products-section" style="padding: 2rem 0 4rem;">
+        <section class="contact-options">
             <div class="container">
-                <div class="services-grid">
+                <div class="contact-methods">
                     <!-- Email Contact -->
-                    <div class="service-card" style="text-align: center;">
-                        <div class="service-icon">📧</div>
-                        <h3 class="service-title">Email Us</h3>
-                        <p class="service-description" style="margin-bottom: 1.5rem;">
-                            Send us an email and we'll get back to you within 24 hours.
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="m2 7 10 7 10-7"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">Mail Ons</h3>
+                        <p class="contact-card-description">
+                            Stuur ons een e-mail en we nemen binnen 24 uur contact met u op.
                         </p>
-                        <a href="mailto:info@mhmit.nl" class="btn btn-primary" style="display: inline-block;">
+                        <a href="mailto:info@mhmit.nl" class="btn btn-primary">
                             info@mhmit.nl
                         </a>
                     </div>
 
                     <!-- WhatsApp Contact -->
-                    <div class="service-card" style="text-align: center;">
-                        <div class="service-icon">💬</div>
-                        <h3 class="service-title">WhatsApp</h3>
-                        <p class="service-description" style="margin-bottom: 1.5rem;">
-                            Chat with us directly on WhatsApp for quick responses.
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">WhatsApp</h3>
+                        <p class="contact-card-description">
+                            Chat direct met ons via WhatsApp voor snelle antwoorden.
                         </p>
-                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-block; background: #25D366;">
-                            Chat on WhatsApp
+                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                            Chat via WhatsApp
                         </a>
                     </div>
 
-                    <!-- Schedule a Call -->
-                    <div class="service-card" style="text-align: center;">
-                        <div class="service-icon">📞</div>
-                        <h3 class="service-title">Schedule a Call</h3>
-                        <p class="service-description" style="margin-bottom: 1.5rem;">
-                            Prefer a phone conversation? Reach out and we'll set up a time.
+                    <!-- LinkedIn Contact -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">Verbind op LinkedIn</h3>
+                        <p class="contact-card-description">
+                            Volg ons op LinkedIn voor updates en professioneel netwerken.
                         </p>
-                        <a href="mailto:info@mhmit.nl?subject=Schedule a Call" class="btn btn-primary" style="display: inline-block;">
-                            Request a Call
+                        <a href="https://www.linkedin.com/company/mhm-it" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">
+                            Bezoek LinkedIn
                         </a>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
-                <div style="max-width: 800px; margin: 4rem auto 0; padding: 2rem; background: var(--bg-soft); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
-                    <h2 style="text-align: center; margin-bottom: 2rem; background: var(--color-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Send Us a Message</h2>
+                <div class="contact-form-wrapper">
+                    <h2 class="contact-form-title">Stuur Ons een Bericht</h2>
                     
-                    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display: grid; gap: 1.5rem;">
-                        <!-- Name -->
-                        <div>
-                            <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Name *</label>
-                            <input 
-                                type="text" 
-                                id="name" 
-                                name="name" 
-                                required 
-                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
-                            />
+                    <form id="contactForm" class="contact-form" action="mailto:info@mhmit.nl" method="GET">
+                        <div class="form-row">
+                            <!-- Name -->
+                            <div class="form-group">
+                                <label for="name" class="form-label">Naam *</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    required 
+                                    class="form-input"
+                                    placeholder="Uw volledige naam"
+                                />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-mail *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    required 
+                                    class="form-input"
+                                    placeholder="uw.email@voorbeeld.nl"
+                                />
+                            </div>
                         </div>
 
-                        <!-- Email -->
-                        <div>
-                            <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Email *</label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                required 
-                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
-                            />
-                        </div>
+                        <div class="form-row">
+                            <!-- Company (Optional) -->
+                            <div class="form-group">
+                                <label for="company" class="form-label">Bedrijf (Optioneel)</label>
+                                <input 
+                                    type="text" 
+                                    id="company" 
+                                    name="company" 
+                                    class="form-input"
+                                    placeholder="Uw bedrijfsnaam"
+                                />
+                            </div>
 
-                        <!-- Company (Optional) -->
-                        <div>
-                            <label for="company" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Company (Optional)</label>
-                            <input 
-                                type="text" 
-                                id="company" 
-                                name="company" 
-                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
-                            />
-                        </div>
-
-                        <!-- Service Interest -->
-                        <div>
-                            <label for="service" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">I'm interested in *</label>
-                            <select 
-                                id="service" 
-                                name="service" 
-                                required 
-                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit;"
-                            >
-                                <option value="">Select a service...</option>
-                                <option value="saas-automation">SaaS & Automation Solutions</option>
-                                <option value="dashboards">Smart Dashboards & Business Intelligence</option>
-                                <option value="ai-tools">AI-Powered Tools & Solutions</option>
-                                <option value="web-development">Web Development & Digital Solutions</option>
-                                <option value="desktop-apps">Desktop Application Development</option>
-                                <option value="consulting">Consulting & Technical Support</option>
-                                <option value="products">Interested in Our Products</option>
-                                <option value="other">Other / General Inquiry</option>
-                            </select>
+                            <!-- Service Interest -->
+                            <div class="form-group">
+                                <label for="service" class="form-label">Ik ben geïnteresseerd in *</label>
+                                <select 
+                                    id="service" 
+                                    name="service" 
+                                    required 
+                                    class="form-select"
+                                >
+                                    <option value="">Selecteer een dienst...</option>
+                                    <option value="saas-automation">SaaS & Automatiseringsoplossingen</option>
+                                    <option value="dashboards">Slimme Dashboards & Business Intelligence</option>
+                                    <option value="ai-tools">AI-Aangedreven Tools & Oplossingen</option>
+                                    <option value="web-development">Webontwikkeling & Digitale Oplossingen</option>
+                                    <option value="zzp-hub">Smart ZZP Hub Platform</option>
+                                    <option value="consulting">Consulting & Technische Ondersteuning</option>
+                                    <option value="other">Anders / Algemene Vraag</option>
+                                </select>
+                            </div>
                         </div>
 
                         <!-- Message -->
-                        <div>
-                            <label for="message" style="display: block; margin-bottom: 0.5rem; color: var(--text); font-weight: 500;">Message *</label>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Bericht *</label>
                             <textarea 
                                 id="message" 
-                                name="message" 
+                                name="body" 
                                 required 
                                 rows="6"
-                                style="width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid rgba(109, 40, 217, 0.3); border-radius: var(--border-radius); color: var(--text); font-size: 1rem; font-family: inherit; resize: vertical;"
+                                class="form-textarea"
+                                placeholder="Vertel ons over uw project of vraag..."
                             ></textarea>
                         </div>
 
                         <!-- Submit Button -->
-                        <div style="text-align: center; margin-top: 1rem;">
-                            <button type="submit" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem; cursor: pointer;">
-                                Send Message
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Verstuur Bericht
                             </button>
+                            <p class="form-note">
+                                We reageren meestal binnen 24 uur
+                            </p>
                         </div>
-
-                        <!-- Note about Formspree -->
-                        <p style="text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 1rem;">
-                            <em>Note: To enable this contact form, please configure Formspree or your preferred form handling service.</em>
-                        </p>
                     </form>
                 </div>
                 
                 <!-- Company Address -->
-                <div style="max-width: 800px; margin: 3rem auto 0; padding: 2rem; background: var(--bg-soft); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2); text-align: center;">
-                    <h3 style="color: var(--accent-blue); margin-bottom: 1.5rem; font-size: var(--font-size-xl);" data-text="contact_address_title">Visit Us</h3>
-                    <div style="color: var(--text); line-height: 1.8;">
-                        <p style="margin: 0.25rem 0; font-weight: 600;">MHM IT</p>
-                        <p style="margin: 0.25rem 0;">Europaboulevard 371</p>
-                        <p style="margin: 0.25rem 0;">1825 RL Alkmaar</p>
-                        <p style="margin: 0.25rem 0;">The Netherlands</p>
+                <div class="contact-address">
+                    <div class="address-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
                     </div>
+                    <h3 class="address-title">Bezoek Ons</h3>
+                    <address class="address-details">
+                        <p class="address-company">MHM IT</p>
+                        <p>Europaboulevard 371</p>
+                        <p>1825 RL Alkmaar</p>
+                        <p>Nederland</p>
+                    </address>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section class="what-we-do" style="background: var(--bg-soft); padding: 4rem 0;">
+        <section class="faq-section">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle" style="margin-bottom: 3rem;">
-                    Quick answers to common questions
+                <h2 class="section-title">Veelgestelde Vragen</h2>
+                <p class="section-subtitle">
+                    Snelle antwoorden op veelgestelde vragen
                 </p>
                 
-                <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 2rem;">
-                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
-                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">How quickly can you start on my project?</h3>
-                        <p style="color: var(--muted); line-height: 1.8;">
-                            We can typically start new projects within 1-2 weeks. For urgent requests, we offer expedited onboarding. Contact us to discuss your timeline and we'll do our best to accommodate your needs.
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <div class="faq-icon">⚡</div>
+                        <h3 class="faq-question">Hoe snel kunt u beginnen aan mijn project?</h3>
+                        <p class="faq-answer">
+                            We kunnen meestal binnen 1-2 weken starten met nieuwe projecten. Voor urgente verzoeken bieden we versnelde onboarding. Neem contact op om uw tijdlijn te bespreken en we doen ons best om aan uw behoeften te voldoen.
                         </p>
                     </div>
 
-                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
-                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">What is your pricing model?</h3>
-                        <p style="color: var(--muted); line-height: 1.8;">
-                            We offer flexible pricing based on project scope, complexity, and timeline. Options include fixed-price projects, hourly rates, and monthly retainers for ongoing work. We'll provide a detailed quote after understanding your requirements.
+                    <div class="faq-card">
+                        <div class="faq-icon">💰</div>
+                        <h3 class="faq-question">Wat is uw prijsmodel?</h3>
+                        <p class="faq-answer">
+                            We bieden flexibele prijzen op basis van projectomvang, complexiteit en tijdlijn. Opties omvatten vast geprijsde projecten, uurtarieven en maandelijkse retainers voor doorlopend werk. We verstrekken een gedetailleerde offerte na begrip van uw vereisten.
                         </p>
                     </div>
 
-                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
-                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Do you provide ongoing support after launch?</h3>
-                        <p style="color: var(--muted); line-height: 1.8;">
-                            Yes! We offer comprehensive maintenance and support packages to ensure your solution continues to perform optimally. This includes bug fixes, updates, feature enhancements, and technical support.
+                    <div class="faq-card">
+                        <div class="faq-icon">🛠️</div>
+                        <h3 class="faq-question">Biedt u doorlopende ondersteuning na lancering?</h3>
+                        <p class="faq-answer">
+                            Ja! We bieden uitgebreide onderhouds- en ondersteuningspakketten om ervoor te zorgen dat uw oplossing optimaal blijft presteren. Dit omvat bugfixes, updates, functie-uitbreidingen en technische ondersteuning.
                         </p>
                     </div>
 
-                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
-                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Can you work with our existing systems?</h3>
-                        <p style="color: var(--muted); line-height: 1.8;">
-                            Absolutely. We specialize in integrations and can work with your existing infrastructure, databases, and third-party services. We'll ensure seamless connectivity and data flow between systems.
+                    <div class="faq-card">
+                        <div class="faq-icon">🔧</div>
+                        <h3 class="faq-question">Kunt u werken met onze bestaande systemen?</h3>
+                        <p class="faq-answer">
+                            Absoluut. We zijn gespecialiseerd in integraties en kunnen werken met uw bestaande infrastructuur, databases en services van derden. We zorgen voor naadloze connectiviteit en gegevensstroom tussen systemen.
                         </p>
                     </div>
 
-                    <div style="padding: 1.5rem; background: var(--bg); border-radius: var(--border-radius); border: 1px solid rgba(109, 40, 217, 0.2);">
-                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">What industries do you work with?</h3>
-                        <p style="color: var(--muted); line-height: 1.8;">
-                            We've worked with clients across various industries including freelancing platforms, food & hospitality, wholesale trading, e-commerce, and professional services. Our solutions are adaptable to your specific industry needs.
+                    <div class="faq-card">
+                        <div class="faq-icon">🏢</div>
+                        <h3 class="faq-question">Met welke sectoren werkt u?</h3>
+                        <p class="faq-answer">
+                            We hebben gewerkt met klanten in verschillende sectoren, waaronder freelance platforms, food & hospitality, groothandel, e-commerce en professionele diensten. Onze oplossingen zijn aanpasbaar aan uw specifieke branchebehoeften.
+                        </p>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-icon">🌍</div>
+                        <h3 class="faq-question">Werkt u met internationale klanten?</h3>
+                        <p class="faq-answer">
+                            Ja! Hoewel we gevestigd zijn in Nederland, werken we met klanten wereldwijd. We hebben ervaring met samenwerking op afstand en kunnen ons aanpassen aan verschillende tijdzones en communicatievoorkeuren.
                         </p>
                     </div>
                 </div>
@@ -264,14 +315,14 @@
         <section class="cta-section">
             <div class="container">
                 <div class="cta-content">
-                    <h2 class="cta-title">Still Have Questions?</h2>
+                    <h2 class="cta-title">Heeft U Nog Vragen?</h2>
                     <p class="cta-subtitle">
-                        We're here to help. Reach out through your preferred channel<br>
-                        and we'll get back to you as soon as possible.
+                        We staan klaar om te helpen. Neem contact op via uw favoriete kanaal<br>
+                        en we nemen zo snel mogelijk contact met u op.
                     </p>
                     <div class="cta-buttons">
-                        <a href="mailto:info@mhmit.nl" class="btn btn-primary">Email Us</a>
-                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Contact Us</a>
+                        <a href="mailto:info@mhmit.nl" class="btn btn-primary">Mail Ons</a>
+                        <a href="https://wa.me/31648604708" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">WhatsApp</a>
                     </div>
                 </div>
             </div>
