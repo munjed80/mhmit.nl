@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#0d1117"/>
+  
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f35;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f35;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:0.3" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1f2937" stroke-width="1" opacity="0.3"/>
+  </pattern>
+  <rect width="1200" height="600" fill="url(#grid)"/>
+  
+  <!-- Central Code Editor Mockup -->
+  <g transform="translate(150, 80)">
+    <!-- Editor Window -->
+    <rect x="0" y="0" width="900" height="440" rx="12" fill="#161b22" stroke="url(#codeGradient)" stroke-width="2"/>
+    
+    <!-- Window Header -->
+    <rect x="0" y="0" width="900" height="40" rx="12" fill="#1f2937"/>
+    <rect x="0" y="40" width="900" height="400" rx="0" fill="#0d1117"/>
+    
+    <!-- Traffic Lights -->
+    <circle cx="20" cy="20" r="6" fill="#f87171"/>
+    <circle cx="40" cy="20" r="6" fill="#fbbf24"/>
+    <circle cx="60" cy="20" r="6" fill="#4ade80"/>
+    
+    <!-- Tab -->
+    <rect x="90" y="8" width="120" height="24" rx="4" fill="#0d1117"/>
+    <text x="110" y="25" font-family="monospace" font-size="12" fill="#9ca3af">index.js</text>
+    
+    <!-- Line Numbers -->
+    <g font-family="monospace" font-size="14" fill="#4b5563">
+      <text x="20" y="70">1</text>
+      <text x="20" y="95">2</text>
+      <text x="20" y="120">3</text>
+      <text x="20" y="145">4</text>
+      <text x="20" y="170">5</text>
+      <text x="20" y="195">6</text>
+      <text x="20" y="220">7</text>
+      <text x="20" y="245">8</text>
+      <text x="20" y="270">9</text>
+      <text x="15" y="295">10</text>
+      <text x="15" y="320">11</text>
+      <text x="15" y="345">12</text>
+      <text x="15" y="370">13</text>
+      <text x="15" y="395">14</text>
+      <text x="15" y="420">15</text>
+    </g>
+    
+    <!-- Code Content -->
+    <g font-family="monospace" font-size="14">
+      <!-- Line 1: import -->
+      <text x="50" y="70" fill="#c792ea">import</text>
+      <text x="110" y="70" fill="#e5e7eb"> { </text>
+      <text x="135" y="70" fill="#82aaff">SmartSolution</text>
+      <text x="265" y="70" fill="#e5e7eb"> } </text>
+      <text x="290" y="70" fill="#c792ea">from</text>
+      <text x="340" y="70" fill="#c3e88d"> '@mhmit/automation'</text>
+      <text x="545" y="70" fill="#e5e7eb">;</text>
+      
+      <!-- Line 2: blank -->
+      
+      <!-- Line 3: comment -->
+      <text x="50" y="120" fill="#697098">// Intelligente oplossing voor bedrijven</text>
+      
+      <!-- Line 4: const -->
+      <text x="50" y="145" fill="#c792ea">const</text>
+      <text x="110" y="145" fill="#82aaff"> solution</text>
+      <text x="210" y="145" fill="#89ddff"> =</text>
+      <text x="235" y="145" fill="#c792ea"> new</text>
+      <text x="280" y="145" fill="#82aaff"> SmartSolution</text>
+      <text x="425" y="145" fill="#e5e7eb">(</text>
+      <text x="440" y="145" fill="#e5e7eb">{</text>
+      
+      <!-- Line 5: property -->
+      <text x="80" y="170" fill="#e5e7eb">  automation:</text>
+      <text x="200" y="170" fill="#c3e88d"> 'AI-powered'</text>
+      <text x="325" y="170" fill="#e5e7eb">,</text>
+      
+      <!-- Line 6: property -->
+      <text x="80" y="195" fill="#e5e7eb">  efficiency:</text>
+      <text x="200" y="195" fill="#f78c6c"> 99.9</text>
+      <text x="250" y="195" fill="#e5e7eb">,</text>
+      
+      <!-- Line 7: property -->
+      <text x="80" y="220" fill="#e5e7eb">  scalable:</text>
+      <text x="200" y="220" fill="#ff5572"> true</text>
+      <text x="250" y="220" fill="#e5e7eb">,</text>
+      
+      <!-- Line 8: property -->
+      <text x="80" y="245" fill="#e5e7eb">  features: [</text>
+      <text x="200" y="245" fill="#c3e88d">'Dashboard'</text>
+      <text x="315" y="245" fill="#e5e7eb">,</text>
+      <text x="335" y="245" fill="#c3e88d"> 'Analytics'</text>
+      <text x="455" y="245" fill="#e5e7eb">,</text>
+      <text x="475" y="245" fill="#c3e88d"> 'AI'</text>
+      <text x="515" y="245" fill="#e5e7eb">]</text>
+      
+      <!-- Line 9: closing -->
+      <text x="50" y="270" fill="#e5e7eb">});</text>
+      
+      <!-- Line 10: blank -->
+      
+      <!-- Line 11: comment -->
+      <text x="50" y="320" fill="#697098">// Transformeer uw bedrijf</text>
+      
+      <!-- Line 12: function -->
+      <text x="50" y="345" fill="#c792ea">async function</text>
+      <text x="180" y="345" fill="#82aaff"> transformBusiness</text>
+      <text x="355" y="345" fill="#e5e7eb">() {</text>
+      
+      <!-- Line 13: await -->
+      <text x="80" y="370" fill="#c792ea">  await</text>
+      <text x="135" y="370" fill="#e5e7eb"> solution.</text>
+      <text x="235" y="370" fill="#82aaff">optimize</text>
+      <text x="335" y="370" fill="#e5e7eb">();</text>
+      
+      <!-- Line 14: return -->
+      <text x="80" y="395" fill="#c792ea">  return</text>
+      <text x="145" y="395" fill="#c3e88d"> 'Succes!'</text>
+      <text x="245" y="395" fill="#e5e7eb">;</text>
+      
+      <!-- Line 15: closing -->
+      <text x="50" y="420" fill="#e5e7eb">}</text>
+    </g>
+    
+    <!-- Cursor Blink -->
+    <rect x="285" y="405" width="2" height="18" fill="#3b82f6" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0;0.8" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Floating Elements -->
+  <!-- Terminal Window -->
+  <g transform="translate(80, 350)">
+    <rect x="0" y="0" width="280" height="160" rx="8" fill="#0d1117" stroke="#3b82f6" stroke-width="1.5" opacity="0.9"/>
+    <rect x="0" y="0" width="280" height="28" rx="8" fill="#1f2937"/>
+    <circle cx="16" cy="14" r="4" fill="#f87171"/>
+    <circle cx="32" cy="14" r="4" fill="#fbbf24"/>
+    <circle cx="48" cy="14" r="4" fill="#4ade80"/>
+    
+    <text x="16" y="55" font-family="monospace" font-size="12" fill="#4ade80">$ npm run build</text>
+    <text x="16" y="80" font-family="monospace" font-size="11" fill="#9ca3af">✓ Compiled successfully</text>
+    <text x="16" y="100" font-family="monospace" font-size="11" fill="#9ca3af">✓ Optimized for production</text>
+    <text x="16" y="120" font-family="monospace" font-size="11" fill="#3b82f6">Build time: 2.4s</text>
+    <rect x="16" y="130" width="8" height="14" fill="#3b82f6">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Analytics Chart -->
+  <g transform="translate(850, 120)">
+    <rect x="0" y="0" width="260" height="180" rx="8" fill="#0d1117" stroke="#6d28d9" stroke-width="1.5" opacity="0.9"/>
+    <text x="16" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#e5e7eb">Performance</text>
+    
+    <!-- Bar Chart -->
+    <rect x="30" y="60" width="30" height="80" rx="4" fill="url(#codeGradient)" opacity="0.7"/>
+    <rect x="75" y="40" width="30" height="100" rx="4" fill="url(#codeGradient)" opacity="0.8"/>
+    <rect x="120" y="50" width="30" height="90" rx="4" fill="url(#codeGradient)" opacity="0.7"/>
+    <rect x="165" y="30" width="30" height="110" rx="4" fill="url(#codeGradient)" opacity="0.9"/>
+    <rect x="210" y="20" width="30" height="120" rx="4" fill="url(#codeGradient)"/>
+    
+    <text x="16" y="165" font-family="monospace" font-size="10" fill="#4ade80">↑ 156% efficiency</text>
+  </g>
+  
+  <!-- Database Icon -->
+  <g transform="translate(850, 350)">
+    <rect x="0" y="0" width="120" height="120" rx="8" fill="#0d1117" stroke="#22d3ee" stroke-width="1.5" opacity="0.9"/>
+    <g transform="translate(35, 30)">
+      <ellipse cx="25" cy="15" rx="22" ry="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M 3 15 L 3 35 Q 3 43 25 43 Q 47 43 47 35 L 47 15" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <ellipse cx="25" cy="35" rx="22" ry="8" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M 3 25 Q 3 33 25 33 Q 47 33 47 25" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+    </g>
+    <text x="20" y="95" font-family="sans-serif" font-size="11" fill="#22d3ee">Database</text>
+  </g>
+  
+  <!-- Code Brackets Decoration -->
+  <g transform="translate(50, 100)" opacity="0.3">
+    <text x="0" y="0" font-family="monospace" font-size="120" fill="url(#codeGradient)">{</text>
+  </g>
+  
+  <g transform="translate(1080, 450)" opacity="0.3">
+    <text x="0" y="0" font-family="monospace" font-size="120" fill="url(#codeGradient)">}</text>
+  </g>
+  
+  <!-- Glowing Particles -->
+  <circle cx="200" cy="50" r="3" fill="#3b82f6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="900" cy="80" r="2" fill="#6d28d9" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1100" cy="200" r="2.5" fill="#22d3ee" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="120" cy="450" r="2" fill="#3b82f6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
