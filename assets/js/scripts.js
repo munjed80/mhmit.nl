@@ -427,10 +427,31 @@
             // If switching languages, redirect to appropriate page
             if (lang === 'nl' && !isDutchPage) {
                 // Redirect to Dutch version
-                window.location.href = 'index-nl.html';
+                const currentFileName = window.location.pathname.split('/').pop() || 'index.html';
+                let dutchPage = 'index-nl.html'; // Default to homepage
+                
+                // Map pages to their Dutch equivalents
+                if (currentFileName === 'contact.html') {
+                    dutchPage = 'contact-nl.html';
+                } else if (currentFileName === 'index.html') {
+                    dutchPage = 'index-nl.html';
+                }
+                // For pages without Dutch version (services, products, about), redirect to homepage
+                
+                window.location.href = dutchPage;
             } else if (lang === 'en' && isDutchPage) {
                 // Redirect to English version
-                window.location.href = 'index.html';
+                const currentFileName = window.location.pathname.split('/').pop() || 'index-nl.html';
+                let englishPage = 'index.html'; // Default to homepage
+                
+                // Map Dutch pages to their English equivalents
+                if (currentFileName === 'contact-nl.html') {
+                    englishPage = 'contact.html';
+                } else if (currentFileName === 'index-nl.html') {
+                    englishPage = 'index.html';
+                }
+                
+                window.location.href = englishPage;
             } else {
                 updateLanguage(lang);
             }
