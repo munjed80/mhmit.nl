@@ -1626,6 +1626,57 @@ button {
     background: var(--bg-soft);
 }
 
+/* Programming Showcase Image */
+.programming-showcase {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 100px rgba(59, 130, 246, 0.15),
+                0 0 50px rgba(109, 40, 217, 0.2);
+    background: linear-gradient(135deg, rgba(13, 17, 23, 0.95), rgba(31, 41, 55, 0.9));
+    border: 2px solid rgba(109, 40, 217, 0.3);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.programming-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(109, 40, 217, 0.05));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.programming-showcase:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5),
+                0 0 120px rgba(59, 130, 246, 0.25),
+                0 0 70px rgba(109, 40, 217, 0.3);
+    border-color: rgba(109, 40, 217, 0.5);
+}
+
+.showcase-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .programming-showcase {
+        margin: 0 auto 2rem auto;
+        border-radius: 12px;
+    }
+}
+
 .solutions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
