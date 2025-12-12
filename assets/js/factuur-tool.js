@@ -399,7 +399,7 @@
                 <style>
                     * { margin: 0; padding: 0; box-sizing: border-box; }
                     body {
-                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
                         padding: 40px 50px;
                         color: #1a1a1a;
                         background: white;
@@ -572,7 +572,7 @@
                     @media print {
                         body { 
                             padding: 0.6in 0.8in;
-                            max-width: 100%;
+                            max-width: 7.5in;
                         }
                         .no-print { 
                             display: none; 
