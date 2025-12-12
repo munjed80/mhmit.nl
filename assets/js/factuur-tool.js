@@ -399,12 +399,12 @@
                 <style>
                     * { margin: 0; padding: 0; box-sizing: border-box; }
                     body {
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
                         padding: 40px 50px;
                         color: #1a1a1a;
                         background: white;
                         line-height: 1.6;
-                        max-width: 210mm;
+                        max-width: 800px;
                         margin: 0 auto;
                     }
                     
@@ -571,7 +571,8 @@
                     
                     @media print {
                         body { 
-                            padding: 15mm 20mm;
+                            padding: 0.6in 0.8in;
+                            max-width: 100%;
                         }
                         .no-print { 
                             display: none; 
