@@ -349,6 +349,9 @@
         const companyPostcodeCity = document.getElementById('company-postcode-city').value;
         const companyBtw = document.getElementById('company-btw').value;
         const companyKvk = document.getElementById('company-kvk').value;
+        const companyIban = document.getElementById('company-iban').value;
+        const companyBank = document.getElementById('company-bank').value;
+        const companyAccountHolder = document.getElementById('company-account-holder').value;
         
         const clientName = document.getElementById('client-name').value;
         const clientAddress = document.getElementById('client-address').value;
@@ -396,93 +399,202 @@
                 <style>
                     * { margin: 0; padding: 0; box-sizing: border-box; }
                     body {
-                        font-family: Arial, sans-serif;
-                        padding: 40px;
-                        color: #333;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        padding: 40px 50px;
+                        color: #1a1a1a;
                         background: white;
+                        line-height: 1.6;
+                        max-width: 210mm;
+                        margin: 0 auto;
                     }
+                    
+                    /* Header Section */
                     .invoice-header {
-                        margin-bottom: 40px;
-                        border-bottom: 3px solid #3b82f6;
-                        padding-bottom: 20px;
+                        margin-bottom: 35px;
+                        padding-bottom: 25px;
+                        border-bottom: 2px solid #e0e0e0;
+                    }
+                    .company-name-header {
+                        font-size: 28px;
+                        font-weight: 700;
+                        color: #1a1a1a;
+                        margin-bottom: 8px;
+                        letter-spacing: -0.5px;
                     }
                     .invoice-title {
-                        font-size: 32px;
-                        font-weight: bold;
+                        font-size: 18px;
+                        font-weight: 600;
                         color: #3b82f6;
-                        margin-bottom: 10px;
-                    }
-                    .invoice-meta {
-                        display: flex;
-                        justify-content: space-between;
-                        margin-top: 20px;
-                    }
-                    .company-info, .client-info {
-                        width: 48%;
-                    }
-                    .section-title {
-                        font-weight: bold;
-                        font-size: 14px;
-                        color: #666;
-                        margin-bottom: 10px;
                         text-transform: uppercase;
+                        letter-spacing: 1px;
                     }
-                    .info-line {
-                        margin-bottom: 5px;
-                        line-height: 1.6;
-                    }
+                    
+                    /* Invoice Details (top right) */
                     .invoice-details {
                         text-align: right;
                         margin-bottom: 30px;
+                        font-size: 13px;
+                        line-height: 1.8;
                     }
                     .invoice-details div {
-                        margin-bottom: 5px;
+                        margin-bottom: 4px;
                     }
+                    .invoice-details strong {
+                        color: #666;
+                        font-weight: 600;
+                    }
+                    
+                    /* Parties Section */
+                    .invoice-parties {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 35px;
+                        gap: 30px;
+                    }
+                    .company-info, .client-info {
+                        flex: 1;
+                    }
+                    .section-title {
+                        font-weight: 700;
+                        font-size: 11px;
+                        color: #666;
+                        margin-bottom: 12px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.8px;
+                        border-bottom: 1px solid #e0e0e0;
+                        padding-bottom: 6px;
+                    }
+                    .info-line {
+                        margin-bottom: 4px;
+                        line-height: 1.6;
+                        font-size: 13px;
+                        color: #333;
+                    }
+                    .info-line strong {
+                        font-size: 14px;
+                        color: #1a1a1a;
+                    }
+                    
+                    /* Line Items Table */
                     table {
                         width: 100%;
                         border-collapse: collapse;
                         margin: 30px 0;
+                        font-size: 13px;
                     }
                     th {
-                        background: #f3f4f6;
-                        padding: 12px;
+                        background: #f8f9fa;
+                        padding: 12px 10px;
                         text-align: left;
-                        font-weight: bold;
+                        font-weight: 600;
                         border-bottom: 2px solid #3b82f6;
+                        font-size: 12px;
+                        color: #1a1a1a;
+                        text-transform: uppercase;
+                        letter-spacing: 0.3px;
                     }
                     td {
-                        padding: 10px 12px;
-                        border-bottom: 1px solid #e5e7eb;
+                        padding: 12px 10px;
+                        border-bottom: 1px solid #e8e8e8;
+                        vertical-align: top;
                     }
+                    tbody tr:last-child td {
+                        border-bottom: 2px solid #e0e0e0;
+                    }
+                    
+                    /* Totals Section */
                     .totals {
-                        margin-top: 30px;
+                        margin-top: 25px;
                         margin-left: auto;
-                        width: 300px;
+                        width: 320px;
+                        border-top: 2px solid #e0e0e0;
+                        padding-top: 15px;
                     }
                     .total-row {
                         display: flex;
                         justify-content: space-between;
-                        padding: 8px 0;
+                        padding: 6px 0;
+                        font-size: 13px;
                     }
                     .total-row.grand {
                         border-top: 2px solid #3b82f6;
-                        margin-top: 10px;
+                        margin-top: 12px;
                         padding-top: 12px;
-                        font-size: 18px;
-                        font-weight: bold;
+                        font-size: 17px;
+                        font-weight: 700;
+                        color: #1a1a1a;
                     }
+                    
+                    /* Payment Details Section */
+                    .payment-section {
+                        margin-top: 40px;
+                        padding: 20px;
+                        background: #f8f9fa;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 6px;
+                    }
+                    .payment-title {
+                        font-weight: 700;
+                        font-size: 14px;
+                        color: #1a1a1a;
+                        margin-bottom: 15px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.8px;
+                        border-bottom: 2px solid #3b82f6;
+                        padding-bottom: 8px;
+                    }
+                    .payment-details {
+                        display: grid;
+                        gap: 8px;
+                        font-size: 13px;
+                    }
+                    .payment-row {
+                        display: flex;
+                        padding: 4px 0;
+                    }
+                    .payment-label {
+                        font-weight: 600;
+                        color: #666;
+                        min-width: 140px;
+                    }
+                    .payment-value {
+                        color: #1a1a1a;
+                        font-weight: 500;
+                    }
+                    
+                    /* Separator */
+                    .section-separator {
+                        margin: 30px 0;
+                        border: none;
+                        border-top: 1px solid #e0e0e0;
+                    }
+                    
                     @media print {
-                        body { padding: 20px; }
-                        .no-print { display: none; }
+                        body { 
+                            padding: 15mm 20mm;
+                        }
+                        .no-print { 
+                            display: none; 
+                        }
                     }
                 </style>
             </head>
             <body>
+                <!-- Header with Company Name and Invoice Title -->
                 <div class="invoice-header">
+                    <div class="company-name-header">${companyName}</div>
                     <div class="invoice-title">${t.invoice}</div>
                 </div>
                 
-                <div class="invoice-meta">
+                <!-- Invoice Details (Invoice Number, Date, Due Date) -->
+                <div class="invoice-details">
+                    <div><strong>${t.invoiceNo}:</strong> ${invoiceNumber}</div>
+                    ${invoiceDate ? `<div><strong>${t.date}:</strong> ${invoiceDate}</div>` : ''}
+                    ${dueDate ? `<div><strong>${t.paymentTerms}:</strong> ${dueDate}</div>` : ''}
+                </div>
+                
+                <!-- Company and Client Information -->
+                <div class="invoice-parties">
                     <div class="company-info">
                         <div class="section-title">${t.from}</div>
                         <div class="info-line"><strong>${companyName}</strong></div>
@@ -500,12 +612,9 @@
                     </div>
                 </div>
                 
-                <div class="invoice-details">
-                    <div><strong>${t.invoiceNo}:</strong> ${invoiceNumber}</div>
-                    ${invoiceDate ? `<div><strong>${t.date}:</strong> ${invoiceDate}</div>` : ''}
-                    ${dueDate ? `<div><strong>${t.paymentTerms}:</strong> ${dueDate}</div>` : ''}
-                </div>
+                <hr class="section-separator">
                 
+                <!-- Line Items Table -->
                 <table>
                     <thead>
                         <tr>
@@ -521,6 +630,7 @@
                     </tbody>
                 </table>
                 
+                <!-- Totals -->
                 <div class="totals">
                     <div class="total-row">
                         <span>${t.subtotal}:</span>
@@ -535,6 +645,30 @@
                         <span>${grandTotal}</span>
                     </div>
                 </div>
+                
+                <!-- Payment Details Section -->
+                ${(companyIban || companyBank || companyAccountHolder) ? `
+                <div class="payment-section">
+                    <div class="payment-title">Betaalgegevens / Payment Details</div>
+                    <div class="payment-details">
+                        ${companyIban ? `
+                        <div class="payment-row">
+                            <span class="payment-label">IBAN:</span>
+                            <span class="payment-value">${companyIban}</span>
+                        </div>` : ''}
+                        ${companyBank ? `
+                        <div class="payment-row">
+                            <span class="payment-label">Bank:</span>
+                            <span class="payment-value">${companyBank}</span>
+                        </div>` : ''}
+                        ${companyAccountHolder ? `
+                        <div class="payment-row">
+                            <span class="payment-label">Rekeninghouder:</span>
+                            <span class="payment-value">${companyAccountHolder}</span>
+                        </div>` : ''}
+                    </div>
+                </div>
+                ` : ''}
             </body>
             </html>
         `;
