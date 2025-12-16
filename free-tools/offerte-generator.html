@@ -77,58 +77,126 @@
             </div>
         </section>
 
-        <!-- Tool Placeholder Section -->
-        <section class="products-section" style="padding: 2rem 0 4rem;">
+        <!-- Offerte Generator Section -->
+        <section class="products-section invoice-generator-section">
             <div class="container">
-                <div style="max-width: 900px; margin: 0 auto; padding: 3rem; background: var(--bg-soft); border-radius: var(--border-radius); border: 2px solid transparent; background-image: linear-gradient(var(--bg-soft), var(--bg-soft)), linear-gradient(135deg, #22d3ee 0%, #a855f7 100%); background-origin: border-box; background-clip: padding-box, border-box;">
-                    <div style="text-align: center; margin-bottom: 2rem;">
-                        <div style="font-size: 4rem; margin-bottom: 1rem;">📋</div>
-                        <h2 style="font-size: var(--font-size-2xl); font-weight: 600; color: var(--text); margin-bottom: 1rem;">
-                            Offerte Generator
-                        </h2>
-                        <p style="font-size: var(--font-size-lg); color: var(--muted); line-height: 1.8;">
-                            Deze handige tool helpt je om snel professionele offertes te maken voor je klanten. Met automatische berekeningen en een moderne vormgeving.
-                        </p>
+                <div class="invoice-card">
+                    <div class="invoice-header-title">
+                        <div class="invoice-icon">📑</div>
+                        <h2 class="invoice-title">Offerte Generator</h2>
+                        <p class="invoice-subtitle">Maak professionele offertes met dynamische regels, automatische BTW-berekening en directe PDF-export.</p>
                     </div>
-                    
-                    <div style="background: rgba(59, 130, 246, 0.1); padding: 2rem; border-radius: var(--border-radius); border: 1px solid rgba(59, 130, 246, 0.3); text-align: center;">
-                        <p style="color: var(--accent-blue); font-size: var(--font-size-lg); font-weight: 600; margin-bottom: 1rem;">
-                            🚀 Binnenkort beschikbaar
-                        </p>
-                        <p style="color: var(--muted); font-size: var(--font-size-base); line-height: 1.6;">
-                            We zijn hard aan het werk om deze tool voor je te bouwen. Houd deze pagina in de gaten voor updates!
-                        </p>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="../free-tools.html" class="btn btn-primary">Terug naar Gratis Tools</a>
+
+                    <div class="invoice-form">
+                        <div class="invoice-parties-grid">
+                            <div class="form-section">
+                                <h3 class="form-section-title">Jouw gegevens</h3>
+                                <div class="form-stack">
+                                    <div class="form-group">
+                                        <label class="form-label">Bedrijfsnaam *</label>
+                                        <input type="text" id="company-name" class="form-input" placeholder="Bijv. MHM IT" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Adres</label>
+                                        <input type="text" id="company-address" class="form-input" placeholder="Bijv. Europaboulevard 371">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">KvK (optioneel)</label>
+                                        <input type="text" id="company-kvk" class="form-input" placeholder="Bijv. 12345678">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">Klantgegevens</h3>
+                                <div class="form-stack">
+                                    <div class="form-group">
+                                        <label class="form-label">Klantnaam *</label>
+                                        <input type="text" id="client-name" class="form-input" placeholder="Bijv. Klant B.V." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Adres</label>
+                                        <input type="text" id="client-address" class="form-input" placeholder="Bijv. Hoofdstraat 456, Amsterdam">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(109, 40, 217, 0.2);">
-                        <h3 style="font-size: var(--font-size-xl); font-weight: 600; color: var(--text); margin-bottom: 1rem;">
-                            Wat kun je verwachten?
-                        </h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Professionele offerte sjablonen
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Automatische BTW-berekening
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Meerregelige producten en diensten
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Direct downloaden als PDF
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                100% gratis voor onbeperkt gebruik
-                            </li>
-                        </ul>
+
+                        <div class="form-section">
+                            <h3 class="form-section-title">Offertegegevens</h3>
+                            <div class="invoice-meta-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Offertenummer *</label>
+                                    <input type="text" id="quote-number" class="form-input" placeholder="Bijv. OFF-2025-001" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Offertedatum</label>
+                                    <input type="date" id="quote-date" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Geldig tot</label>
+                                    <input type="date" id="quote-valid-until" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="section-header-with-button">
+                                <h3 class="form-section-title">Offerte regels</h3>
+                                <button type="button" id="add-line-btn" class="btn-add-line">
+                                    + Regel toevoegen
+                                </button>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table id="line-items-table" class="invoice-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-description">Omschrijving</th>
+                                            <th class="col-quantity">Aantal</th>
+                                            <th class="col-price">Prijs</th>
+                                            <th class="col-vat">BTW</th>
+                                            <th class="col-total">Totaal</th>
+                                            <th class="col-actions"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="line-items-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-section-totals">
+                            <h3 class="form-section-title">Totaaloverzicht</h3>
+                            <div class="totals-panel">
+                                <div class="total-row">
+                                    <span class="total-label">Subtotaal (excl. BTW)</span>
+                                    <span id="subtotal-amount" class="total-amount">€ 0,00</span>
+                                </div>
+                                <div class="total-row">
+                                    <span class="total-label">BTW</span>
+                                    <span id="vat-amount" class="total-amount">€ 0,00</span>
+                                </div>
+                                <div class="total-row total-row-grand">
+                                    <span class="total-label">Totaalbedrag (incl. BTW)</span>
+                                    <span id="total-amount" class="total-amount-grand">€ 0,00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="invoice-actions">
+                            <button type="button" id="download-btn" class="btn btn-primary btn-download">
+                                <span class="btn-icon">📄</span>
+                                <span>Download als PDF</span>
+                            </button>
+                            <button type="button" id="reset-btn" class="btn btn-secondary btn-reset">
+                                <span class="btn-icon">🔄</span>
+                                <span>Reset</span>
+                            </button>
+                            <a href="../free-tools.html" class="btn-link">
+                                ← Terug naar Gratis Tools
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -202,5 +270,8 @@
     <!-- JavaScript -->
     <script src="../assets/js/cookie-consent.js"></script>
     <script src="../assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-tdnFEmKb9+J3y1VvoMy7XOVzDyDlXa9WJ5+0V4B0mLjCyPPKmBHScPzSZX8N9gR5FKQH2lvoZdLJgCPR8B8cHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../assets/js/offerte-tool.js"></script>
 </body>
 </html>
