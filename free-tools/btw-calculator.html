@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BTW Calculator - Bereken snel BTW 21% voor bedragen inclusief of exclusief btw.">
+    <meta name="description" content="BTW Calculator - Bereken snel BTW (21%, 9% of 0%) voor je bedragen.">
     <title>BTW Calculator - MHM IT</title>
     
     <!-- Favicon -->
@@ -70,65 +70,69 @@
                 <div class="hero-content" style="text-align: center;">
                     <h1 class="hero-title" data-text="btw_hero_title">BTW Calculator</h1>
                     <p class="hero-subtitle" data-text="btw_hero_subtitle">
-                        Bereken snel en eenvoudig BTW 21% voor je bedragen.<br>
-                        Perfect voor je administratie en offertes.
+                        Bereken direct 21%, 9% of 0% BTW voor elk bedrag.<br>
+                        Perfect voor snelle administratie en offertes.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Tool Placeholder Section -->
-        <section class="products-section" style="padding: 2rem 0 4rem;">
+        <!-- BTW Calculator Section -->
+        <section class="products-section invoice-generator-section">
             <div class="container">
-                <div style="max-width: 900px; margin: 0 auto; padding: 3rem; background: var(--bg-soft); border-radius: var(--border-radius); border: 2px solid transparent; background-image: linear-gradient(var(--bg-soft), var(--bg-soft)), linear-gradient(135deg, #22d3ee 0%, #a855f7 100%); background-origin: border-box; background-clip: padding-box, border-box;">
-                    <div style="text-align: center; margin-bottom: 2rem;">
-                        <div style="font-size: 4rem; margin-bottom: 1rem;">🧮</div>
-                        <h2 style="font-size: var(--font-size-2xl); font-weight: 600; color: var(--text); margin-bottom: 1rem;">
-                            BTW Calculator
-                        </h2>
-                        <p style="font-size: var(--font-size-lg); color: var(--muted); line-height: 1.8;">
-                            Deze handige calculator helpt je om snel BTW te berekenen voor bedragen inclusief of exclusief btw. Ideaal voor snelle berekeningen tijdens je administratie.
-                        </p>
+                <div class="invoice-card">
+                    <div class="invoice-header-title">
+                        <div class="invoice-icon">🧮</div>
+                        <h2 class="invoice-title">BTW Calculator</h2>
+                        <p class="invoice-subtitle">Reken in één keer bedragen exclusief, inclusief en het BTW-bedrag uit. Kies 21%, 9% of 0% en zie direct het resultaat.</p>
                     </div>
-                    
-                    <div style="background: rgba(59, 130, 246, 0.1); padding: 2rem; border-radius: var(--border-radius); border: 1px solid rgba(59, 130, 246, 0.3); text-align: center;">
-                        <p style="color: var(--accent-blue); font-size: var(--font-size-lg); font-weight: 600; margin-bottom: 1rem;">
-                            🚀 Binnenkort beschikbaar
-                        </p>
-                        <p style="color: var(--muted); font-size: var(--font-size-base); line-height: 1.6;">
-                            We zijn hard aan het werk om deze tool voor je te bouwen. Houd deze pagina in de gaten voor updates!
-                        </p>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="../free-tools.html" class="btn btn-primary">Terug naar Gratis Tools</a>
+
+                    <div class="invoice-form">
+                        <div class="form-section">
+                            <h3 class="form-section-title">Invoer</h3>
+                            <div class="invoice-meta-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Bedrag (excl. BTW)</label>
+                                    <input type="number" id="btw-amount" class="form-input" placeholder="Bijv. 100" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">BTW tarief</label>
+                                    <select id="btw-rate" class="form-input">
+                                        <option value="21" selected>21%</option>
+                                        <option value="9">9%</option>
+                                        <option value="0">0%</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Uitleg</label>
+                                    <div class="form-input" style="background: transparent; color: var(--muted); border: 1px dashed rgba(59, 130, 246, 0.3);">
+                                        Voer een bedrag exclusief BTW in. De waarden hieronder worden direct herberekend.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(109, 40, 217, 0.2);">
-                        <h3 style="font-size: var(--font-size-xl); font-weight: 600; color: var(--text); margin-bottom: 1rem;">
-                            Wat kun je verwachten?
-                        </h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Berekening voor 21% BTW tarief
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Omrekenen van inclusief naar exclusief BTW en vice versa
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Direct overzicht van BTW bedrag en totaalbedrag
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                Eenvoudige interface voor snelle berekeningen
-                            </li>
-                            <li style="padding: 0.5rem 0; padding-left: 1.5rem; color: var(--muted); line-height: 1.8; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--accent-blue); font-weight: bold;">▸</span>
-                                100% gratis voor onbeperkt gebruik
-                            </li>
-                        </ul>
+
+                        <div class="form-section-totals">
+                            <h3 class="form-section-title">Resultaten</h3>
+                            <div class="totals-panel">
+                                <div class="total-row">
+                                    <span class="total-label">Bedrag excl. BTW</span>
+                                    <span id="result-excl" class="total-amount">€ 0,00</span>
+                                </div>
+                                <div class="total-row">
+                                    <span class="total-label">BTW bedrag</span>
+                                    <span id="result-vat" class="total-amount">€ 0,00</span>
+                                </div>
+                                <div class="total-row total-row-grand">
+                                    <span class="total-label">Bedrag incl. BTW</span>
+                                    <span id="result-incl" class="total-amount-grand">€ 0,00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="invoice-actions">
+                            <a href="../free-tools.html" class="btn-link">← Terug naar Gratis Tools</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -202,5 +206,6 @@
     <!-- JavaScript -->
     <script src="../assets/js/cookie-consent.js"></script>
     <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/btw-calculator.js"></script>
 </body>
 </html>
