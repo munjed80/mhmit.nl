@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Maak eenvoudig een professionele offerte als PDF. Gratis offerte generator voor ZZP’ers en kleine bedrijven, zonder registratie.">
-    <title>Gratis Offerte Generator | Online Offerte Maken – MHM IT</title>
+    <meta name="description" content="Maak gratis professionele facturen met automatische BTW-berekening. Direct downloaden als PDF. Ideaal voor ZZP en MKB.">
+    <title>Gratis Factuur Generator | Online Factuur Maken – MHM IT</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Gratis Offerte Generator",
-      "description": "Maak eenvoudig een professionele offerte als PDF. Gratis offerte generator voor ZZP’ers en kleine bedrijven, zonder registratie.",
+      "name": "Gratis Factuur Generator",
+      "description": "Maak gratis professionele facturen met automatische BTW-berekening en download direct als PDF. Ideaal voor ZZP en MKB.",
       "operatingSystem": "Web",
       "applicationCategory": "BusinessApplication",
       "isAccessibleForFree": true
@@ -29,7 +29,7 @@
         <nav class="navbar">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="../index.html" class="logo">
+                    <a href="/index.html" class="logo">
                         <span class="logo-text">MHM IT</span>
                     </a>
                     
@@ -41,19 +41,19 @@
                     <!-- Navigation Menu -->
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="../index.html" class="nav-link">Home</a>
+                            <a href="/index.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../services.html" class="nav-link">Services</a>
+                            <a href="/services.html" class="nav-link">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../products.html" class="nav-link">Products</a>
+                            <a href="/products.html" class="nav-link">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../about.html" class="nav-link">About</a>
+                            <a href="/about.html" class="nav-link">About</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../contact.html" class="nav-link">Contact</a>
+                            <a href="/contact.html" class="nav-link">Contact</a>
                         </li>
                     </ul>
                     
@@ -66,7 +66,7 @@
                     
                     <!-- Gratis Tools Link -->
                     <div class="gratis-tools-nav">
-                        <a href="../free-tools.html" class="nav-link gratis-tools-link">Gratis Tools</a>
+                        <a href="/free-tools/" class="nav-link gratis-tools-link">Gratis Tools</a>
                     </div>
                 </div>
             </div>
@@ -79,27 +79,37 @@
         <section class="hero" style="padding: 6rem 0 4rem; min-height: auto;">
             <div class="container">
                 <div class="hero-content" style="text-align: center;">
-                    <h1 class="hero-title">Gratis Offerte Generator</h1>
-                    <p class="hero-subtitle">
-                        Creëer snel en eenvoudig professionele offertes voor je klanten.<br>
-                        Ideaal voor ZZP'ers en kleine ondernemingen.
+                    <h1 class="hero-title" data-text="factuur_hero_title">Gratis Factuur Generator</h1>
+                    <p class="hero-subtitle" data-text="factuur_hero_subtitle">
+                        Smart defaults voor datum en nummering, automatische BTW en lokale opslag.<br>
+                        Ideaal voor ZZP'ers en kleine ondernemingen die helder willen factureren.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Offerte Generator Section -->
+        <!-- Invoice Generator Tool Section -->
         <section class="products-section invoice-generator-section">
             <div class="container">
                 <div class="invoice-card">
+                    
+                    <!-- Tool Title -->
                     <div class="invoice-header-title">
-                        <div class="invoice-icon">📑</div>
-                        <h2 class="invoice-title">Offerte Generator</h2>
-                        <p class="invoice-subtitle">Maak professionele offertes met dynamische regels, automatische BTW-berekening en directe PDF-export.</p>
+                        <div class="invoice-icon">📄</div>
+                        <h2 class="invoice-title">Factuur Generator</h2>
+                        <p class="invoice-subtitle">Maak professionele facturen met automatische BTW-berekening. Vul de gegevens in en download direct als PDF.</p>
                     </div>
 
+                    <div class="form-status info" id="invoice-status">
+                        <span class="status-dot"></span>
+                        <span>Smart defaults geladen. Vul de verplichte velden in.</span>
+                    </div>
+                    
+                    <!-- Invoice Form -->
                     <div class="invoice-form">
+                        <!-- Company and Client Details Row (Two Columns on Desktop) -->
                         <div class="invoice-parties-grid">
+                            <!-- Company Details Section -->
                             <div class="form-section">
                                 <h3 class="form-section-title">Jouw gegevens</h3>
                                 <div class="form-stack">
@@ -109,15 +119,36 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Adres</label>
-                                        <input type="text" id="company-address" class="form-input" placeholder="Bijv. Europaboulevard 371">
+                                        <input type="text" id="company-address" class="form-input" placeholder="Bijv. Kerkstraat 123">
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">KvK (optioneel)</label>
+                                        <label class="form-label">Postcode + Plaats</label>
+                                        <input type="text" id="company-postcode-city" class="form-input" placeholder="Bijv. 1234 AB Amsterdam">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">BTW nummer</label>
+                                        <input type="text" id="company-btw" class="form-input" placeholder="Bijv. NL123456789B01">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">KvK nummer</label>
                                         <input type="text" id="company-kvk" class="form-input" placeholder="Bijv. 12345678">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">IBAN</label>
+                                        <input type="text" id="company-iban" class="form-input" placeholder="Bijv. NL00BANK0123456789">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Bank naam</label>
+                                        <input type="text" id="company-bank" class="form-input" placeholder="Bijv. ABN AMRO Bank">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Rekeninghouder</label>
+                                        <input type="text" id="company-account-holder" class="form-input" placeholder="Bijv. MHM IT B.V.">
                                     </div>
                                 </div>
                             </div>
-
+                            
+                            <!-- Client Details Section -->
                             <div class="form-section">
                                 <h3 class="form-section-title">Klantgegevens</h3>
                                 <div class="form-stack">
@@ -127,56 +158,64 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Adres</label>
-                                        <input type="text" id="client-address" class="form-input" placeholder="Bijv. Hoofdstraat 456, Amsterdam">
+                                        <input type="text" id="client-address" class="form-input" placeholder="Bijv. Hoofdstraat 456">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Postcode + Plaats</label>
+                                        <input type="text" id="client-postcode-city" class="form-input" placeholder="Bijv. 5678 CD Rotterdam">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        
+                        <!-- Invoice Meta Section -->
                         <div class="form-section">
-                            <h3 class="form-section-title">Offertegegevens</h3>
+                            <h3 class="form-section-title">Factuurgegevens</h3>
                             <div class="invoice-meta-grid">
                                 <div class="form-group">
-                                    <label class="form-label">Offertenummer *</label>
-                                    <input type="text" id="quote-number" class="form-input" placeholder="Bijv. OFF-2025-001" required>
+                                    <label class="form-label">Factuurnummer *</label>
+                                    <input type="text" id="invoice-number" class="form-input" placeholder="Bijv. 2024-001" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Offertedatum</label>
-                                    <input type="date" id="quote-date" class="form-input">
+                                    <label class="form-label">Factuurdatum</label>
+                                    <input type="date" id="invoice-date" class="form-input">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Geldig tot</label>
-                                    <input type="date" id="quote-valid-until" class="form-input">
+                                    <label class="form-label">Vervaldatum</label>
+                                    <input type="date" id="due-date" class="form-input">
                                 </div>
                             </div>
                         </div>
-
+                        
+                        <!-- Line Items Section -->
                         <div class="form-section">
                             <div class="section-header-with-button">
-                                <h3 class="form-section-title">Offerte regels</h3>
+                                <h3 class="form-section-title">Factuurregels</h3>
                                 <button type="button" id="add-line-btn" class="btn-add-line">
                                     + Regel toevoegen
                                 </button>
                             </div>
-
+                            
                             <div class="table-responsive">
                                 <table id="line-items-table" class="invoice-table">
                                     <thead>
                                         <tr>
                                             <th class="col-description">Omschrijving</th>
                                             <th class="col-quantity">Aantal</th>
-                                            <th class="col-price">Prijs</th>
+                                            <th class="col-price">Prijs/stuk</th>
                                             <th class="col-vat">BTW</th>
                                             <th class="col-total">Totaal</th>
                                             <th class="col-actions"></th>
                                         </tr>
                                     </thead>
                                     <tbody id="line-items-body">
+                                        <!-- Line items will be added here dynamically -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
+                        
+                        <!-- Totals Section -->
                         <div class="form-section-totals">
                             <h3 class="form-section-title">Totaaloverzicht</h3>
                             <div class="totals-panel">
@@ -185,8 +224,8 @@
                                     <span id="subtotal-amount" class="total-amount">€ 0,00</span>
                                 </div>
                                 <div class="total-row">
-                                    <span class="total-label">BTW</span>
-                                    <span id="vat-amount" class="total-amount">€ 0,00</span>
+                                    <span class="total-label">BTW bedrag</span>
+                                    <span id="vat21-amount" class="total-amount">€ 0,00</span>
                                 </div>
                                 <div class="total-row total-row-grand">
                                     <span class="total-label">Totaalbedrag (incl. BTW)</span>
@@ -194,7 +233,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        
+                        <!-- Action Buttons -->
                         <div class="invoice-actions">
                             <button type="button" id="download-btn" class="btn btn-primary btn-download">
                                 <span class="btn-icon">📄</span>
@@ -204,7 +244,8 @@
                                 <span class="btn-icon">🔄</span>
                                 <span>Reset</span>
                             </button>
-                            <a href="../free-tools.html" class="btn-link">
+                            <button type="button" id="undo-btn" class="undo-link">Undo laatste reset</button>
+                            <a href="/free-tools/" class="btn-link">
                                 ← Terug naar Gratis Tools
                             </a>
                         </div>
@@ -215,10 +256,14 @@
         
         <section class="seo-text-section" style="padding: 2rem 0 1rem;">
             <div class="container">
-                <h2 class="section-title">Wanneer gebruik je een offerte?</h2>
-                <p>Met deze gratis offerte generator maak je snel een duidelijke offerte voor je klant voordat het werk begint.</p>
-                <p>Ideaal voor ZZP’ers en dienstverleners die professioneel willen werken.</p>
-                <p>Je bepaalt zelf de geldigheid, prijzen en BTW en downloadt de offerte als PDF.</p>
+                <h2 class="section-title">Hoe werkt deze factuur generator?</h2>
+                <p>Deze gratis factuur generator is bedoeld voor ZZP’ers en MKB’ers die zonder omwegen willen factureren.</p>
+                <p>Smart defaults vullen de datum en het factuurnummer automatisch in op basis van het huidige jaar.</p>
+                <p>BTW staat standaard op 21% en je krijgt een waarschuwing als bedragen onrealistisch hoog worden.</p>
+                <p>Als een BTW-tarief ontbreekt verschijnt er een informatieve melding zodat je niets vergeet.</p>
+                <p>Je laatste invoer wordt in localStorage opgeslagen en blijft offline beschikbaar na de eerste laadbeurt.</p>
+                <p>Resetten kan met een bevestiging en een undo-optie zodat je veilig kunt testen.</p>
+                <p>Download direct een PDF zonder accounts of externe diensten.</p>
             </div>
         </section>
         
@@ -226,9 +271,9 @@
             <div class="container">
                 <h3 class="section-title">Meer gratis tools</h3>
                 <div class="tools-grid" style="gap: 1rem;">
-                    <a class="btn btn-secondary" href="factuur-generator.html">Gratis Factuur Generator</a>
-                    <a class="btn btn-secondary" href="btw-calculator.html">BTW Calculator</a>
-                    <a class="btn btn-link" href="../free-tools.html">← Terug naar Gratis Tools</a>
+                    <a class="btn btn-secondary" href="/free-tools/offerte-generator/">Gratis Offerte Generator</a>
+                    <a class="btn btn-secondary" href="/free-tools/btw-calculator/">BTW Calculator</a>
+                    <a class="btn btn-link" href="/free-tools/">← Terug naar Gratis Tools</a>
                 </div>
             </div>
         </section>
@@ -250,26 +295,30 @@
 
                 <!-- Column 2: Navigation -->
                 <div class="footer-column">
-                    <h3 class="footer-column-title">Navigation</h3>
+                    <h3 class="footer-column-title" data-text="footer_nav_title">Navigation</h3>
                     <ul class="footer-nav">
-                        <li><a href="../index.html" class="footer-nav-link">Home</a></li>
-                        <li><a href="../free-tools.html" class="footer-nav-link">Free Tools</a></li>
-                        <li><a href="../contact.html" class="footer-nav-link">Contact</a></li>
+                        <li><a href="/index.html" class="footer-nav-link" data-text="footer_nav_home">Home</a></li>
+                        <li><a href="/free-tools/" class="footer-nav-link" data-text="footer_nav_tools">Gratis Tools</a></li>
+                        <li><a href="/free-tools/factuur-generator/" class="footer-nav-link">Factuur Generator</a></li>
+                        <li><a href="/free-tools/offerte-generator/" class="footer-nav-link">Offerte Generator</a></li>
+                        <li><a href="/free-tools/btw-calculator/" class="footer-nav-link">BTW Calculator</a></li>
+                        <li><a href="/about-the-tech" class="footer-nav-link">About the Tech</a></li>
+                        <li><a href="/contact.html" class="footer-nav-link" data-text="footer_nav_contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3: Legal -->
                 <div class="footer-column">
-                    <h3 class="footer-column-title">Legal</h3>
+                    <h3 class="footer-column-title" data-text="footer_legal_title">Legal</h3>
                     <ul class="footer-nav">
-                        <li><a href="../privacy-policy.html" class="footer-nav-link">Privacy Policy</a></li>
-                        <li><a href="../cookie-policy.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li><a href="/privacy-policy.html" class="footer-nav-link" data-text="footer_privacy">Privacy Policy</a></li>
+                        <li><a href="/cookie-policy.html" class="footer-nav-link" data-text="footer_cookies">Cookie Policy</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4: Social Media -->
                 <div class="footer-column">
-                    <h3 class="footer-column-title">Connect</h3>
+                    <h3 class="footer-column-title" data-text="footer_social_title">Connect</h3>
                     <div class="footer-social">
                         <a href="https://wa.me/31648604708" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" fill="currentColor" class="footer-social-icon">
@@ -292,17 +341,18 @@
 
             <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p class="footer-copyright">&copy; 2025 MHM IT. All rights reserved.</p>
+                <p class="footer-copyright" data-text="footer_copyright">&copy; 2025 MHM IT. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
 
 
     <!-- JavaScript -->
-    <script src="../assets/js/cookie-consent.js"></script>
-    <script src="../assets/js/scripts.js"></script>
+    <script src="../../assets/js/cookie-consent.js"></script>
+    <script src="../../assets/js/scripts.js"></script>
+    <!-- PDF Generation Libraries (loaded from CDN) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-tdnFEmKb9+J3y1VvoMy7XOVzDyDlXa9WJ5+0V4B0mLjCyPPKmBHScPzSZX8N9gR5FKQH2lvoZdLJgCPR8B8cHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../assets/js/offerte-tool.js"></script>
+    <script src="../../assets/js/factuur-tool.js"></script>
 </body>
 </html>

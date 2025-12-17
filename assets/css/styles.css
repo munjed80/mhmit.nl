@@ -433,6 +433,143 @@ button {
     line-height: 1.6;
 }
 
+/* Interactive Hero Card */
+.hero-demo-card {
+    background: #0b1220;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 18px;
+    padding: var(--spacing-2xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.9s ease;
+}
+
+.hero-demo-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18), transparent 35%),
+                radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.15), transparent 30%);
+    pointer-events: none;
+}
+
+.hero-demo-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-demo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.hero-demo-inputs {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-demo-input label {
+    display: block;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-demo-input .form-input,
+.hero-demo-input select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: var(--color-text);
+    border-radius: 12px;
+}
+
+.btw-chip-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.btw-chip {
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    background: rgba(59, 130, 246, 0.08);
+    color: #e2e8f0;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.btw-chip.active {
+    background: var(--color-gradient);
+    border-color: rgba(59, 130, 246, 0.7);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);
+}
+
+.btw-chip:hover {
+    transform: translateY(-1px);
+}
+
+.hero-demo-outputs {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: var(--spacing-lg);
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.hero-output-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+.hero-output-value {
+    font-size: 1.4rem;
+    color: #fff;
+    transition: all 0.15s ease;
+}
+
+.hero-output-value.animate {
+    animation: valuePop 0.25s ease;
+}
+
+@keyframes valuePop {
+    from {
+        opacity: 0.5;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-note {
+    margin-top: var(--spacing-md);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
 /* ===============================================
    Buttons
    =============================================== */
@@ -3168,6 +3305,63 @@ button {
     border-bottom: 1px solid rgba(109, 40, 217, 0.2);
 }
 
+.form-status {
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--muted);
+}
+
+.form-status strong {
+    color: #fff;
+}
+
+.form-status.success {
+    border-color: rgba(34, 197, 94, 0.35);
+    background: rgba(34, 197, 94, 0.12);
+    color: #bbf7d0;
+}
+
+.form-status.warning {
+    border-color: rgba(234, 179, 8, 0.4);
+    background: rgba(234, 179, 8, 0.12);
+    color: #fef08a;
+}
+
+.form-status.info {
+    border-color: rgba(59, 130, 246, 0.35);
+    background: rgba(59, 130, 246, 0.12);
+    color: #bfdbfe;
+}
+
+.form-status .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.7;
+}
+
+.undo-link {
+    color: #cbd5f5;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.undo-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
 .form-section:last-of-type {
     border-bottom: none;
 }
@@ -3508,6 +3702,56 @@ button {
 .btn-link:hover {
     color: var(--accent-blue);
     transform: translateX(-3px);
+}
+
+/* Confirmation Modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    backdrop-filter: blur(4px);
+}
+
+.modal-backdrop.show {
+    display: flex;
+}
+
+.modal-card {
+    background: #0b1220;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 18px;
+    padding: 1.75rem;
+    width: min(480px, 90vw);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-card h3 {
+    margin: 0 0 0.75rem;
+}
+
+.modal-card p {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.06);
 }
 
 /* ===============================================
@@ -4189,4 +4433,3 @@ button {
 /* ===============================================
    Programming Showcase Section
    =============================================== */
-

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MHM IT – Smart Automation & Digital Tools for Business</title>
-    <meta name="description" content="We build intelligent automation solutions that connect systems, eliminate manual work, and accelerate growth. Smart dashboards, AI tools, and powerful integrations designed for modern businesses.">
+    <title>MHM IT – Slimme gratis tools voor ZZP & MKB</title>
+    <meta name="description" content="Gratis tools met echte businesslogica: BTW preview in de hero, factuur- en offertetools en een heldere BTW calculator. Alles draait lokaal, zonder accounts of tracking.">
     <meta name="author" content="MHM IT">
     
     <!-- Open Graph metadata -->
@@ -63,7 +63,7 @@
                     
                     <!-- Gratis Tools Link -->
                     <div class="gratis-tools-nav">
-                        <a href="free-tools.html" class="nav-link gratis-tools-link">Gratis Tools</a>
+                        <a href="/free-tools/" class="nav-link gratis-tools-link">Gratis Tools</a>
                     </div>
                 </div>
             </div>
@@ -77,68 +77,51 @@
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
-                        <h1 class="hero-title">Smart Tools for Smart Business</h1>
+                        <h1 class="hero-title">Slimme tools. Echte logica. Geen onzin.</h1>
                         <p class="hero-subtitle">
-                            We build intelligent digital systems that automate work, accelerate growth, and deliver real results. Turn your processes into smart workflows with MHM IT.
+                            Live voorbeeld van de BTW-logica die ook in onze tools draait. Geen marketingtrucs maar transparante berekeningen, gebouwd om te draaien – ook offline.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary">Get Started Today</a>
-                            <a href="free-tools.html" class="btn btn-secondary">Explore Free Tools</a>
+                            <a href="/free-tools/" class="btn btn-primary">Bekijk hoe het werkt →</a>
                         </div>
                     </div>
                     
                     <div class="hero-visual">
-                        <!-- Main Dashboard Mockup -->
-                        <div class="dashboard-mockup">
-                            <div class="dashboard-header">
-                                <div class="dashboard-nav">
-                                    <div class="nav-item active"></div>
-                                    <div class="nav-item"></div>
-                                    <div class="nav-item"></div>
-                                    <div class="nav-item"></div>
+                        <div class="hero-demo-card">
+                            <div class="hero-demo-header">
+                                <span class="hero-demo-chip">BTW preview</span>
+                                <span style="color: var(--color-text-secondary); font-size: 0.95rem;">Realtime herberekening</span>
+                            </div>
+                            <div class="hero-demo-inputs">
+                                <div class="hero-demo-input">
+                                    <label for="hero-amount">Bedrag (€)</label>
+                                    <input type="number" id="hero-amount" class="form-input" inputmode="decimal" step="0.01" placeholder="500" value="500">
+                                </div>
+                                <div class="hero-demo-input">
+                                    <label>BTW tarief</label>
+                                    <div class="btw-chip-group">
+                                        <button type="button" class="btw-chip active" data-rate="21">21%</button>
+                                        <button type="button" class="btw-chip" data-rate="9">9%</button>
+                                        <button type="button" class="btw-chip" data-rate="0">0%</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="dashboard-content">
-                                <div class="chart-placeholder">
-                                    <svg viewBox="0 0 200 100" class="mini-chart">
-                                        <polyline points="10,80 40,60 70,70 100,40 130,50 160,20 190,30" fill="none" stroke="url(#gradient1)" stroke-width="3"/>
-                                        <defs>
-                                            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-                                                <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                            <div class="hero-demo-outputs">
+                                <div class="hero-output-row">
+                                    <span>Bedrag excl. BTW</span>
+                                    <span id="hero-output-excl" class="hero-output-value">€ 0,00</span>
                                 </div>
-                                <div class="metrics-row">
-                                    <div class="metric-box"></div>
-                                    <div class="metric-box"></div>
-                                    <div class="metric-box"></div>
+                                <div class="hero-output-row">
+                                    <span>BTW bedrag</span>
+                                    <span id="hero-output-vat" class="hero-output-value">€ 0,00</span>
+                                </div>
+                                <div class="hero-output-row">
+                                    <span>Totaal incl. BTW</span>
+                                    <span id="hero-output-total" class="hero-output-value">€ 0,00</span>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Floating Tool Cards -->
-                        <div class="tool-card tool-card-1">
-                            <span class="tool-icon">📄</span>
-                            <span class="tool-name">AI Factuur Generator</span>
-                        </div>
-                        <div class="tool-card tool-card-2">
-                            <span class="tool-icon">📊</span>
-                            <span class="tool-name">Smart Dashboards</span>
-                        </div>
-                        <div class="tool-card tool-card-3">
-                            <span class="tool-icon">🔒</span>
-                            <span class="tool-name">Website Security</span>
-                        </div>
-                        <div class="tool-card tool-card-4">
-                            <span class="tool-icon">💰</span>
-                            <span class="tool-name">Tax Calculators</span>
-                        </div>
-                        <div class="tool-card tool-card-5">
-                            <span class="tool-icon">⚡</span>
-                            <span class="tool-name">Profit Analytics</span>
-                        </div>
+                        <p class="hero-note">⚙️ Alle berekeningen gebeuren lokaal in je browser</p>
                     </div>
                 </div>
             </div>
@@ -371,7 +354,7 @@
                         <p>Join hundreds of Dutch freelancers and companies using Smart ZZP Hub</p>
                     </div>
                     <div class="zzp-cta-buttons">
-                        <a href="free-tools.html" class="btn btn-primary btn-lg">Try Smart ZZP Hub</a>
+                        <a href="/free-tools/" class="btn btn-primary btn-lg">Try Smart ZZP Hub</a>
                         <a href="contact.html" class="btn btn-secondary btn-lg">Request Demo</a>
                     </div>
                 </div>
@@ -470,7 +453,7 @@
                         </p>
                     </div>
                     <div class="free-tools-cta">
-                        <a href="free-tools.html" class="btn btn-primary btn-lg" data-text="free_tools_button">Explore Free Tools</a>
+                        <a href="/free-tools/" class="btn btn-primary btn-lg" data-text="free_tools_button">Explore Free Tools</a>
                     </div>
                 </div>
             </div>
@@ -513,7 +496,11 @@
                     <h3 class="footer-column-title" data-text="footer_nav_title">Navigation</h3>
                     <ul class="footer-nav">
                         <li><a href="index.html" class="footer-nav-link" data-text="footer_nav_home">Home</a></li>
-                        <li><a href="free-tools.html" class="footer-nav-link" data-text="footer_nav_tools">Free Tools</a></li>
+                        <li><a href="/free-tools/" class="footer-nav-link" data-text="footer_nav_tools">Gratis Tools</a></li>
+                        <li><a href="/free-tools/factuur-generator/" class="footer-nav-link">Factuur Generator</a></li>
+                        <li><a href="/free-tools/offerte-generator/" class="footer-nav-link">Offerte Generator</a></li>
+                        <li><a href="/free-tools/btw-calculator/" class="footer-nav-link">BTW Calculator</a></li>
+                        <li><a href="/about-the-tech" class="footer-nav-link">About the Tech</a></li>
                         <li><a href="contact.html" class="footer-nav-link" data-text="footer_nav_contact">Contact</a></li>
                     </ul>
                 </div>

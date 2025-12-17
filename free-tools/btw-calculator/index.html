@@ -7,10 +7,10 @@
     <title>BTW Calculator | Bereken BTW 21%, 9% of 0% – MHM IT</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -29,7 +29,7 @@
         <nav class="navbar">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="../index.html" class="logo">
+                    <a href="/index.html" class="logo">
                         <span class="logo-text">MHM IT</span>
                     </a>
                     
@@ -41,19 +41,19 @@
                     <!-- Navigation Menu -->
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="../index.html" class="nav-link">Home</a>
+                            <a href="/index.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../services.html" class="nav-link">Services</a>
+                            <a href="/services.html" class="nav-link">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../products.html" class="nav-link">Products</a>
+                            <a href="/products.html" class="nav-link">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../about.html" class="nav-link">About</a>
+                            <a href="/about.html" class="nav-link">About</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../contact.html" class="nav-link">Contact</a>
+                            <a href="/contact.html" class="nav-link">Contact</a>
                         </li>
                     </ul>
                     
@@ -66,7 +66,7 @@
                     
                     <!-- Gratis Tools Link -->
                     <div class="gratis-tools-nav">
-                        <a href="../free-tools.html" class="nav-link gratis-tools-link">Gratis Tools</a>
+                        <a href="/free-tools/" class="nav-link gratis-tools-link">Gratis Tools</a>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     <h1 class="hero-title" data-text="btw_hero_title">BTW Calculator</h1>
                     <p class="hero-subtitle" data-text="btw_hero_subtitle">
                         Bereken direct 21%, 9% of 0% BTW voor elk bedrag.<br>
-                        Perfect voor snelle administratie en offertes.
+                        Lokale opslag, live feedback en klaar voor offline gebruik.
                     </p>
                 </div>
             </div>
@@ -96,6 +96,11 @@
                         <div class="invoice-icon">🧮</div>
                         <h2 class="invoice-title">BTW Calculator</h2>
                         <p class="invoice-subtitle">Reken in één keer bedragen exclusief, inclusief en het BTW-bedrag uit. Kies 21%, 9% of 0% en zie direct het resultaat.</p>
+                    </div>
+
+                    <div class="form-status info" id="btw-status">
+                        <span class="status-dot"></span>
+                        <span>Start met een bedrag; BTW staat standaard op 21%.</span>
                     </div>
 
                     <div class="invoice-form">
@@ -142,7 +147,12 @@
                         </div>
 
                         <div class="invoice-actions">
-                            <a href="../free-tools.html" class="btn-link">← Terug naar Gratis Tools</a>
+                            <button type="button" id="btw-reset" class="btn btn-secondary btn-reset">
+                                <span class="btn-icon">🔄</span>
+                                <span>Reset</span>
+                            </button>
+                            <button type="button" id="btw-undo" class="undo-link">Undo laatste reset</button>
+                            <a href="/free-tools/" class="btn-link">← Terug naar Gratis Tools</a>
                         </div>
                     </div>
                 </div>
@@ -154,7 +164,11 @@
                 <h2 class="section-title">BTW berekenen in seconden</h2>
                 <p>Deze BTW calculator helpt je snel het juiste BTW-bedrag te berekenen.</p>
                 <p>Kies het tarief van 21%, 9% of 0% en zie direct het bedrag inclusief en exclusief BTW.</p>
-                <p>Handig voor offertes, facturen en dagelijkse administratie.</p>
+                <p>Live statusmeldingen waarschuwen bij onrealistisch hoge bedragen.</p>
+                <p>Als het BTW-tarief op 0% staat krijg je een zachte reminder om dat te bevestigen.</p>
+                <p>Je laatste invoer wordt lokaal opgeslagen zodat de tool offline blijft werken.</p>
+                <p>Resetten gaat via een bevestigingsmodal en je kunt altijd ongedaan maken.</p>
+                <p>Handig voor offertes, facturen en dagelijkse administratie zonder gedoe.</p>
             </div>
         </section>
         
@@ -162,9 +176,9 @@
             <div class="container">
                 <h3 class="section-title">Meer gratis tools</h3>
                 <div class="tools-grid" style="gap: 1rem;">
-                    <a class="btn btn-secondary" href="factuur-generator.html">Gratis Factuur Generator</a>
-                    <a class="btn btn-secondary" href="offerte-generator.html">Gratis Offerte Generator</a>
-                    <a class="btn btn-link" href="../free-tools.html">← Terug naar Gratis Tools</a>
+                    <a class="btn btn-secondary" href="/free-tools/factuur-generator/">Gratis Factuur Generator</a>
+                    <a class="btn btn-secondary" href="/free-tools/offerte-generator/">Gratis Offerte Generator</a>
+                    <a class="btn btn-link" href="/free-tools/">← Terug naar Gratis Tools</a>
                 </div>
             </div>
         </section>
@@ -188,9 +202,13 @@
                 <div class="footer-column">
                     <h3 class="footer-column-title" data-text="footer_nav_title">Navigation</h3>
                     <ul class="footer-nav">
-                        <li><a href="../index.html" class="footer-nav-link" data-text="footer_nav_home">Home</a></li>
-                        <li><a href="../free-tools.html" class="footer-nav-link" data-text="footer_nav_tools">Free Tools</a></li>
-                        <li><a href="../contact.html" class="footer-nav-link" data-text="footer_nav_contact">Contact</a></li>
+                        <li><a href="/index.html" class="footer-nav-link" data-text="footer_nav_home">Home</a></li>
+                        <li><a href="/free-tools/" class="footer-nav-link" data-text="footer_nav_tools">Gratis Tools</a></li>
+                        <li><a href="/free-tools/factuur-generator/" class="footer-nav-link">Factuur Generator</a></li>
+                        <li><a href="/free-tools/offerte-generator/" class="footer-nav-link">Offerte Generator</a></li>
+                        <li><a href="/free-tools/btw-calculator/" class="footer-nav-link">BTW Calculator</a></li>
+                        <li><a href="/about-the-tech" class="footer-nav-link">About the Tech</a></li>
+                        <li><a href="/contact.html" class="footer-nav-link" data-text="footer_nav_contact">Contact</a></li>
                     </ul>
                 </div>
 
@@ -198,8 +216,8 @@
                 <div class="footer-column">
                     <h3 class="footer-column-title" data-text="footer_legal_title">Legal</h3>
                     <ul class="footer-nav">
-                        <li><a href="../privacy-policy.html" class="footer-nav-link" data-text="footer_privacy">Privacy Policy</a></li>
-                        <li><a href="../cookie-policy.html" class="footer-nav-link" data-text="footer_cookies">Cookie Policy</a></li>
+                        <li><a href="/privacy-policy.html" class="footer-nav-link" data-text="footer_privacy">Privacy Policy</a></li>
+                        <li><a href="/cookie-policy.html" class="footer-nav-link" data-text="footer_cookies">Cookie Policy</a></li>
                     </ul>
                 </div>
 
@@ -228,15 +246,15 @@
 
             <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p class="footer-copyright" data-text="footer_copyright">&copy; 2025 MHM IT. All rights reserved.</p>
+                <p class="footer-copyright" data-text="footer_copyright">&copy; 2025 MHM IT. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
 
 
     <!-- JavaScript -->
-    <script src="../assets/js/cookie-consent.js"></script>
-    <script src="../assets/js/scripts.js"></script>
-    <script src="../assets/js/btw-calculator.js"></script>
+    <script src="../../assets/js/cookie-consent.js"></script>
+    <script src="../../assets/js/scripts.js"></script>
+    <script src="../../assets/js/btw-calculator.js"></script>
 </body>
 </html>
