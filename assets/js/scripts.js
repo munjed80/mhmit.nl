@@ -34,10 +34,10 @@
             'nav-contact': 'Contact',
             
             // Hero Section
-            'hero-title': 'Smart Tools for Smart Business',
-            'hero-subtitle': 'We build intelligent digital systems that automate work, accelerate growth, and deliver real results. Turn your processes into smart workflows with MHM IT.',
-            'hero-cta-primary': 'Get Started Today',
-            'hero-cta-secondary': 'Explore Free Tools',
+            'hero-title': 'Slimme tools. Echte logica. Geen onzin.',
+            'hero-subtitle': 'Live BTW-preview, echte businesslogica en alles draait lokaal in je browser – zonder accounts of tracking.',
+            'hero-cta-primary': 'Bekijk hoe het werkt →',
+            'hero-cta-secondary': 'Bekijk hoe het werkt →',
             
             // Value Proposition
             'value-title': 'Why Businesses Choose Us',
@@ -1047,5 +1047,56 @@
     } else {
         createParticles();
     }
+
+    // =============================================
+    // Interactive Hero BTW Preview
+    // =============================================
+    const heroAmountInput = document.getElementById('hero-amount');
+    const heroRateChips = document.querySelectorAll('.btw-chip');
+    const heroOutputExcl = document.getElementById('hero-output-excl');
+    const heroOutputVat = document.getElementById('hero-output-vat');
+    const heroOutputTotal = document.getElementById('hero-output-total');
+
+    function heroFormatCurrency(value) {
+        return '€ ' + value.toFixed(2).replace('.', ',');
+    }
+
+    function animateValue(el, newValue) {
+        if (!el) return;
+        el.textContent = newValue;
+        el.classList.remove('animate');
+        void el.offsetWidth; // restart animation
+        el.classList.add('animate');
+    }
+
+    function initHeroCalculator() {
+        if (!heroAmountInput || heroRateChips.length === 0) return;
+        let activeRate = 21;
+
+        heroRateChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                heroRateChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeRate = parseFloat(chip.dataset.rate) || 0;
+                runHeroCalculation(activeRate);
+            });
+        });
+
+        heroAmountInput.addEventListener('input', () => runHeroCalculation(activeRate));
+        runHeroCalculation(activeRate);
+    }
+
+    function runHeroCalculation(rate) {
+        if (!heroAmountInput) return;
+        const amount = parseFloat(heroAmountInput.value) || 0;
+        const vat = amount * (rate / 100);
+        const total = amount + vat;
+
+        animateValue(heroOutputExcl, heroFormatCurrency(amount));
+        animateValue(heroOutputVat, heroFormatCurrency(vat));
+        animateValue(heroOutputTotal, heroFormatCurrency(total));
+    }
+
+    initHeroCalculator();
     
 })();

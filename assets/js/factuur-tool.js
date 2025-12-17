@@ -53,6 +53,10 @@
     
     const lang = 'nl'; // Default language
     const t = TEXT[lang]; // Text translations
+    const STORAGE_KEY = 'mhmit_invoice_state_v1';
+    const BACKUP_KEY = 'mhmit_invoice_state_backup';
+    const NUMBER_KEY = 'mhmit_invoice_last_number';
+    let isRestoringState = false;
     
     // =============================================
     // Initialize when DOM is ready
@@ -68,10 +72,16 @@
         const addLineBtn = document.getElementById('add-line-btn');
         const resetBtn = document.getElementById('reset-btn');
         const downloadBtn = document.getElementById('download-btn');
-        const lineItemsTable = document.getElementById('line-items-table');
+        const undoBtn = document.getElementById('undo-btn');
+        const resetModal = createResetModal(performReset);
         
-        // Add first line item by default
-        addLineItem();
+        applySmartDefaults();
+        const restored = restoreState();
+        
+        // Add first line item by default if no saved state
+        if (!restored) {
+            addLineItem();
+        }
         
         // Event listeners
         if (addLineBtn) {
@@ -79,11 +89,17 @@
         }
         
         if (resetBtn) {
-            resetBtn.addEventListener('click', resetForm);
+            resetBtn.addEventListener('click', function() {
+                resetModal.open();
+            });
         }
         
         if (downloadBtn) {
             downloadBtn.addEventListener('click', generatePDF);
+        }
+        
+        if (undoBtn) {
+            undoBtn.addEventListener('click', restoreBackupState);
         }
         
         // Listen to any input changes to recalculate totals
@@ -92,35 +108,48 @@
                 e.target.classList.contains('line-price') || 
                 e.target.classList.contains('line-vat')) {
                 calculateTotals();
+                saveState();
+            }
+            
+            if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
+                updateStatus();
+                saveState();
             }
         });
         
         // Calculate initial totals
         calculateTotals();
+        updateStatus();
+        saveState();
     }
     
     // =============================================
     // Add Line Item Row
     // =============================================
-    function addLineItem() {
+    function addLineItem(prefill = {}) {
         const tbody = document.getElementById('line-items-body');
+        const quantityValue = typeof prefill.quantity !== 'undefined' ? prefill.quantity : 1;
+        const priceValue = typeof prefill.price !== 'undefined' ? prefill.price : 0;
+        const vatValue = typeof prefill.vatRate !== 'undefined' ? prefill.vatRate : 21;
+        const descriptionValue = prefill.description || '';
         const row = document.createElement('tr');
         row.className = 'line-item-row';
         
         row.innerHTML = `
             <td>
-                <input type="text" class="form-input line-description" placeholder="${t.description}">
+                <input type="text" class="form-input line-description" placeholder="${t.description}" value="${descriptionValue}">
             </td>
             <td>
-                <input type="number" class="form-input line-quantity" value="1" min="0" step="0.01">
+                <input type="number" class="form-input line-quantity" value="${quantityValue}" min="0" step="0.01">
             </td>
             <td>
-                <input type="number" class="form-input line-price" value="0" min="0" step="0.01">
+                <input type="number" class="form-input line-price" value="${priceValue}" min="0" step="0.01">
             </td>
             <td>
                 <select class="form-input line-vat">
-                    <option value="0">0%</option>
-                    <option value="21" selected>21%</option>
+                    <option value="0" ${vatValue === 0 ? 'selected' : ''}>0%</option>
+                    <option value="9" ${vatValue === 9 ? 'selected' : ''}>9%</option>
+                    <option value="21" ${vatValue !== 0 && vatValue !== 9 ? 'selected' : ''}>21%</option>
                 </select>
             </td>
             <td class="line-total-cell">€ 0,00</td>
@@ -139,6 +168,7 @@
         
         // Recalculate totals
         calculateTotals();
+        saveState();
     }
     
     // =============================================
@@ -151,6 +181,8 @@
         if (tbody.children.length > 1) {
             row.remove();
             calculateTotals();
+            saveState();
+            updateStatus();
         }
     }
     
@@ -160,7 +192,8 @@
     function calculateTotals() {
         const rows = document.querySelectorAll('.line-item-row');
         let subtotal = 0;
-        let vat21Total = 0;
+        let vatTotal = 0;
+        let missingVat = false;
         
         rows.forEach(row => {
             const quantity = parseFloat(row.querySelector('.line-quantity').value) || 0;
@@ -177,17 +210,27 @@
             subtotal += lineTotal;
             
             // Add to VAT total
-            if (vatRate === 21) {
-                vat21Total += lineVat;
+            vatTotal += lineVat;
+            
+            if (vatRate === 0 && lineTotal > 0) {
+                missingVat = true;
             }
         });
         
-        const grandTotal = subtotal + vat21Total;
+        const grandTotal = subtotal + vatTotal;
         
         // Update totals display
         document.getElementById('subtotal-amount').textContent = formatCurrency(subtotal);
-        document.getElementById('vat21-amount').textContent = formatCurrency(vat21Total);
+        const vatDisplay = document.getElementById('vat21-amount') || document.getElementById('vat-amount');
+        if (vatDisplay) {
+            vatDisplay.textContent = formatCurrency(vatTotal);
+        }
         document.getElementById('total-amount').textContent = formatCurrency(grandTotal);
+
+        const totals = { subtotal, vatTotal, grandTotal, missingVat };
+        updateStatus(totals);
+        saveState(totals);
+        return totals;
     }
     
     // =============================================
@@ -207,29 +250,226 @@
     }
     
     // =============================================
+    // Smart defaults & state persistence
+    // =============================================
+    function formatDateInput(date) {
+        return date.toISOString().split('T')[0];
+    }
+
+    function suggestDocumentNumber(storageKey) {
+        const today = new Date();
+        const year = today.getFullYear();
+        const lastNumber = localStorage.getItem(storageKey) || '';
+        let sequence = 1;
+
+        if (lastNumber && lastNumber.startsWith(`${year}-`)) {
+            const parts = lastNumber.split('-');
+            const parsed = parseInt(parts[1], 10);
+            if (!isNaN(parsed)) {
+                sequence = parsed + 1;
+            }
+        }
+
+        return `${year}-${String(sequence).padStart(3, '0')}`;
+    }
+
+    function applySmartDefaults() {
+        const invoiceDate = document.getElementById('invoice-date');
+        const dueDate = document.getElementById('due-date');
+        const invoiceNumber = document.getElementById('invoice-number');
+
+        const today = new Date();
+        if (invoiceDate && !invoiceDate.value) {
+            invoiceDate.value = formatDateInput(today);
+        }
+        if (dueDate && !dueDate.value) {
+            const due = new Date(today);
+            due.setDate(due.getDate() + 14);
+            dueDate.value = formatDateInput(due);
+        }
+        if (invoiceNumber && !invoiceNumber.value) {
+            invoiceNumber.value = suggestDocumentNumber(NUMBER_KEY);
+        }
+    }
+
+    function getFormState(totals = {}) {
+        const fields = [
+            'company-name', 'company-address', 'company-postcode-city', 'company-btw',
+            'company-kvk', 'company-iban', 'company-bank', 'company-account-holder',
+            'client-name', 'client-address', 'client-postcode-city',
+            'invoice-number', 'invoice-date', 'due-date'
+        ];
+
+        const inputs = {};
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            inputs[id] = el ? el.value : '';
+        });
+
+        const lines = Array.from(document.querySelectorAll('.line-item-row')).map(row => ({
+            description: row.querySelector('.line-description')?.value || '',
+            quantity: parseFloat(row.querySelector('.line-quantity')?.value) || 0,
+            price: parseFloat(row.querySelector('.line-price')?.value) || 0,
+            vatRate: parseFloat(row.querySelector('.line-vat')?.value) || 0
+        }));
+
+        return { inputs, lines, totals };
+    }
+
+    function applyState(data) {
+        if (!data) return false;
+        isRestoringState = true;
+        const inputs = data.inputs || {};
+        Object.keys(inputs).forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.value = inputs[id];
+        });
+
+        const tbody = document.getElementById('line-items-body');
+        if (tbody) {
+            tbody.innerHTML = '';
+            if (Array.isArray(data.lines) && data.lines.length) {
+                data.lines.forEach(line => addLineItem(line));
+            } else {
+                addLineItem();
+            }
+        }
+
+        calculateTotals();
+        updateStatus(data.totals || {});
+        isRestoringState = false;
+        return true;
+    }
+
+    function saveState(totals = {}) {
+        if (isRestoringState) return;
+        try {
+            const state = getFormState(totals);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            if (state.inputs['invoice-number']) {
+                localStorage.setItem(NUMBER_KEY, state.inputs['invoice-number']);
+            }
+        } catch (error) {
+            console.warn('Kon formulierstaat niet opslaan', error);
+        }
+    }
+
+    function restoreState() {
+        try {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved) return false;
+            const data = JSON.parse(saved);
+            return applyState(data);
+        } catch (error) {
+            console.warn('Kon formulierstaat niet herstellen', error);
+            return false;
+        }
+    }
+
+    function backupState() {
+        try {
+            const state = getFormState();
+            localStorage.setItem(BACKUP_KEY, JSON.stringify(state));
+        } catch (error) {
+            console.warn('Kon geen backup van de staat maken', error);
+        }
+    }
+
+    function restoreBackupState() {
+        try {
+            const saved = localStorage.getItem(BACKUP_KEY);
+            if (!saved) return;
+            const data = JSON.parse(saved);
+            applyState(data);
+        } catch (error) {
+            console.warn('Geen backup beschikbaar om te herstellen', error);
+        }
+    }
+
+    function updateStatus(totals = {}) {
+        const statusEl = document.getElementById('invoice-status');
+        if (!statusEl) return;
+
+        const companyFilled = (document.getElementById('company-name')?.value || '').trim().length > 0;
+        const clientFilled = (document.getElementById('client-name')?.value || '').trim().length > 0;
+        const numberFilled = (document.getElementById('invoice-number')?.value || '').trim().length > 0;
+        const hasTotal = (totals.grandTotal || 0) > 0;
+        const isLarge = (totals.grandTotal || 0) > 100000;
+
+        let message = 'Vul de verplichte velden in om te starten.';
+        let css = 'info';
+
+        if (isLarge) {
+            message = 'Waarschuwing: bedrag lijkt ongebruikelijk hoog. Controleer de invoer.';
+            css = 'warning';
+        } else if (totals.missingVat) {
+            message = 'Info: BTW niet geselecteerd op alle regels. Controleer het tarief.';
+            css = 'info';
+        } else if (companyFilled && clientFilled && numberFilled && hasTotal) {
+            message = 'Succes: formulier compleet en klaar voor PDF of opslag.';
+            css = 'success';
+        }
+
+        statusEl.className = `form-status ${css}`;
+        statusEl.innerHTML = `<span class="status-dot"></span><span>${message}</span>`;
+    }
+
+    function createResetModal(onConfirm) {
+        const modal = document.createElement('div');
+        modal.className = 'modal-backdrop';
+        modal.innerHTML = `
+            <div class="modal-card">
+                <h3>Formulier resetten?</h3>
+                <p>Je laatste invoer wordt in de achtergrond bewaard, zodat je deze kunt terughalen.</p>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-ghost" data-cancel>Annuleer</button>
+                    <button type="button" class="btn btn-primary" data-confirm>Reset</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        const close = () => modal.classList.remove('show');
+        modal.querySelector('[data-cancel]').addEventListener('click', close);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) close();
+        });
+        modal.querySelector('[data-confirm]').addEventListener('click', () => {
+            close();
+            onConfirm();
+        });
+
+        return {
+            open: () => modal.classList.add('show'),
+            close
+        };
+    }
+
+    // =============================================
     // Reset Form
     // =============================================
-    function resetForm() {
-        if (confirm('Weet je zeker dat je het formulier wilt resetten? Alle gegevens gaan verloren.')) {
-            // Clear all input fields
-            document.querySelectorAll('.form-input').forEach(input => {
-                if (input.type === 'number') {
-                    input.value = input.classList.contains('line-quantity') ? '1' : '0';
-                } else if (input.tagName === 'SELECT') {
-                    input.value = '21';
-                } else {
-                    input.value = '';
-                }
-            });
-            
-            // Reset to one line item
-            const tbody = document.getElementById('line-items-body');
+    function performReset() {
+        backupState();
+        document.querySelectorAll('.form-input').forEach(input => {
+            if (input.type === 'number') {
+                input.value = input.classList.contains('line-quantity') ? '1' : '0';
+            } else if (input.tagName === 'SELECT') {
+                input.value = '21';
+            } else {
+                input.value = '';
+            }
+        });
+
+        const tbody = document.getElementById('line-items-body');
+        if (tbody) {
             tbody.innerHTML = '';
             addLineItem();
-            
-            // Recalculate totals
-            calculateTotals();
         }
+
+        applySmartDefaults();
+        calculateTotals();
+        updateStatus();
+        saveState();
     }
     
     // =============================================
@@ -245,6 +485,8 @@
             alert('Vul minimaal bedrijfsnaam, klantnaam en factuurnummer in.');
             return;
         }
+
+        saveState();
         
         // Check if libraries are loaded, if not use fallback
         if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
