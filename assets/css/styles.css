@@ -435,25 +435,41 @@ button {
 
 /* Interactive Hero Card */
 .hero-demo-card {
-    background: #0b1220;
-    border: 1px solid rgba(59, 130, 246, 0.35);
+    background: rgba(11, 18, 32, 0.6);
+    border: 1px solid transparent;
+    border-image: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.3)) 1;
     border-radius: 18px;
     padding: var(--spacing-2xl);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 2px 8px rgba(59, 130, 246, 0.1);
     max-width: 480px;
     width: 100%;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     animation: fadeInUp 0.9s ease;
+}
+
+.hero-demo-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .hero-demo-card::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18), transparent 35%),
-                radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.15), transparent 30%);
+    background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.12), transparent 35%);
     pointer-events: none;
 }
 
@@ -668,6 +684,28 @@ button {
     position: relative;
     animation: fadeInUp 1s ease-out 0.3s backwards;
     perspective: 1000px;
+}
+
+.hero-demo-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.hero-demo-label svg {
+    color: rgba(59, 130, 246, 0.8);
+    width: 14px;
+    height: 14px;
 }
 
 .dashboard-mockup {
@@ -1137,6 +1175,89 @@ button {
 /* ===============================================
    Value Proposition Section
    =============================================== */
+/* Tech Credibility Strip */
+.tech-strip {
+    padding: 2rem 0;
+    background: rgba(11, 18, 32, 0.4);
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.tech-strip-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tech-strip-link:hover {
+    background: rgba(17, 24, 39, 0.6);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.tech-strip-items {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.tech-item svg {
+    color: rgba(59, 130, 246, 0.7);
+    flex-shrink: 0;
+}
+
+.tech-strip-arrow {
+    color: rgba(59, 130, 246, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.tech-strip-link:hover .tech-strip-arrow {
+    transform: translateX(4px);
+    color: rgba(59, 130, 246, 0.9);
+}
+
+@media (max-width: 768px) {
+    .tech-strip-items {
+        gap: 1.5rem;
+    }
+    
+    .tech-item {
+        font-size: 0.85rem;
+    }
+    
+    .tech-strip-link {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .tech-strip-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .tech-strip-link:hover .tech-strip-arrow {
+        transform: rotate(90deg) translateX(4px);
+    }
+}
+
 .value-proposition {
     padding: 5rem 0;
     background: linear-gradient(180deg, var(--bg) 0%, rgba(17, 24, 39, 0.95) 100%);
@@ -3347,6 +3468,25 @@ button {
     opacity: 0.7;
 }
 
+.local-storage-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.local-storage-notice svg {
+    color: rgba(59, 130, 246, 0.7);
+    flex-shrink: 0;
+}
+
 .undo-link {
     color: #cbd5f5;
     background: transparent;
@@ -3494,23 +3634,27 @@ button {
 }
 
 .invoice-table thead {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(109, 40, 217, 0.1) 100%);
+    background: rgba(59, 130, 246, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px);
 }
 
 .invoice-table th {
-    padding: 1rem 0.75rem;
+    padding: 0.875rem 0.75rem;
     text-align: left;
-    font-size: var(--font-size-sm);
-    font-weight: 700;
-    color: var(--text);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid var(--accent-blue);
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .invoice-table td {
     padding: 0.875rem 0.75rem;
-    border-bottom: 1px solid rgba(109, 40, 217, 0.15);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.08);
     vertical-align: middle;
 }
 
@@ -3519,7 +3663,8 @@ button {
 }
 
 .invoice-table tbody tr:hover {
-    background: rgba(59, 130, 246, 0.03);
+    background: rgba(59, 130, 246, 0.05);
+    transition: background 0.2s ease;
 }
 
 /* Table column alignment */
@@ -3669,9 +3814,15 @@ button {
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(109, 40, 217, 0.2);
+    padding: 1.5rem 2rem;
+    background: rgba(17, 24, 39, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 12px;
     flex-wrap: wrap;
+    position: sticky;
+    bottom: 1rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-download,
