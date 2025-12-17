@@ -1063,10 +1063,39 @@
 
     function animateValue(el, newValue) {
         if (!el) return;
-        el.textContent = newValue;
-        el.classList.remove('animate');
-        void el.offsetWidth; // restart animation
-        el.classList.add('animate');
+        
+        // Extract current numeric value
+        const currentText = el.textContent;
+        const currentNum = parseFloat(currentText.replace('€', '').replace(',', '.').trim()) || 0;
+        const targetNum = parseFloat(newValue.replace('€', '').replace(',', '.').trim()) || 0;
+        
+        // Quick transition for similar values
+        const diff = Math.abs(targetNum - currentNum);
+        if (diff < 0.01) {
+            el.textContent = newValue;
+            return;
+        }
+        
+        // Smooth count animation
+        const duration = 250; // ms
+        const steps = 15;
+        const stepDuration = duration / steps;
+        const increment = (targetNum - currentNum) / steps;
+        let currentStep = 0;
+        
+        const timer = setInterval(() => {
+            currentStep++;
+            if (currentStep >= steps) {
+                clearInterval(timer);
+                el.textContent = newValue;
+                el.classList.remove('animate');
+                void el.offsetWidth;
+                el.classList.add('animate');
+            } else {
+                const val = currentNum + (increment * currentStep);
+                el.textContent = heroFormatCurrency(val);
+            }
+        }, stepDuration);
     }
 
     function initHeroCalculator() {
