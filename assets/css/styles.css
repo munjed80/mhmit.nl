@@ -3468,6 +3468,25 @@ button {
     opacity: 0.7;
 }
 
+.local-storage-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.local-storage-notice svg {
+    color: rgba(59, 130, 246, 0.7);
+    flex-shrink: 0;
+}
+
 .undo-link {
     color: #cbd5f5;
     background: transparent;
@@ -3615,23 +3634,27 @@ button {
 }
 
 .invoice-table thead {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(109, 40, 217, 0.1) 100%);
+    background: rgba(59, 130, 246, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px);
 }
 
 .invoice-table th {
-    padding: 1rem 0.75rem;
+    padding: 0.875rem 0.75rem;
     text-align: left;
-    font-size: var(--font-size-sm);
-    font-weight: 700;
-    color: var(--text);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid var(--accent-blue);
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .invoice-table td {
     padding: 0.875rem 0.75rem;
-    border-bottom: 1px solid rgba(109, 40, 217, 0.15);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.08);
     vertical-align: middle;
 }
 
@@ -3640,7 +3663,8 @@ button {
 }
 
 .invoice-table tbody tr:hover {
-    background: rgba(59, 130, 246, 0.03);
+    background: rgba(59, 130, 246, 0.05);
+    transition: background 0.2s ease;
 }
 
 /* Table column alignment */
@@ -3790,9 +3814,15 @@ button {
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(109, 40, 217, 0.2);
+    padding: 1.5rem 2rem;
+    background: rgba(17, 24, 39, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 12px;
     flex-wrap: wrap;
+    position: sticky;
+    bottom: 1rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-download,
