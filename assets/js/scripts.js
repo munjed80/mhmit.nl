@@ -22,8 +22,34 @@
     const htmlLang = (document.documentElement.lang || 'en').toLowerCase();
     const isDutchPage = htmlLang === 'nl';
     let currentLang = isDutchPage ? 'nl' : (localStorage.getItem('mhmit-lang') || 'en');
-    const defaultDutchPath = '/index.html';
-    const defaultEnglishPath = '/contact.html';
+    
+    // Language page mapping - maps current page to its language alternatives
+    const languagePageMap = {
+        // Home pages
+        'index.html': { en: '/index-en.html', nl: '/' },
+        'index-en.html': { en: '/index-en.html', nl: '/' },
+        '': { en: '/index-en.html', nl: '/' },  // root path
+        
+        // Contact pages
+        'contact.html': { en: '/contact.html', nl: '/contact-nl.html' },
+        'contact-en.html': { en: '/contact.html', nl: '/contact-nl.html' },
+        'contact-nl.html': { en: '/contact.html', nl: '/contact-nl.html' },
+        
+        // Services pages
+        'services.html': { en: '/services.html', nl: '/services-nl.html' },
+        'services-en.html': { en: '/services.html', nl: '/services-nl.html' },
+        'services-nl.html': { en: '/services.html', nl: '/services-nl.html' },
+        
+        // Products pages
+        'products.html': { en: '/products.html', nl: '/products-nl.html' },
+        'products-en.html': { en: '/products.html', nl: '/products-nl.html' },
+        'products-nl.html': { en: '/products.html', nl: '/products-nl.html' },
+        
+        // About pages
+        'about.html': { en: '/about.html', nl: '/about-nl.html' },
+        'about-en.html': { en: '/about.html', nl: '/about-nl.html' },
+        'about-nl.html': { en: '/about.html', nl: '/about-nl.html' }
+    };
     
     const getAlternateHref = (lang) => {
         const link = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
@@ -718,12 +744,40 @@
         btn.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
             
+            // Get current page filename
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop() || 'index.html';
+            
             // If switching languages, redirect to appropriate page
             if (lang === 'nl' && !isDutchPage) {
-                const targetHref = getAlternateHref('nl') || defaultDutchPath;
+                // Try to get alternate href from hreflang tag first
+                let targetHref = getAlternateHref('nl');
+                
+                // If no hreflang tag, use page mapping
+                if (!targetHref && languagePageMap[currentPage]) {
+                    targetHref = languagePageMap[currentPage].nl;
+                }
+                
+                // Fallback to home page
+                if (!targetHref) {
+                    targetHref = '/';
+                }
+                
                 window.location.href = targetHref;
             } else if (lang === 'en' && isDutchPage) {
-                const targetHref = getAlternateHref('en') || defaultEnglishPath;
+                // Try to get alternate href from hreflang tag first
+                let targetHref = getAlternateHref('en');
+                
+                // If no hreflang tag, use page mapping
+                if (!targetHref && languagePageMap[currentPage]) {
+                    targetHref = languagePageMap[currentPage].en;
+                }
+                
+                // Fallback to English home page
+                if (!targetHref) {
+                    targetHref = '/index-en.html';
+                }
+                
                 window.location.href = targetHref;
             } else {
                 updateLanguage(lang);
