@@ -19,9 +19,16 @@
     // Language Management
     // =============================================
     // Detect language based on current page
-    const currentPage = window.location.pathname;
-    const isDutchPage = currentPage.includes('index-nl.html') || currentPage.includes('-nl.html');
+    const htmlLang = (document.documentElement.lang || 'en').toLowerCase();
+    const isDutchPage = htmlLang === 'nl';
     let currentLang = isDutchPage ? 'nl' : (localStorage.getItem('mhmit-lang') || 'en');
+    const defaultDutchPath = '/index.html';
+    const defaultEnglishPath = '/contact.html';
+    
+    const getAlternateHref = (lang) => {
+        const link = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
+        return link ? link.getAttribute('href') : null;
+    };
     
     // Language text content
     const translations = {
@@ -713,32 +720,11 @@
             
             // If switching languages, redirect to appropriate page
             if (lang === 'nl' && !isDutchPage) {
-                // Redirect to Dutch version
-                const currentFileName = window.location.pathname.split('/').pop() || 'index.html';
-                let dutchPage = 'index-nl.html'; // Default to homepage
-                
-                // Map pages to their Dutch equivalents
-                if (currentFileName === 'contact.html') {
-                    dutchPage = 'contact-nl.html';
-                } else if (currentFileName === 'index.html') {
-                    dutchPage = 'index-nl.html';
-                }
-                // For pages without Dutch version (services, products, about), redirect to homepage
-                
-                window.location.href = dutchPage;
+                const targetHref = getAlternateHref('nl') || defaultDutchPath;
+                window.location.href = targetHref;
             } else if (lang === 'en' && isDutchPage) {
-                // Redirect to English version
-                const currentFileName = window.location.pathname.split('/').pop() || 'index-nl.html';
-                let englishPage = 'index.html'; // Default to homepage
-                
-                // Map Dutch pages to their English equivalents
-                if (currentFileName === 'contact-nl.html') {
-                    englishPage = 'contact.html';
-                } else if (currentFileName === 'index-nl.html') {
-                    englishPage = 'index.html';
-                }
-                
-                window.location.href = englishPage;
+                const targetHref = getAlternateHref('en') || defaultEnglishPath;
+                window.location.href = targetHref;
             } else {
                 updateLanguage(lang);
             }
