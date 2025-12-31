@@ -20,8 +20,8 @@
     // =============================================
     // Language files
     const LANGUAGE_FILES = {
-        en: './content/en.json',
-        nl: './content/nl.json'
+        en: '/content/en.json',
+        nl: '/content/nl.json'
     };
     const translationCache = {};
 
@@ -91,8 +91,8 @@
         if (translation && Object.hasOwn(translation, key)) {
             return translation[key];
         }
-        console.error(`Missing translation for ${lang}:${key}`);
-        return `[${lang}:${key}]`;
+        console.warn(`Missing translation for ${lang}:${key}`);
+        return '';
     };
 
     const applyText = (element, translation, lang, key, options = {}) => {
@@ -273,8 +273,13 @@
         });
     }
     
-    // Initialize language on page load
-    updateLanguage(currentLang).catch(console.error);
+    // Initialize language on page load (after DOM is ready)
+    const initTranslations = () => updateLanguage(currentLang).catch(console.error);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTranslations);
+    } else {
+        initTranslations();
+    }
     
     // Language button click handlers
     langButtons.forEach(btn => {
