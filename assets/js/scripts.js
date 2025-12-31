@@ -35,7 +35,8 @@
         return htmlLang === 'en' ? 'en' : 'nl';
     };
 
-    let currentLang = resolveLanguageFromPath();
+    const resolvedLang = resolveLanguageFromPath();
+    let currentLang = resolvedLang;
     document.documentElement.lang = currentLang;
     
     // Language page mapping - maps current page to its language alternatives
@@ -273,8 +274,13 @@
         });
     }
     
+    // Expose translation helpers globally for pages that need manual init
+    const applyTranslations = (lang) => updateLanguage(lang);
+    window.applyTranslations = applyTranslations;
+    window.resolveLanguageFromPath = resolveLanguageFromPath;
+    
     // Initialize language on page load (after DOM is ready)
-    const initTranslations = () => updateLanguage(currentLang).catch(console.error);
+    const initTranslations = () => applyTranslations(currentLang).catch(console.error);
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initTranslations);
     } else {
