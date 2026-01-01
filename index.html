@@ -104,17 +104,17 @@
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
-                        <h1 class="hero-title">Slimme tools. Echte logica. Geen onzin.</h1>
-                        <p class="hero-subtitle">
-                            Live voorbeeld van de BTW-logica die ook in onze tools draait. Geen marketingtrucs maar transparante berekeningen, gebouwd om te draaien – ook offline.
+                        <h1 class="hero-title" data-text="hero-title">Digitale systemen voor kleine bedrijven</h1>
+                        <p class="hero-subtitle" data-text="hero-subtitle">
+                            MHM IT helpt ZZP'ers en MKB hun digitale aanwezigheid en tools te organiseren in één helder, professioneel systeem.
                         </p>
                         <div class="hero-buttons">
-                            <a href="/free-tools/" class="btn btn-primary">Bekijk hoe het werkt →</a>
+                            <a href="/free-tools/" class="btn btn-primary" data-text="hero-cta-primary">Bekijk de tools →</a>
                         </div>
                     </div>
                     
                     <div class="hero-visual">
-                        <div class="hero-demo-label">
+                        <div class="hero-demo-label" data-text="hero-demo-label">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                             </svg>
@@ -122,16 +122,16 @@
                         </div>
                         <div class="hero-demo-card">
                             <div class="hero-demo-header">
-                                <span class="hero-demo-chip">BTW preview</span>
-                                <span style="color: var(--color-text-secondary); font-size: 0.95rem;">Realtime herberekening</span>
+                                <span class="hero-demo-chip" data-text="hero-demo-chip">BTW preview</span>
+                                <span style="color: var(--color-text-secondary); font-size: 0.95rem;" data-text="hero-demo-realtime">Realtime herberekening</span>
                             </div>
                             <div class="hero-demo-inputs">
                                 <div class="hero-demo-input">
-                                    <label for="hero-amount">Bedrag (€)</label>
+                                    <label for="hero-amount" data-text="hero-amount-label">Bedrag (€)</label>
                                     <input type="number" id="hero-amount" class="form-input" inputmode="decimal" step="0.01" placeholder="500" value="500">
                                 </div>
                                 <div class="hero-demo-input">
-                                    <label>BTW tarief</label>
+                                    <label data-text="hero-vat-label">BTW tarief</label>
                                     <div class="btw-chip-group">
                                         <button type="button" class="btw-chip active" data-rate="21">21%</button>
                                         <button type="button" class="btw-chip" data-rate="9">9%</button>
@@ -141,20 +141,20 @@
                             </div>
                             <div class="hero-demo-outputs">
                                 <div class="hero-output-row">
-                                    <span>Bedrag excl. BTW</span>
+                                    <span data-text="hero-output-excl">Bedrag excl. BTW</span>
                                     <span id="hero-output-excl" class="hero-output-value">€ 0,00</span>
                                 </div>
                                 <div class="hero-output-row">
-                                    <span>BTW bedrag</span>
+                                    <span data-text="hero-output-vat">BTW bedrag</span>
                                     <span id="hero-output-vat" class="hero-output-value">€ 0,00</span>
                                 </div>
                                 <div class="hero-output-row">
-                                    <span>Totaal incl. BTW</span>
+                                    <span data-text="hero-output-total">Totaal incl. BTW</span>
                                     <span id="hero-output-total" class="hero-output-value">€ 0,00</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="hero-note">⚙️ Alle berekeningen gebeuren lokaal in je browser</p>
+                        <p class="hero-note" data-text="hero-note">⚙️ Alle berekeningen gebeuren lokaal in je browser</p>
                     </div>
                 </div>
             </div>
@@ -170,27 +170,27 @@
                                 <polyline points="16 18 22 12 16 6"></polyline>
                                 <polyline points="8 6 2 12 8 18"></polyline>
                             </svg>
-                            <span>Frontend-only</span>
+                            <span data-text="tech-frontend">Frontend-only</span>
                         </div>
                         <div class="tech-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
-                            <span>Offline-ready</span>
+                            <span data-text="tech-offline">Offline-ready</span>
                         </div>
                         <div class="tech-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
                             </svg>
-                            <span>Geen tracking</span>
+                            <span data-text="tech-no-tracking">Geen tracking</span>
                         </div>
                         <div class="tech-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
-                            <span>Privacy-first</span>
+                            <span data-text="tech-privacy">Privacy-first</span>
                         </div>
                     </div>
                     <div class="tech-strip-arrow">
@@ -206,9 +206,9 @@
         <!-- Value Proposition Section -->
         <section class="value-proposition">
             <div class="container">
-                <h2 class="section-title">Waarom Bedrijven Voor Ons Kiezen</h2>
-                <p class="section-subtitle">
-                    Drie kernwaarden die alles wat we maken drijven
+                <h2 class="section-title" data-text="value-title">Voor wie is dit bedoeld</h2>
+                <p class="section-subtitle" data-text="value-subtitle">
+                    Digitale systemen die aansluiten bij jouw werkwijze
                 </p>
                 
                 <div class="benefits-grid">
@@ -219,9 +219,9 @@
                                 <circle cx="12" cy="12" r="3"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Innovatie Eerst</h3>
-                        <p class="benefit-description">
-                            We gebruiken geavanceerde technologieën zoals AI, automatisering en geavanceerde analytics om oplossingen te bouwen die je een voorsprong geven op de concurrentie.
+                        <h3 class="benefit-title" data-text="benefit1-title">ZZP'ers en Eenmanszaken</h3>
+                        <p class="benefit-description" data-text="benefit1-desc">
+                            Tools voor facturering, BTW-berekening en administratie. Lokaal werkend, zonder account, zonder complexiteit.
                         </p>
                     </div>
                     
@@ -231,9 +231,9 @@
                                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Slimme Efficiëntie</h3>
-                        <p class="benefit-description">
-                            Stroomlijn je workflows met intelligente automatisering die handmatig werk vermindert, fouten elimineert en je team laat focussen op wat echt belangrijk is.
+                        <h3 class="benefit-title" data-text="benefit2-title">Kleine Ondernemingen (MKB)</h3>
+                        <p class="benefit-description" data-text="benefit2-desc">
+                            Systemen voor werkregistratie, planning en rapportage. Helder, efficiënt en afgestemd op de Nederlandse markt.
                         </p>
                     </div>
                     
@@ -244,9 +244,9 @@
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">AI Voordeel</h3>
-                        <p class="benefit-description">
-                            Blijf voorop met AI-aangedreven tools die leren, aanpassen en optimaliseren—en inzichten en automatisering leveren die je een concurrentievoordeel geven.
+                        <h3 class="benefit-title" data-text="benefit3-title">Praktische Ondersteuning</h3>
+                        <p class="benefit-description" data-text="benefit3-desc">
+                            Geen marketingtrucs of loze beloftes. Gewoon werkende software die doet wat je nodig hebt.
                         </p>
                     </div>
                 </div>
