@@ -3322,10 +3322,6 @@ button {
         padding: 6px 10px;
     }
 
-    .hero-demo-header > span:last-child {
-        font-size: 0.85rem !important;
-    }
-
     .hero-demo-inputs {
         gap: 1rem;
         margin-bottom: 1rem;
