@@ -4582,5 +4582,452 @@ button {
 }
 
 /* ===============================================
+   Premium Free-Tools Page
+   =============================================== */
+
+/* --- Hero --- */
+.tools-hero {
+    position: relative;
+    padding: calc(var(--header-height) + 4rem) 0 3.5rem;
+    background: linear-gradient(160deg, #0d1117 0%, #111827 50%, #0d1117 100%);
+    overflow: hidden;
+    text-align: center;
+}
+
+.tools-hero-glow {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(59,130,246,0.10) 0%, rgba(109,40,217,0.06) 40%, transparent 70%);
+    pointer-events: none;
+}
+
+.tools-hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.tools-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.20);
+    border-radius: 999px;
+    padding: 0.4rem 1.1rem;
+    margin-bottom: 1.75rem;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.tools-badge svg {
+    flex-shrink: 0;
+}
+
+.tools-hero-title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+    background: var(--color-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 0.6s 0.1s ease-out both;
+}
+
+.tools-hero-subtitle {
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    animation: fadeInUp 0.6s 0.2s ease-out both;
+}
+
+.tools-hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s 0.3s ease-out both;
+}
+
+/* --- Trust Strip --- */
+.tools-trust-strip {
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(59,130,246,0.08);
+    border-bottom: 1px solid rgba(59,130,246,0.08);
+    background: rgba(17,24,39,0.6);
+}
+
+.trust-items {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.trust-item svg {
+    color: var(--accent-blue);
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+/* --- Premium Tool Cards --- */
+.tools-showcase {
+    padding: 4rem 0 4.5rem;
+    background: var(--bg);
+}
+
+.tools-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tool-card-premium {
+    --glow-color: rgba(59,130,246,0.15);
+    position: relative;
+    border-radius: 14px;
+    animation: fadeInUp 0.5s calc(var(--card-index, 0) * 0.12s + 0.15s) ease-out both;
+}
+
+.tool-card-premium-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(59,130,246,0.35), rgba(109,40,217,0.25));
+    opacity: 0.55;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+.tool-card-premium:hover .tool-card-premium-glow {
+    opacity: 1;
+}
+
+.tool-card-premium-inner {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-soft);
+    border-radius: 14px;
+    padding: 2.25rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tool-card-premium:hover .tool-card-premium-inner {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(59,130,246,0.12), 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.tool-card-premium-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(109,40,217,0.10));
+    border: 1px solid rgba(59,130,246,0.18);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    transition: all 0.35s ease;
+}
+
+.tool-card-premium:hover .tool-card-premium-icon {
+    background: linear-gradient(135deg, rgba(59,130,246,0.22), rgba(109,40,217,0.18));
+    border-color: rgba(59,130,246,0.4);
+    box-shadow: 0 0 24px rgba(59,130,246,0.18);
+}
+
+.tool-card-premium-icon svg {
+    color: var(--accent-blue);
+    filter: drop-shadow(0 0 6px rgba(59,130,246,0.4));
+}
+
+.tool-card-premium-body {
+    flex: 1;
+}
+
+.tool-card-premium-title {
+    font-size: 1.2rem;
+    font-weight: 650;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.tool-card-premium-desc {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.tool-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.tool-card-features li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    padding-left: 1.3rem;
+    position: relative;
+    line-height: 1.45;
+}
+
+.tool-card-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    opacity: 0.5;
+}
+
+.tool-card-premium-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+}
+
+/* --- Why These Tools Grid --- */
+.tools-why {
+    padding: 4rem 0 4.5rem;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(17,24,39,0.5) 100%);
+}
+
+.tools-why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tools-why-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.tools-why-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.12);
+    border-radius: 12px;
+}
+
+.tools-why-icon svg {
+    color: var(--accent-blue);
+    opacity: 0.8;
+}
+
+.tools-why-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.tools-why-item p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* --- Detailed Tool Descriptions (SEO) --- */
+.tools-details {
+    padding: 0 0 4rem;
+    background: rgba(17,24,39,0.5);
+}
+
+.tools-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tool-detail-card {
+    background: rgba(17,24,39,0.6);
+    border: 1px solid rgba(59,130,246,0.08);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+}
+
+.tool-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.tool-detail-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59,130,246,0.08);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.tool-detail-icon svg {
+    color: var(--accent-blue);
+    opacity: 0.7;
+}
+
+.tool-detail-header h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.tool-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.tool-detail-list li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.55;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.tool-detail-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba(59,130,246,0.4);
+    font-weight: 600;
+}
+
+/* --- Free-Tools Page Responsive --- */
+@media (max-width: 1024px) {
+    .tools-grid-premium {
+        grid-template-columns: 1fr 1fr;
+    }
+    .tool-card-premium:last-child {
+        grid-column: span 2;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .tools-hero {
+        padding: calc(var(--header-height) + 2.5rem) 0 2.5rem;
+    }
+    .tools-hero-title {
+        font-size: 1.6rem;
+    }
+    .tools-hero-subtitle {
+        font-size: 0.95rem;
+    }
+    .trust-items {
+        gap: 1.25rem;
+    }
+    .tools-grid-premium {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .tool-card-premium:last-child {
+        grid-column: span 1;
+        max-width: none;
+    }
+    .tools-showcase {
+        padding: 2.5rem 0 3rem;
+    }
+    .tools-why {
+        padding: 2.5rem 0 3rem;
+    }
+    .tools-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    .tools-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-hero {
+        padding: calc(var(--header-height) + 2rem) 0 2rem;
+    }
+    .tools-badge {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.9rem;
+    }
+    .tools-hero-title {
+        font-size: 1.35rem;
+    }
+    .trust-items {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .tool-card-premium-inner {
+        padding: 1.75rem 1.25rem 1.5rem;
+    }
+    .tools-why-grid {
+        grid-template-columns: 1fr;
+    }
+    .tools-why-item {
+        padding: 1rem 0.5rem;
+    }
+    .tool-detail-card {
+        padding: 1.25rem 1rem;
+    }
+}
+
+/* ===============================================
    Programming Showcase Section
    =============================================== */
