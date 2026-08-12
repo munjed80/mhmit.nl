@@ -11,7 +11,7 @@
     // =============================================
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const getNavLinks = () => document.querySelectorAll('.nav-link');
     const header = document.querySelector('.header');
     const langButtons = document.querySelectorAll('.lang-btn');
     
@@ -64,12 +64,126 @@
         // About pages
         'about.html': { en: '/about.html', nl: '/about-nl.html' },
         'about-en.html': { en: '/about.html', nl: '/about-nl.html' },
-        'about-nl.html': { en: '/about.html', nl: '/about-nl.html' }
+        'about-nl.html': { en: '/about.html', nl: '/about-nl.html' },
+
+        // Portfolio pages
+        'portfolio-en.html': { en: '/portfolio-en.html', nl: '/portfolio.html' },
+        'portfolio.html': { en: '/portfolio-en.html', nl: '/portfolio.html' },
+
+        // Pricing pages
+        'pricing-en.html': { en: '/pricing-en.html', nl: '/pricing.html' },
+        'pricing.html': { en: '/pricing-en.html', nl: '/pricing.html' }
     };
     
     const getAlternateHref = (lang) => {
         const link = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
         return link ? link.getAttribute('href') : null;
+    };
+
+    const getCurrentPageKey = () => {
+        const pathname = (window.location.pathname || '').toLowerCase();
+        const filename = pathname.split('/').pop() || '';
+
+        if (pathname === '/' || filename === 'index.html' || filename === 'index-en.html') return 'home';
+        if (filename === 'services.html' || filename === 'services-nl.html') return 'services';
+        if (filename === 'products.html' || filename === 'products-nl.html') return 'products';
+        if (filename === 'portfolio.html' || filename === 'portfolio-en.html') return 'portfolio';
+        if (filename === 'pricing.html' || filename === 'pricing-en.html') return 'pricing';
+        if (filename === 'about.html' || filename === 'about-nl.html') return 'about';
+        if (filename === 'contact.html' || filename === 'contact-nl.html') return 'contact';
+        return '';
+    };
+
+    const renderSiteNavigation = (translation, lang) => {
+        const navMenuElement = document.querySelector('.nav-menu');
+        if (!navMenuElement) return;
+
+        const links = lang === 'nl'
+            ? [
+                { key: 'nav-home', href: '/', page: 'home' },
+                { key: 'nav-services', href: '/services-nl.html', page: 'services' },
+                { key: 'nav-products', href: '/products-nl.html', page: 'products' },
+                { key: 'nav-portfolio', href: '/portfolio.html', page: 'portfolio' },
+                { key: 'nav-pricing', href: '/pricing.html', page: 'pricing' },
+                { key: 'nav-about', href: '/about-nl.html', page: 'about' },
+                { key: 'nav-contact', href: '/contact-nl.html', page: 'contact' }
+            ]
+            : [
+                { key: 'nav-home', href: '/index-en.html', page: 'home' },
+                { key: 'nav-services', href: '/services.html', page: 'services' },
+                { key: 'nav-products', href: '/products.html', page: 'products' },
+                { key: 'nav-portfolio', href: '/portfolio-en.html', page: 'portfolio' },
+                { key: 'nav-pricing', href: '/pricing-en.html', page: 'pricing' },
+                { key: 'nav-about', href: '/about.html', page: 'about' },
+                { key: 'nav-contact', href: '/contact.html', page: 'contact' }
+            ];
+
+        const currentPageKey = getCurrentPageKey();
+        navMenuElement.innerHTML = links.map(({ key, href, page }) => `
+            <li class="nav-item">
+                <a href="${href}" class="nav-link${currentPageKey === page ? ' active' : ''}" data-text="${key}">${getText(translation, lang, key)}</a>
+            </li>
+        `).join('');
+
+        const logo = document.querySelector('.logo');
+        if (logo) {
+            logo.setAttribute('href', lang === 'nl' ? '/' : '/index-en.html');
+        }
+
+        const gratisToolsLink = document.querySelector('.gratis-tools-link');
+        if (gratisToolsLink) {
+            gratisToolsLink.setAttribute('href', '/free-tools/');
+            gratisToolsLink.textContent = getText(translation, lang, 'gratis-tools-nav');
+        }
+    };
+
+    const renderFooterNavigation = (translation, lang) => {
+        const footerColumns = document.querySelectorAll('.footer .footer-column');
+        if (footerColumns.length < 2) return;
+
+        const footerNav = footerColumns[1].querySelector('.footer-nav');
+        if (!footerNav) return;
+
+        const links = lang === 'nl'
+            ? [
+                { key: 'footer_nav_home', href: '/' },
+                { key: 'footer_nav_services', href: '/services-nl.html' },
+                { key: 'footer_nav_products', href: '/products-nl.html' },
+                { key: 'footer_nav_portfolio', href: '/portfolio.html' },
+                { key: 'footer_nav_pricing', href: '/pricing.html' },
+                { key: 'footer_nav_about', href: '/about-nl.html' },
+                { key: 'footer_nav_tools', href: '/free-tools/' },
+                { key: 'footer_about_tech', href: '/about-the-tech/' },
+                { key: 'footer_nav_contact', href: '/contact-nl.html' }
+            ]
+            : [
+                { key: 'footer_nav_home', href: '/index-en.html' },
+                { key: 'footer_nav_services', href: '/services.html' },
+                { key: 'footer_nav_products', href: '/products.html' },
+                { key: 'footer_nav_portfolio', href: '/portfolio-en.html' },
+                { key: 'footer_nav_pricing', href: '/pricing-en.html' },
+                { key: 'footer_nav_about', href: '/about.html' },
+                { key: 'footer_nav_tools', href: '/free-tools/' },
+                { key: 'footer_about_tech', href: '/about-the-tech/' },
+                { key: 'footer_nav_contact', href: '/contact.html' }
+            ];
+
+        footerNav.innerHTML = links.map(({ key, href }) => `
+            <li><a href="${href}" class="footer-nav-link" data-text="${key}">${getText(translation, lang, key)}</a></li>
+        `).join('');
+    };
+
+    const syncFooterCopyright = (translation, lang) => {
+        const year = String(new Date().getFullYear());
+        document.querySelectorAll('.footer-copyright').forEach((element) => {
+            if (!element.dataset.fallbackText) {
+                element.dataset.fallbackText = element.textContent.trim();
+            }
+            const template = translation && Object.hasOwn(translation, 'footer_copyright')
+                ? translation.footer_copyright
+                : element.dataset.fallbackText;
+            element.textContent = (template || element.dataset.fallbackText).replace(/20\d{2}/, year);
+        });
     };
     
     const loadTranslations = async (lang) => {
@@ -111,6 +225,9 @@
         currentLang = lang;
         document.documentElement.lang = lang;
         const translation = await loadTranslations(lang);
+
+        renderSiteNavigation(translation, lang);
+        renderFooterNavigation(translation, lang);
 
         // Update navigation
         const navHome = document.querySelector('[data-text="nav-home"]') || document.querySelector('a.nav-link[href*="index"]');
@@ -249,7 +366,7 @@
         });
         
         // Update footer
-        const footerText = document.querySelector('.footer-text');
+        const footerText = document.querySelector('.footer-copyright');
         const whatsappBtn = document.querySelector('.whatsapp-icon-btn');
         
         applyText(footerText, translation, lang, 'footer_copyright');
@@ -263,7 +380,7 @@
         applyText(document.querySelector('a[href="/free-tools/factuur-generator/"]'), translation, lang, 'footer_invoice_tool');
         applyText(document.querySelector('a[href="/free-tools/offerte-generator/"]'), translation, lang, 'footer_quote_tool');
         applyText(document.querySelector('a[href="/free-tools/btw-calculator/"]'), translation, lang, 'footer_btw_tool');
-        applyText(document.querySelector('a[href="/about-the-tech"]'), translation, lang, 'footer_about_tech');
+        applyText(document.querySelector('a[href="/about-the-tech/"], a[href="/about-the-tech"]'), translation, lang, 'footer_about_tech');
         
         // Update active language button
         langButtons.forEach(btn => {
@@ -272,6 +389,8 @@
                 btn.classList.add('active');
             }
         });
+
+        syncFooterCopyright(translation, lang);
     }
     
     // Expose translation helpers globally for pages that need manual init
@@ -282,9 +401,13 @@
     // Initialize language on page load (after DOM is ready)
     const initTranslations = () => applyTranslations(currentLang).catch(console.error);
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initTranslations);
+        document.addEventListener('DOMContentLoaded', () => {
+            initTranslations();
+            initContactForm();
+        });
     } else {
         initTranslations();
+        initContactForm();
     }
     
     // Language button click handlers
@@ -350,12 +473,12 @@
         });
         
         // Close menu when clicking on nav links
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
+        navMenu.addEventListener('click', function(event) {
+            if (event.target.closest('.nav-link')) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.style.overflow = '';
-            });
+            }
         });
     }
     
@@ -411,7 +534,7 @@
         // Get current page filename
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         
-        navLinks.forEach(function(link) {
+        getNavLinks().forEach(function(link) {
             const linkHref = link.getAttribute('href');
             
             // Check if link matches current page
@@ -459,7 +582,7 @@
     }, observerOptions);
     
     // Observe feature, product, benefit, service, and solution cards
-    document.querySelectorAll('.feature-card, .product-card, .benefit-card, .service-card, .solution-card').forEach(function(card) {
+    document.querySelectorAll('.feature-card, .product-card, .benefit-card, .service-card, .solution-card, .testimonial-card, .portfolio-card, .pricing-card').forEach(function(card) {
         observer.observe(card);
     });
     
@@ -508,6 +631,68 @@
         });
     });
     
+    const initContactForm = () => {
+        const contactForm = document.querySelector('#contactForm');
+        if (!contactForm) return;
+
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const statusElement = document.querySelector('#contactFormStatus');
+
+        const setStatus = (variant, message) => {
+            if (!statusElement) return;
+            statusElement.hidden = false;
+            statusElement.className = `form-status ${variant}`;
+            statusElement.innerHTML = `<span class="status-dot" aria-hidden="true"></span><span>${message}</span>`;
+        };
+
+        const resetButtonState = () => {
+            if (!submitButton) return;
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+            submitButton.textContent = submitButton.dataset.defaultText || submitButton.textContent;
+        };
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                setStatus('warning', contactForm.dataset.validationMessage || 'Please complete the required fields.');
+                return;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.setAttribute('aria-busy', 'true');
+                submitButton.textContent = contactForm.dataset.sendingMessage || 'Sending...';
+            }
+
+            setStatus('info', contactForm.dataset.sendingMessage || 'Sending...');
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Form submission failed with status ${response.status}`);
+                }
+
+                contactForm.reset();
+                setStatus('success', contactForm.dataset.successMessage || 'Thanks!');
+            } catch (error) {
+                console.error(error);
+                setStatus('warning', contactForm.dataset.errorMessage || 'Something went wrong.');
+            } finally {
+                resetButtonState();
+            }
+        });
+    };
+
     // Parallax Effect on Scroll
     const heroContent = document.querySelector('.hero-content');
     const heroVisual = document.querySelector('.hero-visual');

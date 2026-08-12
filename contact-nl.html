@@ -156,10 +156,10 @@
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
                     <h2 class="contact-form-title">Stuur Ons een Bericht</h2>
-                    
-                    <form id="contactForm" class="contact-form" action="mailto:info@mhmit.nl" method="GET">
+                    <!-- TODO: استبدل YOUR_FORM_ID بمعرّف Formspree الحقيقي -->
+                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate data-success-message="Bedankt! We nemen binnen 24 uur contact met u op." data-error-message="Er ging iets mis bij het verzenden. Probeer het opnieuw of mail naar info@mhmit.nl." data-sending-message="Bezig met verzenden..." data-validation-message="Controleer alstublieft de verplichte velden en probeer opnieuw.">
+                        <div id="contactFormStatus" class="form-status info" hidden aria-live="polite"></div>
                         <div class="form-row">
-                            <!-- Name -->
                             <div class="form-group">
                                 <label for="name" class="form-label">Naam *</label>
                                 <input 
@@ -172,7 +172,6 @@
                                 />
                             </div>
 
-                            <!-- Email -->
                             <div class="form-group">
                                 <label for="email" class="form-label">E-mail *</label>
                                 <input 
@@ -187,7 +186,6 @@
                         </div>
 
                         <div class="form-row">
-                            <!-- Company (Optional) -->
                             <div class="form-group">
                                 <label for="company" class="form-label">Bedrijf (Optioneel)</label>
                                 <input 
@@ -199,7 +197,6 @@
                                 />
                             </div>
 
-                            <!-- Service Interest -->
                             <div class="form-group">
                                 <label for="service" class="form-label">Waar kunnen we u bij helpen? *</label>
                                 <select 
@@ -219,12 +216,11 @@
                             </div>
                         </div>
 
-                        <!-- Message -->
                         <div class="form-group">
                             <label for="message" class="form-label">Bericht *</label>
                             <textarea 
                                 id="message" 
-                                name="body" 
+                                name="message" 
                                 required 
                                 rows="6"
                                 class="form-textarea"
@@ -232,13 +228,12 @@
                             ></textarea>
                         </div>
 
-                        <!-- Submit Button -->
                         <div class="form-submit">
-                            <button type="submit" class="btn btn-primary btn-lg">
+                            <button type="submit" class="btn btn-primary btn-lg" data-default-text="Verstuur Bericht">
                                 Verstuur Bericht
                             </button>
                             <p class="form-note">
-                                We reageren meestal binnen 24 uur
+                                We reageren meestal binnen 24 uur en gebruiken geen tracking.
                             </p>
                         </div>
                     </form>
